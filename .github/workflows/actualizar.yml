@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Asegura el permiso a nivel de proceso
+      contents: write
 
     steps:
     - name: Descargar Repositorio
@@ -30,3 +30,35 @@ jobs:
       with:
         commit_message: "🔄 Predicciones actualizadas por sistema"
         file_pattern: 'index.md'
+
+  # NUEVA SECCIÓN: Ordena a GitHub construir y activar la página web pública
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Descargar Repositorio
+      uses: actions/checkout@v4
+      with:
+        ref: main
+
+    - name: Configurar Pages
+      uses: actions/configure-pages@v5
+
+    - name: Construir con Jekyll (Motor Gráfico)
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./
+        destination: ./_site
+
+    - name: Subir Artefacto Web
+      uses: actions/upload-pages-artifact@v3
+
+    - name: Desplegar en GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
