@@ -12,4 +12,7 @@ heading_anchors: true
 aux_links:
   "Código Fuente (GitHub)": "https://github.com/javieroot/mundial_predict"
 
+# Activar soporte para ecuaciones matemáticas premium
+math: mathjax
+
 
