@@ -1,3 +1,9 @@
+---
+layout: default
+title: Fundamentos Matemáticos
+nav_order: 2
+has_math: true
+---
 # 🧮 Fundamentos Matemáticos y Metodología Predictiva
 
 Este documento detalla el marco teórico, las fórmulas algebraicas y los criterios estadísticos utilizados por el script `mundial_predict.py` para unificar los criterios de los 5 modelos de la industria.
