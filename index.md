@@ -20,7 +20,7 @@ Establecido mediante la Matriz de Intersección de Probabilidades Cruzadas.
 
 ## 📅 Predicciones de Partidos en Tiempo Real
 {: .note }
-> **Última Sincronización:** Los datos se recalcularon el `2026-06-11 06:08:29`.
+> **Última Sincronización:** Los datos se recalcularon el `2026-06-11 06:31:17`.
 
 | Partido | M1: Marcador Calculado | M1: Resultado Derivado | M2: Tendencia Votos | M2: Confianza |
 | :--- | :---: | :---: | :---: | :---: |
