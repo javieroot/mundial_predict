@@ -1,12 +1,14 @@
 import urllib.request
 import json
 import os
+import pandas as pd
 from datetime import datetime
 
-URL_DATOS = "https://githubusercontent.com"
-ARCHIVO_MD = "index.md"
+ARCHIVO_ACUMULADO = "partidos_acumulado.csv"
+ARCHIVO_PLANTILLA = "plantilla.html"
+ARCHIVO_HTML = "index.html"
 
-# 🛑 CONFIGURACIÓN POST-MUNDIAL: Cambiar a True únicamente cuando termine la gran final del torneo
+# 🛑 CONFIGURACIÓN POST-MUNDIAL
 MUNDIAL_CONCLUIDO = False
 
 PESOS_MODELOS = {
@@ -19,18 +21,16 @@ PESOS_MODELOS = {
 
 def descargar_datos_vivos():
     if MUNDIAL_CONCLUIDO:
-        return {} # Retorna vacío para forzar el modo de archivo histórico
-        
+        return {}
+    # Reemplaza con la URL real de tu JSON de entrada
+    URL_DATOS_ORIGEN = "https://githubusercontent.com" 
     try:
-        with urllib.request.urlopen(URL_DATOS) as url:
+        with urllib.request.urlopen(URL_DATOS_ORIGEN) as url:
             res = json.loads(url.read().decode())
-            # Si el servidor responde con datos válidos, los usamos
             if res and len(res) > 0:
                 return res
     except Exception as e:
-        print(f"⚠️ Servidor sin partidos en vivo en este momento: {e}")
-    
-    # Retornamos un diccionario vacío si no hay partidos programados para hoy en internet
+        print(f"⚠️ Servidor sin partidos en vivo: {e}")
     return {}
 
 def analizar_partido(datos_partido):
@@ -59,67 +59,65 @@ def analizar_partido(datos_partido):
         
     resultado_m2 = max(votos, key=votos.get)
     confianza_m2 = votos[resultado_m2] * 100
-
     dict_emojis = {"LOCAL": "🏠 Local", "VISITANTE": "🚀 Visitante", "EMPATE": "🤝 Empate"}
+    
     return {
-        "m1_marcador": f"{goles_m1_local} - {goles_m1_visitante}",
+        "m1_marcador_local": goles_m1_local,
+        "m1_marcador_visitante": goles_m1_visitante,
         "m1_resultado": resultado_m1,
         "m2_tendencia": dict_emojis[resultado_m2],
-        "m2_confianza": f"{confianza_m2:.1f}%"
+        "m2_confianza": f"{confianza_m2:.1f}%",
+        "resultado_real_local": datos_partido.get("real_l", None),
+        "resultado_real_visitante": datos_partido.get("real_v", None)
     }
 
-def guardar_en_markdown(partidos_analizados):
+def gestionar_base_datos_acumulada(partidos_analizados):
+    registros_nuevos = []
+    fecha_hoy = datetime.now().strftime("%Y-%m-%d")
+    for partido_id, analisis in partidos_analizados.items():
+        partido_limpio = partido_id.replace("_", " ")
+        equipos = partido_limpio.split(" vs ")
+        local = equipos[0] if len(equipos) > 0 else partido_limpio
+        visitante = equipos[1] if len(equipos) > 1 else "Desconocido"
+        registros_nuevos.append({
+            "id_partido": partido_id, "fecha": fecha_hoy, "local": local, "visitante": visitante,
+            "m1_marcador_local": analisis["m1_marcador_local"], "m1_marcador_visitante": analisis["m1_marcador_visitante"],
+            "m1_resultado": analisis["m1_resultado"], "m2_tendencia": analisis["m2_tendencia"], "m2_confianza": analisis["m2_confianza"],
+            "resultado_real_local": analisis["resultado_real_local"], "resultado_real_visitante": analisis["resultado_real_visitante"]
+        })
+    df_nuevos = pd.DataFrame(registros_nuevos) if registros_nuevos else pd.DataFrame(columns=["id_partido", "fecha", "local", "visitante", "m1_marcador_local", "m1_marcador_visitante", "m1_resultado", "m2_tendencia", "m2_confianza", "resultado_real_local", "resultado_real_visitante"])
+    if os.path.exists(ARCHIVO_ACUMULADO):
+        df_historico = pd.read_csv(ARCHIVO_ACUMULADO)
+        df_acumulado = pd.concat([df_nuevos, df_historico]).drop_duplicates(subset=["id_partido"], keep="first").reset_index(drop=True)
+    else:
+        df_acumulado = df_nuevos
+    df_acumulado.to_csv(ARCHIVO_ACUMULADO, index=False)
+    return df_acumulado
+
+def componer_html_final(df_acumulado):
     fecha_ejecucion = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    json_data = df_acumulado.to_json(orient="records")
+    modo_concluido_js = "true" if MUNDIAL_CONCLUIDO else "false"
     
-    with open(ARCHIVO_MD, mode='w', encoding='utf-8') as f:
-        f.write("---\nlayout: default\ntitle: Predicciones en Vivo\nnav_order: 1\n---\n\n")
-        f.write("# 🔮 Dashboard de Inteligencia Analítica - Mundial 2026\n\n")
-        
-        # --- CUADRO DE HONOR ESTÁTICO (SIEMPRE VISIBLE) ---
-        f.write("## 🏆 Pronóstico Maestro del Torneo (Pre-Ronda)\n")
-        f.write("Establecido mediante la Matriz de Intersección de Probabilidades Cruzadas.\n\n")
-        
-        f.write("| Puesto | Selección / Jugador | Metodología de Consenso |\n")
-        f.write("| :---: | :--- | :--- |\n")
-        f.write("| 🥇 **1er Lugar** | 🇪🇸 **España** | Unanimidad de Predicción Cruzada (Opta 16.1% / EA Sports) |\n")
-        f.write("| 🥈 **2do Lugar** | 🇫🇷 **Francia** | Ordenación de Varianza Mínima (Innsbruck 12.9%) |\n")
-        f.write("| 🥉 **3er Lugar** | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 **Inglaterra** | Estabilidad de Desviación Estándar (Consenso 11.1%) |\n")
-        f.write("| ⚽ **Goleador** | 🇫🇷 **Kylian Mbappé** | Probabilidad Implícita del Mercado de Apuestas |\n\n")
-        
-        f.write("---\n\n")
-        
-        # --- SECCIÓN DINÁMICA / CONTROL DE ESCENARIOS ---
-        f.write("## 📅 Predicciones de Partidos en Tiempo Real\n")
-        
-        if MUNDIAL_CONCLUIDO:
-            f.write("{: .highlight }\n")
-            f.write(f"> **Torneo Concluido:** El campeonato mundial ha finalizado. El sistema se encuentra en modo de archivo histórico permanente. Las consultas programadas quedan suspendidas.\n\n")
-        
-        elif len(partidos_analizados) == 0:
-            # 🛑 DISEÑO PRO: Si la API no regresa datos porque es día de descanso del Mundial, muestra este banner premium
-            f.write("{: .important }\n")
-            f.write(f"> **Día de Descanso o Transición de Fase:** No se detectan partidos programados en los modelos para las próximas horas. El sistema se reactivará automáticamente en cuanto la FIFA y las agencias de analítica publiquen las cuotas de la siguiente ronda.\n\n")
-            f.write(f"*Última verificación del sistema realizada el `{fecha_ejecucion}`.*\n\n")
-            
-        else:
-            f.write("{: .note }\n")
-            f.write(f"> **Última Sincronización:** Los datos se recalcularon el `{fecha_ejecucion}`.\n\n")
-            
-            f.write("| Partido | M1: Marcador Calculado | M1: Resultado Derivado | M2: Tendencia Votos | M2: Confianza |\n")
-            f.write("| :--- | :---: | :---: | :---: | :---: |\n")
-            
-            for partido, analisis in partidos_analizados.items():
-                partido_limpio = partido.replace("_", " ")
-                f.write(f"| **{partido_limpio}** | `{analisis['m1_marcador']}` | {analisis['m1_resultado']} | *{analisis['m2_tendencia']}* | **{analisis['m2_confianza']}** |\n")
+    with open(ARCHIVO_PLANTILLA, "r", encoding="utf-8") as f:
+        html_template = f.read()
+    
+    # Inyección limpia de las variables dentro de la plantilla HTML
+    html_final = html_template.replace("{{DATASET_JSON}}", json_data)
+    html_final = html_final.replace("{{MODO_CONCLUIDO}}", modo_concluido_js)
+    html_final = html_final.replace("{{ULTIMA_SINCRO}}", fecha_ejecucion)
+    html_final = html_final.replace("{{TOTAL_PARTIDOS}}", str(len(df_acumulado)))
+    
+    with open(ARCHIVO_HTML, "w", encoding="utf-8") as f:
+        f.write(html_final)
 
 if __name__ == "__main__":
-    print("🔄 Iniciando procesamiento...")
+    print("🔄 Procesando...")
     datos_jornada = descargar_datos_vivos()
     partidos_analizados = {}
-    
     if datos_jornada:
         for partido, datos_modelos in datos_jornada.items():
             partidos_analizados[partido] = analizar_partido(datos_modelos)
-        
-    guardar_en_markdown(partidos_analizados)
-    print("🚀 index.md regenerado completamente.")
+    df_acumulado = gestionar_base_datos_acumulada(partidos_analizados)
+    componer_html_final(df_acumulado)
+    print("🚀 Base de datos 'partidos_acumulado.csv' e 'index.html' actualizados.")
