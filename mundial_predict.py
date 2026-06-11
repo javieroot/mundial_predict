@@ -6,6 +6,9 @@ from datetime import datetime
 URL_DATOS = "https://githubusercontent.com"
 ARCHIVO_MD = "index.md"
 
+# 🛑 CONFIGURACIÓN POST-MUNDIAL: Cambiar a True únicamente cuando termine la gran final del torneo
+MUNDIAL_CONCLUIDO = False
+
 PESOS_MODELOS = {
     "opta": 0.30,
     "innsbruck": 0.25,
@@ -15,27 +18,20 @@ PESOS_MODELOS = {
 }
 
 def descargar_datos_vivos():
+    if MUNDIAL_CONCLUIDO:
+        return {} # Retorna vacío para forzar el modo de archivo histórico
+        
     try:
         with urllib.request.urlopen(URL_DATOS) as url:
             res = json.loads(url.read().decode())
+            # Si el servidor responde con datos válidos, los usamos
             if res and len(res) > 0:
                 return res
     except Exception as e:
-        print(f"⚠️ Servidor sin partidos en vivo. Cargando jornada inaugural de respaldo... Detalle: {e}")
+        print(f"⚠️ Servidor sin partidos en vivo en este momento: {e}")
     
-    # Respaldo oficial con los partidos reales de la primera jornada del Mundial 2026
-    # Estructura: (goles_equipo1, goles_equipo2) asignados simulando la tendencia de los modelos
-    return {
-        "Mexico_vs_SouthAfrica": {
-            "opta": (2, 1), "innsbruck": (1, 1), "the_athletic": (2, 0), "medium_elo": (3, 1), "apuestas": (2, 1)
-        },
-        "USA_vs_Jamaica": {
-            "opta": (3, 0), "innsbruck": (2, 0), "the_athletic": (2, 1), "medium_elo": (4, 1), "apuestas": (3, 1)
-        },
-        "Canada_vs_Togo": {
-            "opta": (2, 0), "innsbruck": (1, 0), "the_athletic": (3, 1), "medium_elo": (2, 1), "apuestas": (2, 0)
-        }
-    }
+    # Retornamos un diccionario vacío si no hay partidos programados para hoy en internet
+    return {}
 
 def analizar_partido(datos_partido):
     goles_l_ponderados = []
@@ -76,11 +72,10 @@ def guardar_en_markdown(partidos_analizados):
     fecha_ejecucion = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     with open(ARCHIVO_MD, mode='w', encoding='utf-8') as f:
-        # Front Matter para diseño premium
         f.write("---\nlayout: default\ntitle: Predicciones en Vivo\nnav_order: 1\n---\n\n")
         f.write("# 🔮 Dashboard de Inteligencia Analítica - Mundial 2026\n\n")
         
-        # --- SECCIÓN DEL PRONÓSTICO ÚNICO (CUADRO DE HONOR ESTÁTICO) ---
+        # --- CUADRO DE HONOR ESTÁTICO (SIEMPRE VISIBLE) ---
         f.write("## 🏆 Pronóstico Maestro del Torneo (Pre-Ronda)\n")
         f.write("Establecido mediante la Matriz de Intersección de Probabilidades Cruzadas.\n\n")
         
@@ -93,25 +88,38 @@ def guardar_en_markdown(partidos_analizados):
         
         f.write("---\n\n")
         
-        # --- SECCIÓN DE PARTIDOS DINÁMICOS ---
+        # --- SECCIÓN DINÁMICA / CONTROL DE ESCENARIOS ---
         f.write("## 📅 Predicciones de Partidos en Tiempo Real\n")
-        f.write("{: .note }\n")
-        f.write(f"> **Última Sincronización:** Los datos se recalcularon el `{fecha_ejecucion}`.\n\n")
         
-        f.write("| Partido | M1: Marcador Calculado | M1: Resultado Derivado | M2: Tendencia Votos | M2: Confianza |\n")
-        f.write("| :--- | :---: | :---: | :---: | :---: |\n")
+        if MUNDIAL_CONCLUIDO:
+            f.write("{: .highlight }\n")
+            f.write(f"> **Torneo Concluido:** El campeonato mundial ha finalizado. El sistema se encuentra en modo de archivo histórico permanente. Las consultas programadas quedan suspendidas.\n\n")
         
-        for partido, analisis in partidos_analizados.items():
-            partido_limpio = partido.replace("_", " ")
-            f.write(f"| **{partido_limpio}** | `{analisis['m1_marcador']}` | {analisis['m1_resultado']} | *{analisis['m2_tendencia']}* | **{analisis['m2_confianza']}** |\n")
+        elif len(partidos_analizados) == 0:
+            # 🛑 DISEÑO PRO: Si la API no regresa datos porque es día de descanso del Mundial, muestra este banner premium
+            f.write("{: .important }\n")
+            f.write(f"> **Día de Descanso o Transición de Fase:** No se detectan partidos programados en los modelos para las próximas horas. El sistema se reactivará automáticamente en cuanto la FIFA y las agencias de analítica publiquen las cuotas de la siguiente ronda.\n\n")
+            f.write(f"*Última verificación del sistema realizada el `{fecha_ejecucion}`.*\n\n")
+            
+        else:
+            f.write("{: .note }\n")
+            f.write(f"> **Última Sincronización:** Los datos se recalcularon el `{fecha_ejecucion}`.\n\n")
+            
+            f.write("| Partido | M1: Marcador Calculado | M1: Resultado Derivado | M2: Tendencia Votos | M2: Confianza |\n")
+            f.write("| :--- | :---: | :---: | :---: | :---: |\n")
+            
+            for partido, analisis in partidos_analizados.items():
+                partido_limpio = partido.replace("_", " ")
+                f.write(f"| **{partido_limpio}** | `{analisis['m1_marcador']}` | {analisis['m1_resultado']} | *{analisis['m2_tendencia']}* | **{analisis['m2_confianza']}** |\n")
 
 if __name__ == "__main__":
     print("🔄 Iniciando procesamiento...")
     datos_jornada = descargar_datos_vivos()
     partidos_analizados = {}
     
-    for partido, datos_modelos in datos_jornada.items():
-        partidos_analizados[partido] = analizar_partido(datos_modelos)
+    if datos_jornada:
+        for partido, datos_modelos in datos_jornada.items():
+            partidos_analizados[partido] = analizar_partido(datos_modelos)
         
     guardar_en_markdown(partidos_analizados)
     print("🚀 index.md regenerado completamente.")
