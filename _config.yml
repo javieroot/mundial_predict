@@ -1,0 +1,13 @@
+remote_theme: just-the-docs/just-the-docs
+
+# Configuración General
+title: "🔮 Mundial 2026 Analytics"
+description: "Consenso probabilístico dinámico basado en inteligencia artificial y mercados de predicción."
+
+# Ajustes de Interfaz Premium
+color_scheme: dark # Fuerza el diseño en modo oscuro elegante por defecto
+heading_anchors: true
+
+# Enlace rápido en la esquina superior derecha
+aux_links:
+  "Código Fuente (GitHub)": "https://github.com{{ github.repository_name }}"
