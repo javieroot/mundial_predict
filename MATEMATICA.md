@@ -8,7 +8,7 @@ Este documento detalla el marco teórico, las fórmulas algebraicas y los criter
 
 Para evitar que un modelo genérico tenga el mismo impacto que una supercomputadora, se define un vector de pesos de confianza no uniforme, donde la suma de sus componentes es estrictamente igual a 1:
 
-$$W = [w_{\text{opta}}, w_{\text{innsbruck}}, w_{\text{the\_athletic}}, w_{\text{medium\_elo}}, w_{\text{apuestas}}]$$
+$$W = [w_{\text{opta}}, w_{\text{innsbruck}}, w_{\text{athletic}}, w_{\text{elo}}, w_{\text{apuestas}}]$$
 
 $$W = [0.30, 0.25, 0.20, 0.10, 0.15] \quad \text{donde} \quad \sum_{i=1}^{n} w_i = 1.0$$
 
@@ -21,31 +21,31 @@ Cada partido $k$ recibe un conjunto de matrices de goles proyectados por cada mo
 ### Paso A: Esperanza Matemática de Goles Ponderados ($\lambda$)
 Se calcula el valor esperado de anotaciones aplicando el vector de pesos $W$ a cada predicción:
 
-$$\lambda_{Local} = \sum_{i=1}^{n} (G_{L,i} \times w_i)$$
+$$\lambda_{\text{Local}} = \sum_{i=1}^{n} (G_{L,i} \times w_i)$$
 
-$$\lambda_{Visitante} = \sum_{i=1}^{n} (G_{V,i} \times w_i)$$
+$$\lambda_{\text{Visitante}} = \sum_{i=1}^{n} (G_{V,i} \times w_i)$$
 
 ### Paso B: Operador de Discretización (Redondeo Entero)
-Dado que el fútbol se juega con anotaciones enteras, el script mapea los valores continuos de $\lambda$ a variables discretas mediante la función de redondeo estándar (aritmética de punto flotante a entero más cercano):
+Dado que el fútbol se juega con anotaciones enteras, el script mapea los valores continuos de $\lambda$ a variables discretas mediante la función de redondeo estándar:
 
-$$\text{Goles}_{\text{Final Local}} = \lfloor \lambda_{Local} + 0.5 \rfloor$$
+$$\text{Goles}_{\text{Final Local}} = \lfloor \lambda_{\text{Local}} + 0.5 \rfloor$$
 
-$$\text{Goles}_{\text{Final Visitante}} = \lfloor \lambda_{Visitante} + 0.5 \rfloor$$
+$$\text{Goles}_{\text{Final Visitante}} = \lfloor \lambda_{\text{Visitante}} + 0.5 \rfloor$$
 
 ### Paso C: Deducción Dinámica del Resultado ($R_1$)
 El signo del partido se deriva estrictamente de la diferencia neta de los goles discretizados:
 
 $$R_1 = \begin{cases} 
-\text{⚽ Gana Local} & \text{si } \text{Goles}_{\text{Final Local}} > \text{Goles}_{\text{Final Visitante}} \\
-\text{⚽ Gana Visitante} & \text{si } \text{Goles}_{\text{Final Local}} < \text{Goles}_{\text{Final Visitante}} \\
-\text{🤝 Empate} & \text{si } \text{Goles}_{\text{Final Local}} = \text{Goles}_{\text{Final Visitante}}
+\text{⚽ Gana Local} & \text{si Goles}_{\text{Final Local}} > \text{Goles}_{\text{Final Visitante}} \\
+\text{⚽ Gana Visitante} & \text{si Goles}_{\text{Final Local}} < \text{Goles}_{\text{Final Visitante}} \\
+\text{🤝 Empate} & \text{si Goles}_{\text{Final Local}} = \text{Goles}_{\text{Final Visitante}}
 \end{cases}$$
 
 ---
 
 ## 3. Metodología 2: Consenso de Voto Cerrado y Confianza del Ecosistema
 
-Esta metodología trata a cada modelo como un analista independiente que emite un voto categórico, eliminando el sesgo de los promedios numéricos que suelen suavizar los marcadores hacia empates artificiales.
+Esta metodología trata a cada modelo como un analista independiente que emite un voto categórico, eliminando el sesgo de los promedios numéricos.
 
 ### Paso A: Función de Transformación a Tendencia ($V_i$)
 Para cada modelo $i$, sus goles crudos se convierten en una etiqueta de tendencia:
