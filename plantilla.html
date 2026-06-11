@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicciones en Vivo - Mundial 2026</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #1e293b; padding: 30px; margin: 0; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { text-align: center; color: #0f172a; margin-bottom: 5px; }
+        .sub { text-align: center; color: #64748b; margin-bottom: 30px; }
+        .box-honor { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 25px; }
+        .box-honor h3 { margin-top: 0; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+        .tabla-honor { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .tabla-honor th, .tabla-honor td { padding: 12px; text-align: left; border-bottom: 1px solid #f1f5f9; }
+        .tabla-honor th { color: #64748b; font-weight: 600; font-size: 13px; }
+        .filtros-panel { background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 20px; display: flex; gap: 15px; justify-content: center; align-items: center; }
+        .filtros-panel input, .filtros-panel select { padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; width: 240px; outline: none; }
+        .banner { padding: 15px; border-left: 4px solid; border-radius: 4px; margin-bottom: 20px; font-size: 14px; }
+        .banner-note { background: #eff6ff; border-left-color: #3b82f6; color: #1e40af; }
+        .banner-important { background: #fef2f2; border-left-color: #ef4444; color: #991b1b; }
+        .banner-highlight { background: #fffbeb; border-left-color: #f59e0b; color: #92400e; }
+        .main-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .main-table th, .main-table td { padding: 14px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .main-table th { background: #0f172a; color: white; font-weight: 500; font-size: 14px; }
+        .badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+        .badge-pendiente { background: #fef3c7; color: #d97706; }
+        .badge-finalizado { background: #dcfce7; color: #15803d; }
+        .txt-real { color: #16a34a; font-weight: bold; font-size: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔮 Dashboard de Inteligencia Analítica - Mundial 2026</h1>
+    <div class="sub">Unificación automatizada de criterios predictivos de la industria</div>
+
+    <!-- 🏆 CUADRO DE HONOR COMPLETO (SISTEMA PRE-RONDA) -->
+    <div class="box-honor">
+        <h3>🏆 Pronóstico Maestro del Torneo (Pre-Ronda)</h3>
+        <p style="font-size:14px; color:#64748b; margin:0;">Establecido mediante la Matriz de Intersección de Probabilidades Cruzadas.</p>
+        <table class="tabla-honor">
+            <thead>
+                <tr>
+                    <th>Puesto / Galardón</th>
+                    <th>Selección o Jugador Seleccionado</th>
+                    <th>Metodología de Consenso del Ecosistema</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>🥇 <b>Campeón (1er Lugar)</b></td><td> Ty 🇪🇸 <b>España</b></td><td>Unanimidad de Predicción Cruzada (Opta 16.1% / EA Sports)</td></tr>
+                <tr><td>🥈 <b>Subcampeón (2do Lugar)</b></td><td> Ty 🇫🇷 <b>Francia</b></td><td>Ordenación de Varianza Mínima (Innsbruck 12.9%)</td></tr>
+                <tr><td>🥉 <b>Tercer Lugar (3er Lugar)</b></td><td> Ty 🏴󠁧󠁢󠁥󠁮󠁧󠁿 <b>Inglaterra</b></td><td>Estabilidad de Desviación Estándar (Consenso 11.1%)</td></tr>
+                <tr><td>⚽ <b>Máximo Goleador</b></td><td> Ty 🇫🇷 <b>Kylian Mbappé</b></td><td>Probabilidad Implícita del Mercado de Apuestas</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>📅 Predicciones de Partidos en Tiempo Real</h2>
+    <div id="panelBanners"></div>
+
+    <div class="filtros-panel">
+        <input type="text" id="inputBuscar" placeholder="🔍 Buscar por selección..." onkeyup="ejecutarFiltros()">
+        <select id="selectEstado" onchange="ejecutarFiltros()">
+            <option value="TODOS">📅 Mostrar Todos los Partidos ({{TOTAL_PARTIDOS}})</option>
+            <option value="PENDIENTE">⏳ Mostrar Solo Pronósticos Siguientes</option>
+            <option value="FINALIZADO">✅ Mostrar Ambos (Con Resultado Real)</option>
+        </select>
+    </div>
+
+    <table class="main-table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Encuentro</th>
+                <th>M1: Marcador Calculado</th>
+                <th>M1: Resultado Derivado</th>
+                <th>M2: Tendencia Votos</th>
+                <th>M2: Confianza</th>
+                <th>Resultado Real</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody id="tablaPartidosCuerpo"></tbody>
+    </table>
+</div>
+
+<script>
+    const dataset = {{DATASET_JSON}};
+    const concluido = {{MODO_CONCLUIDO}};
+    const ultimaSincro = "{{ULTIMA_SINCRO}}";
+
+    function inicializar() {
+        const banner = document.getElementById("panelBanners");
+        if (concluido) {
+            banner.innerHTML = `<div class="banner banner-highlight"><b>Torneo Concluido:</b> El campeonato mundial ha finalizado. El sistema se encuentra en modo de archivo histórico permanente.</div>`;
+        } else if (dataset.length === 0) {
+            banner.innerHTML = `<div class="banner banner-important"><b>Día de Descanso o Transición de Fase:</b> No se detectan partidos programados en las próximas horas. El sistema se reactivará automáticamente. <br><small>Verificación realizada el: <i>${ultimaSincro}</i></small></div>`;
+        } else {
+            banner.innerHTML = `<div class="banner banner-note"><b>Última Sincronización:</b> Los datos predictivos se recalcularon con éxito el <code>${ultimaSincro}</code>.</div>`;
+        }
+        renderizar(dataset);
+    }
+
+    function renderizar(datos) {
+        const tbody = document.getElementById("tablaPartidosCuerpo");
+        tbody.innerHTML = "";
+        if (datos.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="8" style="color:#64748b; padding:20px;">No hay registros acumulados todavía. En espera de partidos.</td></tr>`;
+            return;
+        }
+        datos.forEach(p => {
+            const terminado = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
+            const celdaReal = terminado ? `<span class="txt-real">⚽ ${p.resultado_real_local} - ${p.resultado_real_visitante}</span>` : `<span style="color:#94a3b8; font-size:13px;">⏳ Esperando juego</span>`;
+            const celdaEstado = terminado ? `<span class="badge badge-finalizado">Finalizado</span>` : `<span class="badge badge-pendiente">Pendiente</span>`;
+
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-estado", terminado ? "FINALIZADO" : "PENDIENTE");
+            tr.setAttribute("data-busqueda", `${p.local.toLowerCase()} ${p.visitante.toLowerCase()}`);
+            tr.innerHTML = `
+                <td>${p.fecha}</td>
+                <td><b>${p.local}</b> vs <b>${p.visitante}</b></td>
+                <td>\`${p.m1_marcador_local} - ${p.m1_marcador_visitante}\`</td>
+                <td>${p.m1_resultado}</td>
+                <td><i>${p.m2_tendencia}</i></td>
+                <td><b>${p.m2_confianza}</b></td>
+                <td>${celdaReal}</td>
+                <td>${celdaEstado}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function ejecutarFiltros() {
+        const buscar = document.getElementById("inputBuscar").value.toLowerCase();
+        const filtro = document.getElementById("selectEstado").value;
+        const filas = document.querySelectorAll("#tablaPartidosCuerpo tr");
+        filas.forEach(f => {
+            const txt = f.getAttribute("data-busqueda");
+            const est = f.getAttribute("data-estado");
+            if(!txt) return;
+            const cEst = (filtro === "TODOS") || (est === filtro);
+            const cBus = txt.includes(buscar);
+            f.style.display = (cEst && cBus) ? "" : "none";
+        });
+    }
+
+    window.onload = inicializar;
+</script>
+</body>
+</html>
