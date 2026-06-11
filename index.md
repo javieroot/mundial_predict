@@ -19,11 +19,8 @@ Establecido mediante la Matriz de Intersección de Probabilidades Cruzadas.
 ---
 
 ## 📅 Predicciones de Partidos en Tiempo Real
-{: .note }
-> **Última Sincronización:** Los datos se recalcularon el `2026-06-11 06:31:17`.
+{: .important }
+> **Día de Descanso o Transición de Fase:** No se detectan partidos programados en los modelos para las próximas horas. El sistema se reactivará automáticamente en cuanto la FIFA y las agencias de analítica publiquen las cuotas de la siguiente ronda.
 
-| Partido | M1: Marcador Calculado | M1: Resultado Derivado | M2: Tendencia Votos | M2: Confianza |
-| :--- | :---: | :---: | :---: | :---: |
-| **Mexico vs SouthAfrica** | `2 - 1` | ⚽ Gana Local | *🏠 Local* | **75.0%** |
-| **USA vs Jamaica** | `3 - 0` | ⚽ Gana Local | *🏠 Local* | **100.0%** |
-| **Canada vs Togo** | `2 - 0` | ⚽ Gana Local | *🏠 Local* | **100.0%** |
+*Última verificación del sistema realizada el `2026-06-11 06:39:08`.*
+
