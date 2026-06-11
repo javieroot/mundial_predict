@@ -22,5 +22,5 @@ Establecido mediante la Matriz de Intersección de Probabilidades Cruzadas.
 {: .important }
 > **Día de Descanso o Transición de Fase:** No se detectan partidos programados en los modelos para las próximas horas. El sistema se reactivará automáticamente en cuanto la FIFA y las agencias de analítica publiquen las cuotas de la siguiente ronda.
 
-*Última verificación del sistema realizada el `2026-06-11 18:11:12`.*
+*Última verificación del sistema realizada el `2026-06-11 18:16:42`.*
 
