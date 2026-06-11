@@ -10,4 +10,6 @@ heading_anchors: true
 
 # Enlace rápido en la esquina superior derecha
 aux_links:
-  "Código Fuente (GitHub)": "https://github.com{{ github.repository_name }}"
+  "Código Fuente (GitHub)": "https://github.com{{ github.mundial_predict }}"
+
+
