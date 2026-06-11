@@ -59,6 +59,8 @@ jobs:
     - name: Subir Artefacto Web
       uses: actions/upload-pages-artifact@v3
 
+include: ["_sass", "assets", "index.md"]
+
     - name: Desplegar en GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
