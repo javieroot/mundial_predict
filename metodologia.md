@@ -98,6 +98,8 @@ El algoritmo ordena el Cuadro de Honor maximizando $P_{\text{Combinada}}$ y util
 2. **Subcampeón (🥈 2do Lugar):** Segundo valor de optimización en la matriz estandarizada de emparejamientos cruzados de la gran final.
 3. **Tercer Lugar (🥉 3er Lugar):** Tercera fuerza de convergencia probabilística derivada de la estabilidad temporal en coeficientes de rendimiento.
 4. **Máximo Goleador (⚽ Bota de Oro):** Cálculo matemático directo de la Densidad de Probabilidad Acumulada aplicada sobre los volúmenes globales de cuotas implícitas del mercado.
+5. **Balón de Oro (Mejor Jugador):** Determinado mediante la Esperanza Matemática de Densidad Cruzada sobre los coeficientes de impacto ofensivo/defensivo proyectados inter-modelo.
+6. **Guante de Oro (Mejor Portero):** Argumento que maximiza la probabilidad acumulada de vallas invictas (*clean sheets*) normalizadas bajo el peso de dificultad del rival.
 
 ---
 
