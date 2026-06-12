@@ -1,40 +1,262 @@
 {
-    "partidos": {
-        "Mexico_vs_Sudafrica": {
-            "opta": [2, 0],
-            "innsbruck": [2, 0],
-            "the_athletic": [2, 0],
-            "medium_elo": [2, 0],
-            "apuestas": [2, 0],
-            "real_l": null,
-            "real_v": null
-        },
-        "Canada_vs_Bosnia": {
-            "opta": [1, 0],
-            "innsbruck": [1, 0],
-            "the_athletic": [1, 0],
-            "medium_elo": [1, 0],
-            "apuestas": [1, 0],
-            "real_l": null,
-            "real_v": null
-        }
-    },
     "probabilidades_campeon": {
-        "España": {"opta": 0.161, "innsbruck": 0.140, "the_athletic": 0.150, "medium_elo": 0.120, "apuestas": 0.180},
-        "Francia": {"opta": 0.134, "innsbruck": 0.150, "the_athletic": 0.140, "medium_elo": 0.160, "apuestas": 0.150},
-        "Inglaterra": {"opta": 0.112, "innsbruck": 0.110, "the_athletic": 0.130, "medium_elo": 0.110, "apuestas": 0.150},
-        "Argentina": {"opta": 0.104, "innsbruck": 0.120, "the_athletic": 0.110, "medium_elo": 0.150, "apuestas": 0.130}
+        "España": {"opta": 0.161, "innsbruck": 0.140, "the_athletic": 0.150, "medium_elo": 0.120, "apuestas": 0.180, "origen": "proveedor"},
+        "Francia": {"opta": 0.134, "innsbruck": 0.150, "the_athletic": 0.140, "medium_elo": 0.160, "apuestas": 0.150, "origen": "proveedor"},
+        "Inglaterra": {"opta": 0.112, "innsbruck": 0.110, "the_athletic": 0.130, "medium_elo": 0.110, "apuestas": 0.150, "origen": "proveedor"},
+        "Argentina": {"opta": 0.104, "innsbruck": 0.120, "the_athletic": 0.110, "medium_elo": 0.150, "apuestas": 0.130, "origen": "proveedor"}
     },
     "probabilidades_goleador": {
-        "Erling Haaland (Noruega)": {"opta": 0.25, "innsbruck": 0.20, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.25},
-        "Kylian Mbappé (Francia)": {"opta": 0.22, "innsbruck": 0.24, "the_athletic": 0.20, "medium_elo": 0.18, "apuestas": 0.22}
+        "Erling Haaland (Noruega)": {"opta": 0.25, "innsbruck": 0.20, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.25, "origen": "proveedor"},
+        "Kylian Mbappé (Francia)": {"opta": 0.22, "innsbruck": 0.24, "the_athletic": 0.20, "medium_elo": 0.18, "apuestas": 0.22, "origen": "proveedor"}
     },
     "probabilidades_jugador": {
-        "Jude Bellingham (Inglaterra)": {"opta": 0.28, "innsbruck": 0.25, "the_athletic": 0.26, "medium_elo": 0.20, "apuestas": 0.28},
-        "Lamine Yamal (España)": {"opta": 0.20, "innsbruck": 0.18, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.20}
+        "Jude Bellingham (Inglaterra)": {"opta": 0.28, "innsbruck": 0.25, "the_athletic": 0.26, "medium_elo": 0.20, "apuestas": 0.28, "origen": "proveedor"},
+        "Lamine Yamal (España)": {"opta": 0.20, "innsbruck": 0.18, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.20, "origen": "proveedor"}
     },
     "probabilidades_portero": {
-        "Unai Simón (España)": {"opta": 0.24, "innsbruck": 0.20, "the_athletic": 0.25, "medium_elo": 0.18, "apuestas": 0.24},
-        "Emiliano Martínez (Argentina)": {"opta": 0.22, "innsbruck": 0.25, "the_athletic": 0.20, "medium_elo": 0.24, "apuestas": 0.22}
+        "Unai Simón (España)": {"opta": 0.24, "innsbruck": 0.20, "the_athletic": 0.25, "medium_elo": 0.18, "apuestas": 0.24, "origen": "proveedor"},
+        "Emiliano Martínez (Argentina)": {"opta": 0.22, "innsbruck": 0.25, "the_athletic": 0.20, "medium_elo": 0.24, "apuestas": 0.22, "origen": "proveedor"}
+    },
+    "partidos": {
+        "Mexico vs Sudafrica": {
+            "id_partido": "WC26-01", "grupo": "Grupo A", "estadio": "Estadio Azteca, CDMX", "hora": "17:00",
+            "opta": [2.0, 0.0, "proveedor"], "innsbruck": [1.0, 0.0, "proveedor"], "the_athletic": [2.0, 0.0, "proveedor"], "medium_elo": [2.0, 1.0, "google"], "apuestas": [2.0, 0.0, "proveedor"],
+            "real_l": 2, "real_v": 0
+        },
+        "USA vs Paraguay": {
+            "id_partido": "WC26-02", "grupo": "Grupo A", "estadio": "SoFi Stadium, Los Ángeles", "hora": "20:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [1.0, 0.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Canada vs Bosnia": {
+            "id_partido": "WC26-03", "grupo": "Grupo B", "estadio": "BC Place, Vancouver", "hora": "18:00",
+            "opta": [1.0, 0.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [1.0, 0.0, "google"], "apuestas": [1.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Espana vs Nigeria": {
+            "id_partido": "WC26-04", "grupo": "Grupo B", "estadio": "MetLife Stadium, Nueva Jersey", "hora": "15:00",
+            "opta": [3.0, 1.0, "google"], "innsbruck": [2.0, 0.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [2.0, 0.0, "google"], "apuestas": [3.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Argentina vs Marruecos": {
+            "id_partido": "WC26-05", "grupo": "Grupo C", "estadio": "Hard Rock Stadium, Miami", "hora": "19:00",
+            "opta": [2.0, 0.0, "google"], "innsbruck": [2.0, 1.0, "google"], "the_athletic": [1.0, 0.0, "google"], "medium_elo": [2.0, 0.0, "google"], "apuestas": [2.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Brasil vs Irlanda": {
+            "id_partido": "WC26-06", "grupo": "Grupo C", "estadio": "AT&T Stadium, Dallas", "hora": "16:00",
+            "opta": [3.0, 0.0, "google"], "innsbruck": [2.0, 0.0, "google"], "the_athletic": [3.0, 1.0, "google"], "medium_elo": [2.0, 0.0, "google"], "apuestas": [2.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Francia vs Corea del Sur": {
+            "id_partido": "WC26-07", "grupo": "Grupo D", "estadio": "Mercedes-Benz Stadium, Atlanta", "hora": "21:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [3.0, 1.0, "google"], "the_athletic": [2.0, 0.0, "google"], "medium_elo": [2.0, 1.0, "google"], "apuestas": [3.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Alemania vs Nueva Zelanda": {
+            "id_partido": "WC26-08", "grupo": "Grupo D", "estadio": "Lumen Field, Seattle", "hora": "14:00",
+            "opta": [4.0, 0.0, "google"], "innsbruck": [3.0, 0.0, "google"], "the_athletic": [3.0, 0.0, "google"], "medium_elo": [3.0, 0.0, "google"], "apuestas": [4.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Inglaterra vs Ecuador": {
+            "id_partido": "WC26-09", "grupo": "Grupo E", "estadio": "Lincoln Financial Field, Filadelfia", "hora": "18:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [1.0, 0.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [1.0, 0.0, "google"], "apuestas": [2.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Italia vs Camerun": {
+            "id_partido": "WC26-10", "grupo": "Grupo E", "estadio": "Gillette Stadium, Boston", "hora": "16:00",
+            "opta": [2.0, 0.0, "google"], "innsbruck": [1.0, 0.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [1.0, 0.0, "google"], "apuestas": [2.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Portugal vs Tunez": {
+            "id_partido": "WC26-11", "grupo": "Grupo F", "estadio": "NRG Stadium, Houston", "hora": "20:00",
+            "opta": [3.0, 1.0, "google"], "innsbruck": [2.0, 0.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [2.0, 0.0, "google"], "apuestas": [3.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Belgica vs Argelia": {
+            "id_partido": "WC26-12", "grupo": "Grupo F", "estadio": "Levi's Stadium, Santa Clara", "hora": "15:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [2.0, 0.0, "google"], "the_athletic": [1.0, 0.0, "google"], "medium_elo": [1.0, 1.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Paises Bajos vs Honduras": {
+            "id_partido": "WC26-13", "grupo": "Grupo G", "estadio": "Arrowhead Stadium, Kansas City", "hora": "16:00",
+            "opta": [3.0, 0.0, "google"], "innsbruck": [2.0, 0.0, "google"], "the_athletic": [2.0, 0.0, "google"], "medium_elo": [3.0, 0.0, "google"], "apuestas": [2.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Uruguay vs Pakistan": {
+            "id_partido": "WC26-14", "grupo": "Grupo G", "estadio": "Subaru Park, Chester", "hora": "19:00",
+            "opta": [4.0, 0.0, "google"], "innsbruck": [3.0, 0.0, "google"], "the_athletic": [3.0, 0.0, "google"], "medium_elo": [4.0, 0.0, "google"], "apuestas": [4.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Croacia vs Ghana": {
+            "id_partido": "WC26-15", "grupo": "Grupo H", "estadio": "Bank of America Stadium, Charlotte", "hora": "15:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [1.0, 0.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Colombia vs Irak": {
+            "id_partido": "WC26-16", "grupo": "Grupo H", "estadio": "BMO Field, Toronto", "hora": "18:00",
+            "opta": [2.0, 0.0, "google"], "innsbruck": [2.0, 1.0, "google"], "the_athletic": [3.0, 0.0, "google"], "medium_elo": [2.0, 0.0, "google"], "apuestas": [2.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Mexico vs USA": {
+            "id_partido": "WC26-17", "grupo": "Grupo A", "estadio": "Estadio Azteca, CDMX", "hora": "19:30",
+            "opta": [1.0, 1.0, "google"], "innsbruck": [2.0, 1.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [1.0, 1.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Paraguay vs Sudafrica": {
+            "id_partido": "WC26-18", "grupo": "Grupo A", "estadio": "SoFi Stadium, Los Ángeles", "hora": "16:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [1.0, 0.0, "google"], "the_athletic": [1.0, 1.0, "google"], "medium_elo": [2.0, 1.0, "google"], "apuestas": [1.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Canada vs Espana": {
+            "id_partido": "WC26-19", "grupo": "Grupo B", "estadio": "BC Place, Vancouver", "hora": "20:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [0.0, 2.0, "google"], "the_athletic": [1.0, 3.0, "google"], "medium_elo": [0.0, 2.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Nigeria vs Bosnia": {
+            "id_partido": "WC26-20", "grupo": "Grupo B", "estadio": "MetLife Stadium, Nueva Jersey", "hora": "14:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [2.0, 2.0, "google"], "medium_elo": [1.0, 0.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Argentina vs Brasil": {
+            "id_partido": "WC26-21", "grupo": "Grupo C", "estadio": "Hard Rock Stadium, Miami", "hora": "21:00",
+            "opta": [1.0, 1.0, "google"], "innsbruck": [2.0, 1.0, "google"], "the_athletic": [1.0, 1.0, "google"], "medium_elo": [2.0, 1.0, "google"], "apuestas": [1.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Irlanda vs Marruecos": {
+            "id_partido": "WC26-22", "grupo": "Grupo C", "estadio": "AT&T Stadium, Dallas", "hora": "15:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [0.0, 1.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Francia vs Alemania": {
+            "id_partido": "WC26-23", "grupo": "Grupo D", "estadio": "Mercedes-Benz Stadium, Atlanta", "hora": "18:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [2.0, 2.0, "google"], "the_athletic": [1.0, 1.0, "google"], "medium_elo": [2.0, 1.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Nueva Zelanda vs Corea del Sur": {
+            "id_partido": "WC26-24", "grupo": "Grupo D", "estadio": "Lumen Field, Seattle", "hora": "13:00",
+            "opta": [0.0, 2.0, "google"], "innsbruck": [0.0, 1.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [0.0, 2.0, "google"], "apuestas": [1.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Inglaterra vs Italia": {
+            "id_partido": "WC26-25", "grupo": "Grupo E", "estadio": "Lincoln Financial Field, Filadelfia", "hora": "19:00",
+            "opta": [1.0, 1.0, "google"], "innsbruck": [1.0, 0.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [1.0, 0.0, "google"], "apuestas": [1.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Camerun vs Ecuador": {
+            "id_partido": "WC26-26", "grupo": "Grupo E", "estadio": "Gillette Stadium, Boston", "hora": "16:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [1.0, 1.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Portugal vs Belgica": {
+            "id_partido": "WC26-27", "grupo": "Grupo F", "estadio": "NRG Stadium, Houston", "hora": "20:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [2.0, 2.0, "google"], "medium_elo": [1.0, 1.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Argelia vs Tunez": {
+            "id_partido": "WC26-28", "grupo": "Grupo F", "estadio": "Levi's Stadium, Santa Clara", "hora": "14:30",
+            "opta": [1.0, 1.0, "google"], "innsbruck": [1.0, 0.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [1.0, 1.0, "google"], "apuestas": [1.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Paises Bajos vs Uruguay": {
+            "id_partido": "WC26-29", "grupo": "Grupo G", "estadio": "Arrowhead Stadium, Kansas City", "hora": "17:00",
+            "opta": [1.0, 1.0, "google"], "innsbruck": [2.0, 1.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [1.0, 1.0, "google"], "apuestas": [2.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Pakistan vs Honduras": {
+            "id_partido": "WC26-30", "grupo": "Grupo G", "estadio": "Subaru Park, Chester", "hora": "15:00",
+            "opta": [0.0, 2.0, "google"], "innsbruck": [0.0, 1.0, "google"], "the_athletic": [0.0, 2.0, "google"], "medium_elo": [0.0, 2.0, "google"], "apuestas": [1.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Croacia vs Colombia": {
+            "id_partido": "WC26-31", "grupo": "Grupo H", "estadio": "Bank of America Stadium, Charlotte", "hora": "18:00",
+            "opta": [1.0, 1.0, "google"], "innsbruck": [1.0, 2.0, "google"], "the_athletic": [2.0, 2.0, "google"], "medium_elo": [1.0, 1.0, "google"], "apuestas": [1.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Irak vs Ghana": {
+            "id_partido": "WC26-32", "grupo": "Grupo H", "estadio": "BMO Field, Toronto", "hora": "16:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [0.0, 1.0, "google"], "the_athletic": [1.0, 1.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Sudafrica vs USA": {
+            "id_partido": "WC26-33", "grupo": "Grupo A", "estadio": "Estadio Azteca, CDMX", "hora": "16:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [0.0, 2.0, "google"], "the_athletic": [1.0, 3.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [0.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Paraguay vs Mexico": {
+            "id_partido": "WC26-34", "grupo": "Grupo A", "estadio": "SoFi Stadium, Los Ángeles", "hora": "20:00",
+            "opta": [1.0, 1.0, "google"], "innsbruck": [1.0, 2.0, "google"], "the_athletic": [2.0, 2.0, "google"], "medium_elo": [1.0, 1.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Bosnia vs Espana": {
+            "id_partido": "WC26-35", "grupo": "Grupo B", "estadio": "BC Place, Vancouver", "hora": "15:00",
+            "opta": [0.0, 3.0, "google"], "innsbruck": [0.0, 2.0, "google"], "the_athletic": [1.0, 3.0, "google"], "medium_elo": [0.0, 2.0, "google"], "apuestas": [0.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Nigeria vs Canada": {
+            "id_partido": "WC26-36", "grupo": "Grupo B", "estadio": "MetLife Stadium, Nueva Jersey", "hora": "18:00",
+            "opta": [2.0, 1.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [2.0, 1.0, "google"], "medium_elo": [2.0, 1.0, "google"], "apuestas": [1.0, 1.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Marruecos vs Brasil": {
+            "id_partido": "WC26-37", "grupo": "Grupo C", "estadio": "Hard Rock Stadium, Miami", "hora": "17:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Irlanda vs Argentina": {
+            "id_partido": "WC26-38", "grupo": "Grupo C", "estadio": "AT&T Stadium, Dallas", "hora": "20:00",
+            "opta": [0.0, 3.0, "google"], "innsbruck": [0.0, 2.0, "google"], "the_athletic": [0.0, 2.0, "google"], "medium_elo": [0.0, 3.0, "google"], "apuestas": [1.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Corea del Sur vs Alemania": {
+            "id_partido": "WC26-39", "grupo": "Grupo D", "estadio": "Mercedes-Benz Stadium, Atlanta", "hora": "14:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [1.0, 3.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Nueva Zelanda vs Francia": {
+            "id_partido": "WC26-40", "grupo": "Grupo D", "estadio": "Lumen Field, Seattle", "hora": "18:00",
+            "opta": [0.0, 4.0, "google"], "innsbruck": [0.0, 3.0, "google"], "the_athletic": [0.0, 3.0, "google"], "medium_elo": [0.0, 4.0, "google"], "apuestas": [0.0, 4.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Ecuador vs Inglaterra": {
+            "id_partido": "WC26-41", "grupo": "Grupo E", "estadio": "Lincoln Financial Field, Filadelfia", "hora": "15:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [0.0, 2.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Camerun vs Italia": {
+            "id_partido": "WC26-42", "grupo": "Grupo E", "estadio": "Gillette Stadium, Boston", "hora": "19:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [0.0, 1.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Argelia vs Portugal": {
+            "id_partido": "WC26-43", "grupo": "Grupo F", "estadio": "NRG Stadium, Houston", "hora": "16:00",
+            "opta": [1.0, 3.0, "google"], "innsbruck": [0.0, 2.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [0.0, 2.0, "google"], "apuestas": [1.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Tunez vs Belgica": {
+            "id_partido": "WC26-44", "grupo": "Grupo F", "estadio": "Levi's Stadium, Santa Clara", "hora": "20:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [1.0, 2.0, "google"], "the_athletic": [0.0, 2.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Honduras vs Paises Bajos": {
+            "id_partido": "WC26-45", "grupo": "Grupo G", "estadio": "Arrowhead Stadium, Kansas City", "hora": "13:00",
+            "opta": [0.0, 3.0, "google"], "innsbruck": [0.0, 2.0, "google"], "the_athletic": [1.0, 3.0, "google"], "medium_elo": [0.0, 3.0, "google"], "apuestas": [0.0, 3.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Uruguay vs Pakistan": {
+            "id_partido": "WC26-46", "grupo": "Grupo G", "estadio": "Subaru Park, Chester", "hora": "17:00",
+            "opta": [4.0, 0.0, "google"], "innsbruck": [3.0, 0.0, "google"], "the_athletic": [3.0, 0.0, "google"], "medium_elo": [4.0, 0.0, "google"], "apuestas": [4.0, 0.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Ghana vs Croacia": {
+            "id_partido": "WC26-47", "grupo": "Grupo H", "estadio": "Bank of America Stadium, Charlotte", "hora": "15:00",
+            "opta": [1.0, 2.0, "google"], "innsbruck": [1.0, 1.0, "google"], "the_athletic": [1.0, 2.0, "google"], "medium_elo": [1.0, 2.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        },
+        "Irak vs Colombia": {
+            "id_partido": "WC26-48", "grupo": "Grupo H", "estadio": "BMO Field, Toronto", "hora": "18:00",
+            "opta": [0.0, 2.0, "google"], "innsbruck": [1.0, 2.0, "google"], "the_athletic": [0.0, 3.0, "google"], "medium_elo": [0.0, 2.0, "google"], "apuestas": [1.0, 2.0, "google"],
+            "real_l": null, "real_v": null
+        }
     }
 }
