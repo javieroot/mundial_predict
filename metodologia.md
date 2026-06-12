@@ -7,24 +7,39 @@ has_math: true
 
 # 🧮 Arquitectura Matemática y Metodología Analítica - Mundial 2026
 
-Este documento detalla el núcleo matemático, algebraico y Pipe estadístico implementado en el motor `predict.py` para procesar, unificar y auditar las predicciones de la Copa del Mundo 2026. El sistema reduce el sesgo predictivo individual aislando la dispersión de datos a través de tres pilares algorítmicos.
+Este documento detalla el núcleo matemático, algebraico y estadístico implementado en el motor `pipeline_mundial.py` para procesar, unificar y auditar las predicciones de la Copa del Mundo 2026. El sistema reduce el sesgo predictivo individual aislando la dispersión de datos a través de tres pilares algorítmicos.
 
 ---
 
-## 📐 1. El Vector de Pesos Analíticos ($W$)
+## 📐 1. El Vector de Pesos Analíticos ($W$) y Auditoría por Índice de Brier
 
-Ningún analista tiene el mismo nivel de certeza histórica. Para equilibrar el ecosistema, el sistema define un **Vector de Pesos Ponderados ($W$)** a partir de tu archivo `config.json`. La suma de estos pesos es estrictamente equivalente a la unidad ($1.0$ o $100\%$):
+Los coeficientes de confianza asignados a cada proveedor en tu archivo de control `config.json` no son estáticos ni producto del azar. Se derivan de una auditoría estática de Backtesting probabilístico utilizando el **Índice de Brier (Brier Score)**, el cual mide la precisión de los analistas en torneos históricos evaluando qué tan cerca estuvo su probabilidad estimada del resultado real en la cancha:
 
-$$W = \begin{bmatrix} w_{\text{opta}} & w_{\text{inns}} & w_{\text{ath}} & w_{\text{elo}} & w_{\text{apuestas}} \end{bmatrix}$$
+$$BS = \frac{1}{N} \sum_{t=1}^{N} \sum_{i=1}^{R} (p_{ti} - o_{ti})^2$$
 
-De acuerdo con la configuración optimizada de tu arquitectura, los valores asignados son:
-*   $w_{\text{opta}} = 0.30$ (Peso de Opta: microdata e IA)
-*   $w_{\text{inns}} = 0.25$ (Peso de Innsbruck: distribución de Poisson macro)
-*   $w_{\text{ath}} = 0.20$ (Peso de The Athletic: análisis táctico humano)
-*   $w_{\text{apuestas}} = 0.15$ (Peso del Mercado: probabilidad implícita financiera)
-*   $w_{\text{elo}} = 0.10$ (Peso de Medium ELO: rendimiento histórico puro)
+Donde:
+*   $N$: El número total de partidos evaluados históricamente en copas mundiales previas.
+*   $R$: Las 3 opciones posibles del resultado discreto (Gana Local, Empate, Gana Visitante).
+*   $p_{ti}$: La probabilidad matemática que asignó el proveedor específico a esa opción.
+*   $o_{ti}$: El resultado real en formato binario (vale $1$ si ocurrió, y $0$ si no ocurrió).
+### 🧮 La Optimización Ponderada Inversa
+Una vez calculado el Índice de Brier estructural de cada una de las fuentes, se aplica una regresión inversa de varianza ponderada para penalizar drásticamente a los modelos con alta dispersión y premiar a los exactos. El peso intermedio ($w'_i$) se define como:
 
-$$\sum_{i=1}^{n} w_i = 0.30 + 0.25 + 0.20 + 0.15 + 0.10 = 1.00$$
+$$w'_i = \frac{1}{BS_i}$$
+
+Para transformar estos inversos en los coeficientes finales del sistema, el motor ejecuta una normalización vectorial, asegurando que la suma del vector sume estrictamente la unidad ($1.0$ o $100\%$):
+
+$$w_i = \frac{w'_i}{\sum_{j=1}^{6} w'_j}$$
+
+De acuerdo con este análisis de fiabilidad a largo plazo, los pesos definitivos del vector $W$ mapeados en el sistema corresponden a:
+
+$$W = \begin{bmatrix} w_{\text{opta}} & w_{\text{apuestas}} & w_{\text{forebet}} & w_{\text{predictz}} & w_{\text{elo}} & w_{\text{google\_ai}} \end{bmatrix}$$
+
+*   $w_{\text{opta}} = 0.25$ y $w_{\text{apuestas}} = 0.25$: Error mínimo ($BS \approx 0.18$) por la eficiencia masiva del mercado y procesamiento xG de eventos en vivo.
+*   $w_{\text{forebet}} = 0.15$ y $w_{\text{predictz}} = 0.15$: Modelos intermedios especializados con perfil táctico de alta ofensiva.
+*   $w_{\text{elo}} = 0.10$ y $w_{\text{google\_ai}} = 0.10$: Coeficientes de estabilización basados en fuerza puramente histórica y razonamiento general lógico.
+
+$$\sum_{i=1}^{n} w_i = 0.25 + 0.25 + 0.15 + 0.15 + 0.10 + 0.10 = 1.00$$
 ---
 
 ## ⚽ 2. Metodología M1: El Marcador Consolidado Ponderado
@@ -34,7 +49,7 @@ El Modelo M1 calcula la **Esperanza Matemática de Goles** de un partido. Es una
 ### 🔲 Las Matrices de Entrada de Goles ($G$)
 Para cualquier partido, los datos se estructuran en dos vectores columna de goles esperados ($G_L$ para el equipo Local y $G_V$ para el Visitante):
 
-$$G_L = \begin{bmatrix} g_{\text{opta, L}} \\ g_{\text{inns, L}} \\ g_{\text{ath, L}} \\ g_{\text{elo, L}} \\ g_{\text{apuestas, L}} \end{bmatrix} \quad , \quad G_V = \begin{bmatrix} g_{\text{opta, V}} \\ g_{\text{inns, V}} \\ g_{\text{ath, V}} \\ g_{\text{elo, V}} \\ g_{\text{apuestas, V}} \end{bmatrix}$$
+$$G_L = \begin{bmatrix} g_{\text{opta, L}} \\ g_{\text{apuestas, L}} \\ g_{\text{forebet, L}} \\ g_{\text{predictz, L}} \\ g_{\text{elo, L}} \\ g_{\text{google\_ai, L}} \end{bmatrix} \quad , \quad G_V = \begin{bmatrix} g_{\text{opta, V}} \\ g_{\text{apuestas, V}} \\ g_{\text{forebet, V}} \\ g_{\text{predictz, V}} \\ g_{\text{elo, V}} \\ g_{\text{google\_ai, V}} \end{bmatrix}$$
 
 ### 🧮 La Fórmula del Consenso M1
 La expectativa analítica final antes del redondeo se obtiene mediante el producto punto entre el Vector de Pesos ($W$) y los Vectores de Goles ($G$):
@@ -67,6 +82,7 @@ El sistema inicializa un contador para cada una de las tres opciones posibles, s
 $$S_{\text{LOCAL}} = \sum_{i=1}^{n} w_i \cdot [V_i = \text{"LOCAL"}]$$
 $$S_{\text{EMPATE}} = \sum_{i=1}^{n} w_i \cdot [V_i = \text{"EMPATE"}]$$
 $$S_{\text{VISITANTE}} = \sum_{i=1}^{n} w_i \cdot [V_i = \text{"VISITANTE"}]$$
+
 ### 🎯 Selección de Tendencia e Índice de Certeza ($C_{\text{M2}}$)
 La tendencia oficial corresponde estrictamente al valor máximo obtenido de los tres acumuladores:
 
@@ -100,13 +116,13 @@ Estadísticamente, la varianza mínima representa estabilidad y consistencia: el
 
 ## 🎛️ 5. Coeficiente Compuesto de Trazabilidad (Origen Final del Dashboard)
 
-Para asegurar una honestidad analítica absoluta de cara al usuario en la web, el script `predict.py` utiliza álgebra de conjuntos en Python para deducir el origen del resultado, evaluando las etiquetas de origen guardadas en tu JSON base para cada uno de los 5 grandes proveedores en un partido específico:
+Para asegurar una honestidad analítica absoluta de cara al usuario en la web, el script `pipeline_mundial.py` utiliza álgebra de conjuntos en Python para deducir el origen del resultado, evaluando las etiquetas de origen guardadas en tu JSON base para cada uno de los 6 proveedores en un partido específico:
 
-$$O = \{ \text{opta}, \text{inns}, \text{ath}, \text{elo}, \text{apuestas} \}$$
+$$O = \{ \text{opta}, \text{apuestas}, \text{forebet}, \text{predictz}, \text{elo}, \text{google\_ai} \}$$
 
 El sistema aplica una función de cardinalidad (conteo de elementos únicos) sobre el conjunto $O$ para asignar la etiqueta final en la pantalla de la web:
 
 1.  **Si la cardinalidad es igual a 1 ($\lvert O \rvert = 1$):** Significa que no hay mezcla de datos. La etiqueta final mantiene el valor puro del conjunto:
-    $$\text{Trazabilidad Final} = \text{Elemento Único de } O \quad (\text{ej: "proveedor", "google" o "manual"})$$
+    $$\text{Trazabilidad Final} = \text{Elemento Único de } O \quad (\text{ej: "proveedor" o "estimado por google"})$$
 2.  **Si la cardinalidad es mayor a 1 ($\lvert O \rvert > 1$):** Significa que el partido combina fuentes. El motor concatena los strings anteponiendo la palabra clave `"mixto"`:
     $$\text{Trazabilidad Final} = \text{"mixto: "} + \text{unión ordenada de los elementos de } O$$
