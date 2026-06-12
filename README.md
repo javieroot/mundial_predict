@@ -1,47 +1,33 @@
-# 🔮 Dashboard de Inteligencia Analítica - Mundial 2026
+# 🔮 Mundial Predict 2026 - Dashboard Analítico Modular
 
-[![Actualizacion Diaria de Predicciones](https://github.com)](https://github.com)
-[![Plataforma en Vivo](https://shields.io)](https://github.io)
+Ecosistema automatizado de inteligencia deportiva que unifica y procesa los criterios predictivos de los 5 modelos matemáticos más avanzados de la industria (*Opta*, *Innsbruck*, *The Athletic*, *Medium ELO* y *Mercado de Apuestas*).
 
-Este repositorio alberga el código fuente de una plataforma automatizada de análisis probabilístico para la Copa del Mundo. El sistema mitiga el sesgo individual de las fuentes tradicionales implementando un modelo de **Consenso de Modelos Avanzados** mediante la agregación y ponderación de datos en tiempo real.
+Plataforma en vivo: [https://github.io](https://github.io)
 
-📊 **[Haga clic aquí para ver el Dashboard interactivo en producción](https://github.io)**
+## 🚀 Características de la Arquitectura Modular
 
----
+- **Base de Datos Acumulada:** Persistencia de datos mediante `partidos_acumulado.csv` para almacenar históricamente los pronósticos del torneo de manera incremental sin pérdida de registros entre ejecuciones.
+- **Coexistencia y Auditoría Visual:** Los partidos futuros despliegan únicamente el pronóstico. Una vez finalizado el encuentro y registrado el marcador oficial, el sistema muestra tanto la predicción de goles calculada como el resultado real lado a lado en tiempo real.
+- **Filtros Interactivos:** Panel de control nativo en JavaScript para filtrado dinámico en el cliente por selecciones y segregación de visualización por estado de partido (Pendientes / Finalizados).
+- **Separación de Responsabilidades:** Arquitectura desacoplada donde la lógica de configuración radica en un JSON externo, la matemática algorítmica corre en Python y la capa de presentación reside en una plantilla HTML pura.
 
-## 🏆 Pronóstico Maestro del Torneo (Pre-Ronda)
-Establecido de forma estática en la raíz del algoritmo mediante la Matriz de Intersección de Probabilidades Cruzadas antes del pitazo inicial:
+## 📐 Cuadro de Honor Dinámico (Cero Datos Fijos)
 
-| Puesto | Selección / Jugador | Metodología de Consenso |
-| :---: | :--- | :--- |
-| 🥇 **1er Lugar** | 🇪🇸 **España** | Unanimidad de Predicción Cruzada (Opta 16.1% / EA Sports) |
-| 🥈 **2do Lugar** | 🇫🇷 **Francia** | Ordenación de Varianza Mínima (Innsbruck 12.9%) |
-| 🥉 **3er Lugar** | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 **Inglaterra** | Estabilidad de Desviación Estándar (Consenso 11.1%) |
-| ⚽ **Goleador** | 🇫🇷 **Kylian Mbappé** | Probabilidad Implícita del Mercado de Apuestas |
+A diferencia de sistemas convencionales con texto estático, el Podio Maestro de pre-ronda se deriva estrictamente de operaciones algorítmicas vivas ejecutadas por el core del script. Aplica Esperanza de Densidad Cruzada Combinada y ordenación por Varianza Mínima ($\sigma^2 \to 0$) sobre los modelos predictivos y el mercado de cuotas indexadas. El desglose de fórmulas se detalla en el archivo [metodologia.md](metodologia.md).
 
----
+## 🛠️ Estructura del Repositorio
 
-## 📅 Predicciones de Partidos en Tiempo Real
-El script calcula diariamente el marcador estimado evaluando de forma dinámica las proyecciones de **5 modelos de alta confianza** de la industria (Opta Analyst, Universidad de Innsbruck, The Athletic xGC, Simulación ELO de Medium y Consenso de Apuestas) mediante dos lógicas:
+- `config.json`: Archivo de configuración centralizado que almacena los flags globales del torneo y el vector indexado de pesos de confianza de los modelos.
+- `predict.py`: Script principal de procesamiento matemático encargado de cargar configuraciones, ejecutar las ecuaciones algebraicas de las Metodologías 1 y 2, resolver colisiones de partidos y compilar la interfaz final.
+- `plantilla.html`: Contenedor base de la interfaz web con estilos CSS embebidos, marcas de sustitución para el cuadro dinámico y lógica de filtrado reactivo por cliente.
+- `partidos_acumulado.csv`: Base de datos e histórico inmutable que almacena todas las jornadas procesadas del campeonato.
+- `index.html`: Dashboard unificado generado de forma automatizada por el pipeline para su publicación inmediata en GitHub Pages.
 
-* **M1 (Goles Ponderados):** Promedio ponderado recortado según precisión histórica. Deduce el resultado a partir del marcador entero redondeado.
-* **M2 (Consenso de Votos):** Transforma la proyección en un voto cerrado por mayoría absoluta ponderada, calculando el porcentaje exacto de confianza del ecosistema.
+## ⚙️ Automatización (GitHub Actions)
 
-### 🛡️ Blindaje por Ausencia de Datos (Días de Descanso / Post-Mundial)
-Para asegurar que la plataforma mantenga un estándar profesional los días donde la API no reporte partidos programados (transición entre fases o fin del torneo), el código incluye un validador de flujos:
-1. **Durante el torneo:** Despliega un banner informativo (`{: .important }`) notificando una ventana de espera activa en lo que agencias deportivas publican las cuotas de la siguiente ronda.
-2. **Fin del torneo:** Al cambiar la variable global `MUNDIAL_CONCLUIDO = True`, se congela el entorno inyectando un aviso de archivo histórico permanente, manteniendo el Cuadro de Honor intacto para auditoría pública.
-
----
-
-## 🛠️ Automatización del Servidor (CI/CD)
-La infraestructura se despliega sin servidores locales mediante **GitHub Actions**. El entorno virtual levanta una imagen de Ubuntu con Python 3.10 todas las noches a las 23:00 UTC (17:00 hora de México) usando la siguiente directiva:
-
-```yaml
-on:
-  schedule:
-    - cron: '0 23 * * *'
-  workflow_dispatch: # Permite la ejecución manual bajo demanda por el administrador
-```
-
-*Los archivos web estáticos con soporte nativo de Modo Oscuro son compilados de forma transparente por el motor de **Jekyll** de GitHub tras cada ejecución con éxito.*
+El flujo de trabajo programado en `.github/workflows/actualizar.yml` se ejecuta cíclicamente ejecutando las siguientes fases de integración y despliegue continuo (CI/CD):
+1. Levanta un contenedor virtual limpio de Ubuntu e instala los entornos y dependencias requeridas (`pandas`, `numpy`).
+2. Dispara `predict.py` para sincronizar los modelos de analítica deportiva externa.
+3. Resuelve colisiones e integra de forma incremental los nuevos registros al archivo `.csv` histórico.
+4. Sustituye las variables analíticas inyectando el dataset y el podio calculado en la plantilla web.
+5. Ejecuta un commit automático de vuelta al repositorio para salvar el histórico de datos y despliega de forma nativa la interfaz final en vivo en GitHub Pages.
