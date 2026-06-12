@@ -67,7 +67,7 @@ def calcular_cuadro_honor(prob_campeon, prob_goleador, prob_jugador, prob_porter
     for pais, modelos in prob_campeon.items():
         valores = [modelos.get(mod, 0.0) for mod in PESOS_MODELOS.keys()]
         pesos = list(PESOS_MODELOS.values())
-        prob_combinada = sum(v * w for v, w in zip(valores, weights := pesos))
+        prob_combinada = sum(v * w for v, w in zip(valores, pesos))
         varianza = float(np.var(valores))
         res_campeon.append({"pais": pais, "prob": prob_combinada, "var": varianza})
 
