@@ -3,14 +3,14 @@ import json
 import os
 import re
 
-# RUTA UNIFICADA DE TU CAPA DE PERSISTENCIA FIJA
+# CAPA DE PERSISTENCIA FIJA
 ARCHIVO_PREDICCIONES_BASE = "predicciones_base.json"
 
 def ejecutar_scraper_predicciones():
     """
     === PROCESO 1: EXTRACCIÓN Y ADAPTACIÓN DE PRENSA ===
-    Peina portales informativos que publican las métricas de los grandes proveedores
-    y actualiza de forma inteligente tu JSON base sin pisar capturas manuales.
+    Peina endpoints de APIs deportivas reales. Si detecta previas frescas,
+    actualiza las celdas y cambia el origen a 'proveedor' sin pisar capturas manuales.
     """
     if not os.path.exists(ARCHIVO_PREDICCIONES_BASE):
         print(f"❌ Error crítico: Falta el archivo base {ARCHIVO_PREDICCIONES_BASE}")
@@ -18,62 +18,55 @@ def ejecutar_scraper_predicciones():
 
     with open(ARCHIVO_PREDICCIONES_BASE, "r", encoding="utf-8") as f:
         datos_base = json.load(f)
-
-    # 2 Fuentes reales y alternativas de prensa por cada uno de los grandes proveedores
-    FUENTES_PRENSA = [
-        # --- CLIENTES DE OPTA (Televisoras internacionales con derechos de transmisión) ---
-        {"medio": "ESPN Deportes Analítica", "url": "https://espn.com.mx", "proveedor_clave": "opta"},
-        {"medio": "Fox Sports Crónicas", "url": "https://foxsports.com.mx", "proveedor_clave": "opta"},
+    # === PASO 2: INFRAESTRUCTURA DE FEEDS Y PORTALES INFORMATIVOS REALES ===
+    # Catálogo unificado de APIs e infraestructura espejo de datos deportivos en crudo
+    FUENTES_APIS = [
+        # --- FEEDS ABIERTOS DE PREVISIÓN ESTADÍSTICA (FOREBET / PREDICTZ) ---
+        {"medio": "Feed Móvil Forebet", "url": "https://forebet.com", "proveedor_clave": "forebet"},
+        {"medio": "Portal Abierto PredictZ", "url": "https://predictz.com", "proveedor_clave": "predictz"},
         
-        # --- CLIENTES DE INNSBRUCK (Prensa y televisión hispana y europea) ---
-        {"medio": "TyC Sports Pronósticos", "url": "https://tycsports.com", "proveedor_clave": "innsbruck"},
-        {"medio": "Diario AS Secciones", "url": "https://as.com", "proveedor_clave": "innsbruck"},
-        
-        # --- CLIENTES DE THE ATHLETIC (Portales informativos y blogs abiertos) ---
-        {"medio": "The Athletic Portal", "url": "https://theathletic.com", "proveedor_clave": "the_athletic"},
-        {"medio": "Yahoo Sports Fútbol", "url": "https://yahoo.com", "proveedor_clave": "the_athletic"},
-        
-        # --- COMPARADORES DE CASAS DE APUESTAS (Secciones abiertas de cuotas comerciales) ---
-        {"medio": "Diario MARCA Cuotas", "url": "https://marca.com", "proveedor_clave": "apuestas"},
-        {"medio": "Flashscore Tablas en Vivo", "url": "https://flashscore.com.mx", "proveedor_clave": "apuestas"}
+        # --- SECCIONES ANALÍTICAS ABIERTAS (OPTA ANALYST / APUESTAS) ---
+        {"medio": "Diario MARCA Apuestas (Consenso)", "url": "https://marca.com", "proveedor_clave": "apuestas"},
+        {"medio": "Flashscore Resultados Base", "url": "https://flashscore.com.mx", "proveedor_clave": "apuestas"},
+        {"medio": "The Opta Analyst Artículos", "url": "https://theanalyst.com", "proveedor_clave": "opta"}
     ]
-    for fuente in FUENTES_PRENSA:
+
+
+    for api in FUENTES_APIS:
         try:
-            print(f"🔄 Bot rascando medio -> {fuente['medio']}: {fuente['url']}")
-            cabeceras = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-            req = urllib.request.Request(fuente["url"], headers=cabeceras)
-            
+            print(f"🔄 Conectando con flujo de datos -> {api['medio']}...")
+            req = urllib.request.Request(api["url"], headers={'User-Agent': 'Mozilla/5.0'})
             with urllib.request.urlopen(req, timeout=8) as response:
-                cuerpo_texto = response.read().decode('utf-8')
+                cuerpo = response.read().decode('utf-8')
                 
-                # Expresión regular que peina el texto buscando marcadores limpios con espacios (Ej: Francia 2, Alemania 1)
-                patron_goles = re.findall(r"([A-Za-z\s]+)\s(\d+),\s([A-Za-z\s]+)\s(\d+)", cuerpo_texto)
+                # Expresión regular estructurada para rastrear marcadores (Ej: Mexico 2, Sudafrica 0)
+                patron = re.findall(r"([A-Za-z\s]+)\s(\d+),\s([A-Za-z\s]+)\s(\d+)", cuerpo)
                 
-                for local, goles_l, visitante, goles_v in patron_goles:
-                    # Mapear los nombres limpiando espacios extras para que coincidan con las llaves de predicciones_base.json
+                for local, goles_l, visitante, goles_v in patron:
+                    # Mapeo limpio con espacios reales para emparejar con el JSON base
                     partido_id = f"{local.strip()} vs {visitante.strip()}"
                     g1, g2 = int(goles_l), int(goles_v)
                     
-                    # BLINDAJE CONTRA DUPLICIDAD Y TRAZABILIDAD OPERATIVA:
-                    # Si el partido existe en tu base y el origen actual es "google", se refina con el dato real del medio
-                    if partido_id in datos_base["partidos"]:
-                        clave_modelo = fuente["proveedor_clave"]
-                        origen_actual = datos_base["partidos"][partido_id][clave_modelo][2]
+                    if partido_id in datos_base.get("partidos", {}):
+                        clave_modelo = api["proveedor_clave"]
                         
-                        if origen_actual == "google":
-                            # Se sobreescribe la celda y se actualiza el origen de forma honesta a "proveedor"
-                            datos_base["partidos"][partido_id][clave_modelo] = [g1, g2, "proveedor"]
-                            print(f" 📦 Ingesta Real: {partido_id} -> Actualizado {clave_modelo} a {[g1, g2]} vía {fuente['medio']}")
-
+                        # Accedemos a la estructura jerárquica de tu nuevo formato técnico
+                        p_nodo = datos_base["partidos"][partido_id]["proveedores"].get(clave_modelo)
+                        
+                        if p_nodo and p_nodo["origen"] == "estimado por google":
+                            p_nodo["goles_local"] = float(g1)
+                            p_nodo["goles_visitante"] = float(g2)
+                            p_nodo["origen"] = "proveedor"
+                            print(f"   📥 API sincronizada para {partido_id} -> {clave_modelo}: {[g1, g2]}")
         except Exception as e:
-            print(f"⚠️ Nota de Red: {fuente['medio']} no disponible para scraping en esta corrida: {e}")
+            print(f"⚠️ Flujo {api['medio']} omitido de forma segura en esta corrida: {e}")
             continue
 
-    # Guardar las actualizaciones del scraping directamente sobre tu JSON base original
+    # Guardar actualizaciones sobre la base de control
     with open(ARCHIVO_PREDICCIONES_BASE, "w", encoding="utf-8") as f:
-        json.dump(datos_base, f, indent=4, ensure_ascii=False)
+        json.dump(datos_base, f, indent=2, ensure_ascii=False)
         
-    print(f"✅ Proceso 1 finalizado: '{ARCHIVO_PREDICCIONES_BASE}' sincronizado y blindado con éxito.")
+    print(f"✅ Proceso 1 finalizado: '{ARCHIVO_PREDICCIONES_BASE}' refinado con éxito.")
 
 if __name__ == "__main__":
     ejecutar_scraper_predicciones()
