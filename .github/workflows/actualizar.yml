@@ -31,9 +31,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Ejecutar Script de Prediccion
+    - name: Ejecutar Pipeline Analítico por Etapas
       run: |
+        # Etapa 1: El scraper peina la prensa y refina predicciones_base.json
+        python extractor.py
+        
+        # Etapa 2: El predict toma la base, calcula M1/M2 con Pandas y crea resultados_dashboard.json
         python predict.py
+        
+        # Etapa 3: El actualizador busca marcadores finales en vivo e inyecta los resultados reales
+        python actualizar_resultados.py
+
 
     - name: Auto Guardar Base Acumulada e Interfaz en GitHub
       uses: stefanzweifel/git-auto-commit-action@v5
