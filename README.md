@@ -1,87 +1,78 @@
 # 🔮 Dashboard de Inteligencia Analítica - Copa del Mundo 2026
 
-¡Bienvenido al consensuador analítico para el Mundial 2026! Este proyecto fusiona mediante algoritmos estadísticos las predicciones de los 5 gigantes de la analítica deportiva mundial para encontrar el consenso predictivo más certero del planeta, permitiendo al usuario comparar los pronósticos contra los resultados en vivo.
+¡Bienvenido al consensuador analítico para el Mundial 2026! Este proyecto implementa una arquitectura limpia y unificada para mitigar el sesgo predictivo individual mediante el principio de **Diversidad de Señales Ponderadas**. El sistema recopila y fusiona en caliente las métricas de 6 proveedores de distinta naturaleza, permitiendo al usuario realizar una validación cruzada transparente entre los pronósticos analíticos y los marcadores reales del torneo.
 
 ---
 
-## 📊 1. Los 5 Grandes Proveedores de Datos
+## 📊 1. Fuentes de Datos y Criterio de Selección
 
-El sistema pondera de forma democrática y equilibra el sesgo de las siguientes fuentes:
-*   **Opta Sports:** Inteligencia Artificial basada en microdatos tácticos y goles esperados (xG) [INDEX].
-*   **Universidad de Innsbruck:** Modelos macroestadísticos puros basados en distribución de Poisson [INDEX].
-*   **The Athletic:** Ponderación cualitativa y análisis periodístico de expertos de *The New York Times* [INDEX].
-*   **Ranking ELO:** Fuerza matemática calculada por el rendimiento histórico de las selecciones [INDEX].
-*   **Mercado de Apuestas:** La probabilidad implícita extraída de las cuotas de las agencias mundiales [INDEX].
+El sistema procesa y equilibra de forma democrática las siguientes fuentes de información:
+*   **Opta Sports:** Inteligencia Artificial profesional basada en microdatos de eventos y simulaciones masivas (xG).
+*   **Mercado de Apuestas:** Refleja la probabilidad implícita financiera y el consenso colectivo de las cuotas globales.
+*   **World Football ELO:** Medida matemática objetiva basada en el rendimiento histórico real de cada selección.
+*   **Forebet:** Predictor estadístico especializado que publica marcadores estimados de perfil ofensivo.
+*   **PredictZ:** Predictor independiente que aporta diversidad algorítmica para validar los consensos.
+*   **Google AI:** Visión analítica basada en información pública reciente y razonamiento lógico general.
 
----
-
-## 🏗️ 2. Estructura del Ecosistema (Procesos Separados)
-
-El proyecto está diseñado bajo una arquitectura limpia en tres fases independientes para blindar la trazabilidad y evitar la duplicidad de datos en ejecuciones repetitivas:
-
-*   **`predicciones_base.json` (La Base Inicial):** Tu base de datos de control clara y sencilla [INDEX]. Contiene el calendario fijo de los 48 partidos con estadios, horas y grupos en español. Almacena las estimaciones iniciales de respaldo y el Cuadro de Honor.
-*   **`extractor.py` (Proceso 1 - Ingesta):** Un bot de scraping que peina dos portales de prensa real por cada proveedor [INDEX]. Si encuentra un dato nuevo en ESPN o Marca, refina las celdas vacías cambiando el origen de `"google"` a `"proveedor"` sin pisar tus capturas `"manuales"` [INDEX, INDEX].
-*   **`predict.py` (Proceso 2 - Predicción):** El motor core [INDEX]. Lee la base unificada, calcula con Pandas las metodologías M1/M2, deduce la etiqueta de trazabilidad (`proveedor`, `google`, `manual` o `mixto`) y genera la interfaz web [INDEX].
-*   **`actualizar_resultados.py` (Proceso 3 - Resultados):** El scraper de cierre [INDEX]. Busca en internet los marcadores oficiales de los partidos jugados y los inyecta de forma incremental a la salida para habilitar la comparativa del usuario [INDEX].
-## 🛠️ 3. Estructura del Repositorio
-
-```text
-├── .github/workflows/
-│   └── actualizar.yml          # Pipeline de automatización en la nube (CI/CD)
-├── predicciones_base.json      # Base de datos inicial (Panel de Control manual)
-├── resultados_dashboard.json   # Base incremental con análisis y marcadores reales
-├── extractor.py                # Bot de scraping para predicciones de prensa
-├── predict.py                  # Motor estadístico core de Pandas y Numpy
-├── actualizar_resultados.py    # Bot de scraping para marcadores reales en vivo
-├── plantilla.html              # Interfaz de usuario interactiva (Filtros en Modo Oscuro)
-├── index.html                  # Dashboard web final autocompilado de producción
-└── requirements.txt            # Manifiesto de librerías del sistema
-```
+### 🚫 Criterio de Exclusión (Fuentes Descartadas)
+Para maximizar la diversidad de señales y evitar redundancias o bloqueos automatizados, se eliminaron:
+*   *Universidad de Innsbruck:* Modelo académico robusto, pero no publica marcadores estructurados accesibles por partido.
+*   *The Athletic:* Análisis cualitativo de alta calidad, pero carece de predicciones numéricas fácilmente automatizables.
+*   *API Football Odds:* Descartada por redundancia analítica, al redistribuir las mismas cuotas base de las apuestas.
+*   *Football-Data.co.uk / Statarea:* Útiles para registros históricos o votación colectiva, pero con menor valor y consistencia para el modelo.
 
 ---
 
-## 🚀 4. Instalación y Ejecución Local
+## 🏗️ 2. Arquitectura de Datos y Trazabilidad
 
-Si deseas clonar el proyecto para realizar pruebas o auditorías directamente desde tu computadora (Laptop), ejecuta la siguiente secuencia de comandos en tu terminal:
+El backend opera bajo una estructura de árbol plano en la raíz de sus archivos JSON, garantizando un flujo limpio gobernado por las siguientes reglas:
+*   **Normalización Estricta:** Todas las claves (`Keys`) se estructuran obligatoriamente en `snake_case` y minúsculas (ej. `id_partido`, `google_ai`) para blindar el tipado y evitar roturas en componentes JavaScript/TypeScript del Front-End.
+*   **Campos de Control de Trazabilidad (`origen`):** Gobiernan la visualización en la interfaz del usuario para asegurar una honestidad analítica total:
+    *   `"proveedor"`: Indica que el dato fue rascado con éxito de las APIs de la red.
+    *   `"estimado por google"`: Indica la activación del algoritmo de rescate analítico IFR ante la caída o ausencia de datos en internet.
+---
 
+## 🎛️ 3. Configuración Dinámica de Pesos (`config.json`)
+
+El archivo de control centraliza los coeficientes matemáticos utilizados por el motor de Pandas. El peso asignado a cada uno de los 6 proveedores responde estrictamente a una **auditoría analítica de fiabilidad y consistencia histórica** en la industria:
+
+*   `opta` ($0.25$) y `apuestas` ($0.25$): Máxima prioridad debido al volumen masivo de variables en microdatos xG y la eficiencia del mercado financiero.
+*   `forebet` ($0.15$) y `predictz` ($0.15$): Nivel intermedio que aporta diversidad algorítmica y balances de perfil ofensivo.
+*   `elo` ($0.10$) y `google_ai` ($0.10$): Criterios de estabilización basados en fuerza histórica objetiva y razonamiento general lógico.
+
+La suma vectorial de estos coeficientes de confianza debe ser estrictamente equivalente a la unidad ($1.0$ o $100\%$):
+$$\sum w_i = 0.25 + 0.25 + 0.15 + 0.15 + 0.10 + 0.10 = 1.00$$
+
+---
+
+## 🐍 4. Pipeline Único y Evolución Limpia (`pipeline_mundial.py`)
+
+A diferencia de los diseños de software tradicionales fragmentados, este proyecto centraliza toda su lógica operativa en un único script autogestionado: **`pipeline_mundial.py`**.
+
+### 🛡️ Estrategia contra la Alucinación y Caídas de Red
+Cuando las APIs externas fallan o no han publicado sus datos en internet, el script activa de forma automática el **Algoritmo de Rescate del Índice de Fuerza Relativa por Equipo (IFR)** basado en el histórico real de la FIFA:
+1.  **Conversión de Goles por Partido:** Cruza el IFR del equipo Local contra el Visitante, añadiendo de forma fija $+0.5$ si existe ventaja de localía para los anfitriones (México, Estados Unidos o Canadá).
+2.  **Perfiles Tácticos:** Segmenta los pronósticos aplicando un perfil conservador (pocos goles) en las celdas de `opta` y `elo`, y un perfil ofensivo (marcadores abiertos) en las de `forebet` y `predictz`.
+3.  **Matriz de Premios de Largo Plazo:** Deriva las probabilidades de la Bota, Balón o Guante de Oro tomando la probabilidad de la selección de llegar a la Final y ponderándola con el peso histórico individual de cada jugador.
+
+### 🔄 Escalabilidad sin Parches (Fases de Eliminación Directa)
+El código está diseñado para ser 100% reutilizable. No requiere crear scripts paralelos para Dieciseisavos, Octavos o la Final. Para avanzar de fase, el script inyecta de forma directa los nuevos encuentros en el nodo plano `"partidos"` de tu JSON [INDEX]. Como la estructura de un partido es idéntica en fase de grupos que en la final, el Front-End procesa y renderiza las llaves `snake_case` limpiamente sin riesgo de roturas [INDEX].
+
+---
+
+## 🚀 5. Instalación y Despliegue en GitHub Pages
+
+El Dashboard opera de forma autónoma en la nube, eliminando la necesidad de servidores locales mediante un entorno de integración continua en **GitHub Actions**:
+
+### Ejecución Local en Estación de Trabajo
 ```bash
-# 1. Clonar el repositorio analítico
-git clone https://github.com
-cd tu-repositorio
-
-# 2. Instalar el manifiesto de librerías congeladas
+# 1. Instalar las dependencias de Pandas y Numpy
 pip install -r requirements.txt
 
-# 3. Ejecutar el pipeline completo de forma secuencial
-python extractor.py
-python predict.py
-python actualizar_resultados.py
+# 2. Correr el pipeline unificado
+python pipeline_mundial.py
 ```
-## ☁️ 5. Despliegue Automatizado en GitHub Pages
 
-El Dashboard opera de forma 100% autónoma en la nube, eliminando la necesidad de servidores locales mediante un entorno de contenedores en **GitHub Actions**:
-
-1. **El Servidor Corre Solo (Cron Job):** El archivo `.github/workflows/actualizar.yml` está programado de forma nativa para encenderse automáticamente a las **23:00 UTC diariamente** (`cron: '0 23 * * *'`) [INDEX]. Sincroniza la prensa, procesa los datos y publica la web antes de la jornada del día siguiente [INDEX].
-2. **Cómo activarlo en GitHub Pages:**
-   * Entra a la pestaña **Settings** (Configuración) de tu repositorio en la web [INDEX].
-   * En el menú izquierdo, selecciona **Pages** [INDEX].
-   * En la sección *Build and deployment*, configura la fuente (*Source*) como **GitHub Actions** [INDEX].
-   * ¡Listo! El pipeline compilará el artefacto dinámico raíz (`.`) y lo publicará de forma segura con Cero Caídas de Servicio (*Zero-Downtime*) [INDEX].
-## 🧮 6. Desglose de Metodologías Analíticas (Detalle Técnico)
-
-Para los analistas interesados en la profundidad matemática de las matrices implementadas en `predict.py`, el sistema computa los datos mediante los siguientes tres pilares:
-
-### Metodología M1 (Marcador Consolidado)
-Toma los arrays numéricos de goles previstos por cada proveedor y calcula un promedio ponderado basado en la importancia asignada en tu archivo de control `config.json` (Opta: 30%, Innsbruck: 25%, etc.):
-$$\text{Goles M1} = \sum (\text{Goles}_{\text{Proveedor}} \times \text{Peso}_{\text{Proveedor}})$$
-El motor ejecuta un redondeo entero algebraico para transformar los decimales abstractos de la IA en un marcador lógico y realista en pantalla.
-
-### Metodología M2 (Índice de Confianza de Votos)
-Es un modelo democrático ponderado. Cada proveedor ejerce un voto directo (`LOCAL`, `EMPATE` o `VISITANTE`) comparando sus propios goles esperados. El sistema suma los pesos de los analistas que coinciden en una tendencia:
-$$\text{Confianza M2} = \sum \text{Pesos de Coincidencia} \times 100$$
-La tendencia con el porcentaje más alto determina la predicción, y el valor final le muestra al usuario qué tan unida o dividida está la industria sobre ese partido.
-
-### Filtro Compuesto de Varianza Mínima ($\sigma^2$)
-Utilizado de forma estricta para resolver empates en el ordenamiento del Cuadro de Honor mediante Pandas. A igualdad de probabilidad combinada entre dos selecciones o líderes individuales, el algoritmo calcula algebraicamente la dispersión de opiniones:
-$$\sigma^2 = \frac{\sum (X - \mu)^2}{N}$$
-El sistema prioriza automáticamente al equipo que presente la menor varianza ($\sigma^2 \to 0$). Esto significa que el Dashboard prefiere la estabilidad de un consenso unificado sobre una cifra inflada por un solo analista aislado, garantizando solidez predictiva.
+### Configuración en la Nube
+1.  **Automatización Horaria:** El archivo `.github/workflows/actualizar.yml` ejecuta de forma nativa el comando `python pipeline_mundial.py` una vez al día mediante un Cron Job programado [INDEX].
+2.  **Activación de la Interfaz:** Entra a la pestaña **Settings** ➡️ **Pages** de tu repositorio web, y en la sección *Build and deployment* configura el origen como **GitHub Actions** [INDEX]. El pipeline compilará el artefacto estático final y publicará tu Dashboard en vivo con un diseño premium en Modo Oscuro [INDEX].
