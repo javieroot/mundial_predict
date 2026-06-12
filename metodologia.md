@@ -33,11 +33,11 @@ $$w_i = \frac{w'_i}{\sum_{j=1}^{6} w'_j}$$
 
 De acuerdo con este análisis de fiabilidad a largo plazo, los pesos definitivos del vector $W$ mapeados en el sistema corresponden a:
 
-$$W = \begin{bmatrix} w_{\text{opta}} & w_{\text{apuestas}} & w_{\text{forebet}} & w_{\text{predictz}} & w_{\text{elo}} & w_{\text{google\_ai}} \end{bmatrix}$$
+$$W = \begin{bmatrix} w_{\text{opta}} & w_{\text{apuestas}} & w_{\text{forebet}} & w_{\text{predictz}} & w_{\text{elo}} & w_{\text{google}} \end{bmatrix}$$
 
 *   $w_{\text{opta}} = 0.25$ y $w_{\text{apuestas}} = 0.25$: Error mínimo ($BS \approx 0.18$) por la eficiencia masiva del mercado y procesamiento xG de eventos en vivo.
 *   $w_{\text{forebet}} = 0.15$ y $w_{\text{predictz}} = 0.15$: Modelos intermedios especializados con perfil táctico de alta ofensiva.
-*   $w_{\text{elo}} = 0.10$ y $w_{\text{google\_ai}} = 0.10$: Coeficientes de estabilización basados en fuerza puramente histórica y razonamiento general lógico.
+*   $w_{\text{elo}} = 0.10$ y $w_{\text{google}} = 0.10$: Coeficientes de estabilización basados en fuerza puramente histórica y razonamiento general lógico.
 
 $$\sum_{i=1}^{n} w_i = 0.25 + 0.25 + 0.15 + 0.15 + 0.10 + 0.10 = 1.00$$
 ---
@@ -49,7 +49,7 @@ El Modelo M1 calcula la **Esperanza Matemática de Goles** de un partido. Es una
 ### 🔲 Las Matrices de Entrada de Goles ($G$)
 Para cualquier partido, los datos se estructuran en dos vectores columna de goles esperados ($G_L$ para el equipo Local y $G_V$ para el Visitante):
 
-$$G_L = \begin{bmatrix} g_{\text{opta, L}} \\ g_{\text{apuestas, L}} \\ g_{\text{forebet, L}} \\ g_{\text{predictz, L}} \\ g_{\text{elo, L}} \\ g_{\text{google\_ai, L}} \end{bmatrix} \quad , \quad G_V = \begin{bmatrix} g_{\text{opta, V}} \\ g_{\text{apuestas, V}} \\ g_{\text{forebet, V}} \\ g_{\text{predictz, V}} \\ g_{\text{elo, V}} \\ g_{\text{google\_ai, V}} \end{bmatrix}$$
+$$G_L = \begin{bmatrix} g_{\text{opta, L}} \\ g_{\text{apuestas, L}} \\ g_{\text{forebet, L}} \\ g_{\text{predictz, L}} \\ g_{\text{elo, L}} \\ g_{\text{google, L}} \end{bmatrix} \quad , \quad G_V = \begin{bmatrix} g_{\text{opta, V}} \\ g_{\text{apuestas, V}} \\ g_{\text{forebet, V}} \\ g_{\text{predictz, V}} \\ g_{\text{elo, V}} \\ g_{\text{google, V}} \end{bmatrix}$$
 
 ### 🧮 La Fórmula del Consenso M1
 La expectativa analítica final antes del redondeo se obtiene mediante el producto punto entre el Vector de Pesos ($W$) y los Vectores de Goles ($G$):
@@ -118,7 +118,7 @@ Estadísticamente, la varianza mínima representa estabilidad y consistencia: el
 
 Para asegurar una honestidad analítica absoluta de cara al usuario en la web, el script `pipeline_mundial.py` utiliza álgebra de conjuntos en Python para deducir el origen del resultado, evaluando las etiquetas de origen guardadas en tu JSON base para cada uno de los 6 proveedores en un partido específico [INDEX]:
 
-$$O = \{ \text{opta}, \text{apuestas}, \text{forebet}, \text{predictz}, \text{elo}, \text{google\_ai} \}$$
+$$O = \{ \text{opta}, \text{apuestas}, \text{forebet}, \text{predictz}, \text{elo}, \text{google} \}$$
 
 El sistema aplica una función de cardinalidad (conteo de elementos únicos) sobre el conjunto $O$ para asignar la etiqueta final en la pantalla de la web:
 
