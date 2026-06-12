@@ -16,7 +16,6 @@ if os.path.exists(ARCHIVO_CONFIG):
     with open(ARCHIVO_CONFIG, "r", encoding="utf-8") as f:
         config_global = json.load(f)
 else:
-    # Respaldo por defecto en caso de ausencia física del JSON
     config_global = {
         "MUNDIAL_CONCLUIDO": False,
         "PESOS_MODELOS": {"opta": 0.30, "innsbruck": 0.25, "the_athletic": 0.20, "medium_elo": 0.10, "apuestas": 0.15}
@@ -28,7 +27,7 @@ PESOS_MODELOS = config_global.get("PESOS_MODELOS", {})
 def descargar_datos_vivos():
     """Descarga el paquete unificado de datos (partidos y matrices de probabilidad)."""
     if MUNDIAL_CONCLUIDO:
-        return {}, {}, {}
+        return {}, {}, {}, {}, {}
         
     # Cambia esta URL por la API real que provee tus JSON del torneo en vivo
     URL_DATOS_ORIGEN = "https://githubusercontent.com" 
@@ -40,25 +39,25 @@ def descargar_datos_vivos():
                 return (
                     res.get("partidos", {}),
                     res.get("probabilidades_campeon", {}),
-                    res.get("probabilidades_goleador", {})
+                    res.get("probabilidades_goleador", {}),
+                    res.get("probabilidades_jugador", {}),
+                    res.get("probabilidades_portero", {})
                 )
     except Exception as e:
         print(f"⚠️ Servidor sin partidos o estructura JSON no disponible: {e}")
     
-    return {}, {}, {}
+    return {}, {}, {}, {}, {}
 
-def calcular_cuadro_honor(prob_campeon, prob_goleador):
+def calcular_cuadro_honor(prob_campeon, prob_goleador, prob_jugador, prob_portero):
     """Aplica de forma estricta las fórmulas de Varianza Mínima y Probabilidad Cruzada Ponderada."""
-    if not prob_campeon or not prob_goleador:
-        # Valores de contingencia segura si el JSON origen no ha publicado cuotas pre-ronda todavía
-        return "Calculando...", "Calculando...", "Calculando...", "Calculando..."
+    if not prob_campeon or not prob_goleador or not prob_jugador or not prob_portero:
+        return "Calculando...", "Calculando...", "Calculando...", "Calculando...", "Calculando...", "Calculando..."
 
     # 1. Procesamiento matricial para Campeón y Podio Principal
     res_campeon = []
     for pais, modelos in prob_campeon.items():
         valores = [modelos.get(mod, 0.0) for mod in PESOS_MODELOS.keys()]
         pesos = list(PESOS_MODELOS.values())
-        
         prob_combinada = sum(v * w for v, w in zip(valores, pesos))
         varianza = float(np.var(valores))
         res_campeon.append({"pais": pais, "prob": prob_combinada, "var": varianza})
@@ -70,18 +69,23 @@ def calcular_cuadro_honor(prob_campeon, prob_goleador):
     subcampeon = df_ordenado.loc[1, "pais"] if len(df_ordenado) > 1 else "N/A"
     tercer_lugar = df_ordenado.loc[2, "pais"] if len(df_ordenado) > 2 else "N/A"
 
-    # 2. Procesamiento de Densidad Acumulada para Bota de Oro (Goleador)
-    res_goleador = []
-    for jugador, modelos in prob_goleador.items():
-        valores = [modelos.get(mod, 0.0) for mod in PESOS_MODELOS.keys()]
-        pesos = list(PESOS_MODELOS.values())
-        prob_combinada = sum(v * w for v, w in zip(valores, pesos))
-        res_goleador.append({"jugador": jugador, "prob": prob_combinada})
-    
-    df_goleador = pd.DataFrame(res_goleador).sort_values(by="prob", ascending=False).reset_index(drop=True)
-    goleador = df_goleador.loc[0, "jugador"] if len(df_goleador) > 0 else "N/A"
+    # Helper interno para agrupar cálculos por Densidad Acumulada Ponderada
+    def obtener_lider_individual(diccionario_datos):
+        registros = []
+        for nombre, modelos in diccionario_datos.items():
+            valores = [modelos.get(mod, 0.0) for mod in PESOS_MODELOS.keys()]
+            pesos = list(PESOS_MODELOS.values())
+            prob_combinada = sum(v * w for v, w in zip(valores, pesos))
+            registros.append({"nombre": nombre, "prob": prob_combinada})
+        df = pd.DataFrame(registros).sort_values(by="prob", ascending=False).reset_index(drop=True)
+        return df.loc[0, "nombre"] if len(df) > 0 else "N/A"
 
-    return campeon, subcampeon, tercer_lugar, goleador
+    # 2. Cálculos Individuales mediante Esperanza Matemática
+    goleador = obtener_lider_individual(prob_goleador)
+    mejor_jugador = obtener_lider_individual(prob_jugador)
+    mejor_portero = obtener_lider_individual(prob_portero)
+
+    return campeon, subcampeon, tercer_lugar, goleador, mejor_jugador, mejor_portero
 
 def analizar_partido(datos_partido):
     """Implementa tus ecuaciones exactas de Esperanza Matemática M1 y Consenso M2."""
@@ -128,8 +132,8 @@ def gestionar_base_datos_acumulada(partidos_analizados):
     for partido_id, analisis in partidos_analizados.items():
         partido_limpio = partido_id.replace("_", " ")
         equipos = partido_limpio.split(" vs ")
-        local = equipos[0] if len(equipos) > 0 else partido_limpio
-        visitante = equipos[1] if len(equipos) > 1 else "Desconocido"
+        local = equipos if len(equipos) > 0 else partido_limpio
+        visitante = equipos if len(equipos) > 1 else "Desconocido"
 
         registros_nuevos.append({
             "id_partido": partido_id, "fecha": fecha_hoy, "local": local, "visitante": visitante,
@@ -149,7 +153,7 @@ def gestionar_base_datos_acumulada(partidos_analizados):
     df_acumulado.to_csv(ARCHIVO_ACUMULADO, index=False)
     return df_acumulado
 
-def componer_html_final(df_acumulado, campeon, subcampeon, tercero, goleador):
+def componer_html_final(df_acumulado, campeon, subcampeon, tercero, goleador, mejor_jugador, mejor_portero):
     """Enlaza la capa lógica con el contenedor interactivo HTML."""
     fecha_ejecucion = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     json_data = df_acumulado.to_json(orient="records")
@@ -171,20 +175,24 @@ def componer_html_final(df_acumulado, campeon, subcampeon, tercero, goleador):
     html_final = html_final.replace("{{CALC_SUBCAMPEON}}", subcampeon)
     html_final = html_final.replace("{{CALC_TERCERO}}", tercero)
     html_final = html_final.replace("{{CALC_GOLEADOR}}", goleador)
+    html_final = html_final.replace("{{CALC_JUGADOR}}", mejor_jugador)
+    html_final = html_final.replace("{{CALC_PORTERO}}", mejor_portero)
     
     with open(ARCHIVO_HTML, "w", encoding="utf-8") as f:
         f.write(html_final)
 
 if __name__ == "__main__":
     print("🔄 Ejecutando procesamiento predictivo unificado...")
-    partidos_crudos, prob_campeon, prob_goleador = descargar_datos_vivos()
+    partidos_crudos, prob_campeon, prob_goleador, prob_jugador, prob_portero = descargar_datos_vivos()
     
     partidos_analizados = {}
     if partidos_crudos:
         for partido, datos_modelos in partidos_crudos.items():
             partidos_analizados[partido] = analizar_partido(datos_modelos)
             
-    campeon, subcampeon, tercero, goleador = calcular_cuadro_honor(prob_campeon, prob_goleador)
+    campeon, subcampeon, tercero, goleador, mejor_jugador, mejor_portero = calcular_cuadro_honor(
+        prob_campeon, prob_goleador, prob_jugador, prob_portero
+    )
     df_acumulado = gestionar_base_datos_acumulada(partidos_analizados)
-    componer_html_final(df_acumulado, campeon, subcampeon, tercero, goleador)
+    componer_html_final(df_acumulado, campeon, subcampeon, tercero, goleador, mejor_jugador, mejor_portero)
     print("🚀 Pipeline terminado. Base histórica e index.html actualizados con éxito.")
