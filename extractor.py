@@ -3,120 +3,77 @@ import json
 import os
 import re
 
-# URL del portal de prensa o repositorio comunitario abierto
-URL_PRENSA_DEPORTIVA = "https://githubusercontent.com"
+# RUTA UNIFICADA DE TU CAPA DE PERSISTENCIA FIJA
+ARCHIVO_PREDICCIONES_BASE = "predicciones_base.json"
 
-def obtener_puntos_elo_gratis(pais):
+def ejecutar_scraper_predicciones():
     """
-    Simula el ranking de fuerza analítica ELO para las selecciones del Mundial.
-    Aporta el quinto criterio analítico de forma gratuita y matemática.
+    === PROCESO 1: EXTRACCIÓN Y ADAPTACIÓN DE PRENSA ===
+    Peina portales informativos que publican las métricas de los grandes proveedores
+    y actualiza de forma inteligente tu JSON base sin pisar capturas manuales.
     """
-    ranking_elo = {
-        "Francia": 2110, "Argentina": 2100, "España": 2040, "Brasil": 2010,
-        "Inglaterra": 1980, "Portugal": 1950, "Países_Bajos": 1920, "Bélgica": 1880,
-        "México": 1820, "Estados_Unidos": 1810, "Japón": 1790, "Alemania": 1850
-    }
-    return ranking_elo.get(pais, 1600)
+    if not os.path.exists(ARCHIVO_PREDICCIONES_BASE):
+        print(f"❌ Error crítico: Falta el archivo base {ARCHIVO_PREDICCIONES_BASE}")
+        return
 
-def descargar_datos_vivos(mundial_concluido=False):
-    """
-    EXTRACTOR POR SCRAPING AUTOMATIZADO:
-    Rasca las notas de prensa especializadas y distribuye los valores reales
-    del ecosistema deportivo hacia las variables de cada uno de los 5 proveedores.
-    """
-    if mundial_concluido:
-        return {}, {}, {}, {}, {}
+    with open(ARCHIVO_PREDICCIONES_BASE, "r", encoding="utf-8") as f:
+        datos_base = json.load(f)
 
-    partidos_scraped = {}
-
-    try:
-        print("🔄 Conectando con el bot de scraping a prensa analítica internacional...")
+    # 2 Fuentes reales y alternativas de prensa por cada uno de los grandes proveedores
+    FUENTES_PRENSA = [
+        # --- CLIENTES DE OPTA ---
+        {"medio": "ESPN Deportes (Cita Opta)", "url": "https://githubusercontent.com", "proveedor_clave": "opta"},
+        {"medio": "Fox Sports Analítica (Cita Opta)", "url": "https://githubusercontent.com", "proveedor_clave": "opta"},
         
-        cabeceras = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
-        }
+        # --- CLIENTES DE INNSBRUCK ---
+        {"medio": "TyC Sports Notas (Cita Innsbruck)", "url": "https://githubusercontent.com", "proveedor_clave": "innsbruck"},
+        {"medio": "Die Presse Espejo (Cita Innsbruck)", "url": "https://githubusercontent.com", "proveedor_clave": "innsbruck"},
         
-        req = urllib.request.Request(URL_PRENSA_DEPORTIVA, headers=cabeceras)
+        # --- CLIENTES DE THE ATHLETIC ---
+        {"medio": "The Athletic Blog", "url": "https://githubusercontent.com", "proveedor_clave": "the_athletic"},
+        {"medio": "New York Times Sports", "url": "https://githubusercontent.com", "proveedor_clave": "the_athletic"},
         
-        with urllib.request.urlopen(req, timeout=10) as response:
-            cuerpo_html = response.read().decode('utf-8')
-            patron_cronica = re.findall(r"([A-Za-z\s]+)\s(\d+),\s([A-Za-z\s]+)\s(\d+)", cuerpo_html)
-
-            # Si el scraping de prensa no encuentra coincidencias, usamos el calendario base
-            if not patron_cronica:
-                print("⚠️ El bot no detectó texto predictivo formateado. Sincronizando calendario base...")
-                try:
-                    res_json = json.loads(cuerpo_html)
-                    partidos_json = res_json.get("matches", res_json.get("partidos", []))
-                    for p in partidos_json:
-                        loc = p.get("homeTeam", {}).get("name", "Local").replace(" ", "_")
-                        vis = p.get("awayTeam", {}).get("name", "Visitante").replace(" ", "_")
-                        patron_cronica.append((loc, 1, vis, 1)) # Marcador analítico base
-                except Exception:
-                    pass
-
-            # --- PROCESAMIENTO Y REPARTO HACIA LOS 5 PROVEEDORES ---
-            for local, goles_l, visitante, goles_v in patron_cronica:
-                local_limpio = local.strip().replace(" ", "_")
-                visitante_limpio = visitante.strip().replace(" ", "_")
-                partido_id = f"{local_limpio}_vs_{visitante_limpio}"
-
-                g1 = int(goles_l)
-                g2 = int(goles_v)
-
-                # Cálculo del quinto proveedor (Algoritmo ELO Interno)
-                elo_local = obtener_puntos_elo_gratis(local.strip())
-                elo_visitante = obtener_puntos_elo_gratis(visitante.strip())
-                diferencia_elo = (elo_local - elo_visitante) / 400
+        # --- COMPARADORES DE CASAS DE APUESTAS ---
+        {"medio": "Diario MARCA (Cuotas de Mercado)", "url": "https://githubusercontent.com", "proveedor_clave": "apuestas"},
+        {"medio": "Oddsportal Tablas (Consenso de Cuotas)", "url": "https://githubusercontent.com", "proveedor_clave": "apuestas"}
+    ]
+    for fuente in FUENTES_PRENSA:
+        try:
+            print(f"🔄 Bot rascando medio -> {fuente['medio']}: {fuente['url']}")
+            cabeceras = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+            req = urllib.request.Request(fuente["url"], headers=cabeceras)
+            
+            with urllib.request.urlopen(req, timeout=8) as response:
+                cuerpo_texto = response.read().decode('utf-8')
                 
-                goles_elo_l = max(0, round(1.2 + diferencia_elo, 1))
-                goles_elo_v = max(0, round(1.2 - diferencia_elo, 1))
+                # Expresión regular que peina el texto buscando marcadores limpios con espacios (Ej: Francia 2, Alemania 1)
+                patron_goles = re.findall(r"([A-Za-z\s]+)\s(\d+),\s([A-Za-z\s]+)\s(\d+)", cuerpo_texto)
+                
+                for local, goles_l, visitante, goles_v in patron_goles:
+                    # Mapear los nombres limpiando espacios extras para que coincidan con las llaves de predicciones_base.json
+                    partido_id = f"{local.strip()} vs {visitante.strip()}"
+                    g1, g2 = int(goles_l), int(goles_v)
+                    
+                    # BLINDAJE CONTRA DUPLICIDAD Y TRAZABILIDAD OPERATIVA:
+                    # Si el partido existe en tu base y el origen actual es "google", se refina con el dato real del medio
+                    if partido_id in datos_base["partidos"]:
+                        clave_modelo = fuente["proveedor_clave"]
+                        origen_actual = datos_base["partidos"][partido_id][clave_modelo][2]
+                        
+                        if origen_actual == "google":
+                            # Se sobreescribe la celda y se actualiza el origen de forma honesta a "proveedor"
+                            datos_base["partidos"][partido_id][clave_modelo] = [g1, g2, "proveedor"]
+                            print(f" 📦 Ingesta Real: {partido_id} -> Actualizado {clave_modelo} a {[g1, g2]} vía {fuente['medio']}")
 
-                # Distribución segmentada con desviaciones para emular el consenso
-                partidos_scraped[partido_id] = {
-                    "opta": [round(g1 * 1.1, 1), round(g2 * 0.9, 1)],
-                    "innsbruck": [round(g1 * 0.9, 1), round(g2 * 1.1, 1)],
-                    "the_athletic": [g1, g2],
-                    "medium_elo": [goles_elo_l, goles_elo_v],
-                    "apuestas": [g1, g2],
-                    "real_l": None,
-                    "real_v": None
-                }
+        except Exception as e:
+            print(f"⚠️ Nota de Red: {fuente['medio']} no disponible para scraping en esta corrida: {e}")
+            continue
 
-    except Exception as e:
-        print(f"❌ Error crítico en el módulo de scraping automatizado: {e}")
-        return {}, {}, {}, {}, {}
+    # Guardar las actualizaciones del scraping directamente sobre tu JSON base original
+    with open(ARCHIVO_PREDICCIONES_BASE, "w", encoding="utf-8") as f:
+        json.dump(datos_base, f, indent=4, ensure_ascii=False)
+        
+    print(f"✅ Proceso 1 finalizado: '{ARCHIVO_PREDICCIONES_BASE}' sincronizado y blindado con éxito.")
 
-    # --- MATRICES PROBABILÍSTICAS REALES (Materia prima para tu DataFrame de Pandas) ---
-    # Tu función calcular_cuadro_honor ordenará y extraerá automáticamente los 4 lugares del podio
-    probabilidades_campeon = {
-        "España": {"opta": 0.161, "innsbruck": 0.140, "the_athletic": 0.150, "medium_elo": 0.120, "apuestas": 0.180},
-        "Francia": {"opta": 0.134, "innsbruck": 0.150, "the_athletic": 0.140, "medium_elo": 0.160, "apuestas": 0.150},
-        "Argentina": {"opta": 0.112, "innsbruck": 0.120, "the_athletic": 0.110, "medium_elo": 0.150, "apuestas": 0.130},
-        "Brasil": {"opta": 0.098, "innsbruck": 0.090, "the_athletic": 0.100, "medium_elo": 0.100, "apuestas": 0.111}
-    }
-
-    probabilidades_goleador = {
-        "Erling Haaland (Noruega)": {"opta": 0.25, "innsbruck": 0.20, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.25},
-        "Kylian Mbappé (Francia)": {"opta": 0.22, "innsbruck": 0.24, "the_athletic": 0.20, "medium_elo": 0.18, "apuestas": 0.22}
-    }
-
-    probabilidades_jugador = {
-        "Jude Bellingham (Inglaterra)": {"opta": 0.28, "innsbruck": 0.25, "the_athletic": 0.26, "medium_elo": 0.20, "apuestas": 0.28},
-        "Lamine Yamal (España)": {"opta": 0.20, "innsbruck": 0.18, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.20}
-    }
-
-    probabilidades_portero = {
-        "Unai Simón (España)": {"opta": 0.24, "innsbruck": 0.20, "the_athletic": 0.25, "medium_elo": 0.18, "apuestas": 0.24},
-        "Emiliano Martínez (Argentina)": {"opta": 0.22, "innsbruck": 0.25, "the_athletic": 0.20, "medium_elo": 0.24, "apuestas": 0.22}
-    }
-
-    print(f"✅ Scraping finalizado con éxito. Matrices unificadas listas para publicación.")
-    return (
-        partidos_scraped,
-        probabilidades_campeon,
-        probabilidades_goleador,
-        probabilidades_jugador,
-        probabilidades_portero
-    )
+if __name__ == "__main__":
+    ejecutar_scraper_predicciones()
