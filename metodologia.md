@@ -4,9 +4,10 @@ title: Fundamentos Matemáticos
 nav_order: 2
 has_math: true
 ---
+
 # 🧮 Fundamentos Matemáticos y Metodología Predictiva
 
-Este documento detalla el marco teórico, las fórmulas algebraicas y los criterios estadísticos utilizados por el script `mundial_predict.py` para unificar los criterios de los 5 modelos de la industria.
+Este documento detalla el marco teórico, las fórmulas algebraicas y los criterios estadísticos utilizados por el script `predict.py` para unificar de forma persistente los criterios de los 5 modelos de la industria.
 
 ---
 
@@ -78,10 +79,30 @@ $$C_{\text{consenso}} = \max(S_{\text{LOCAL}}, S_{\text{VISITANTE}}, S_{\text{EM
 
 ---
 
-## 4. Análisis del Pronóstico Único (Podio Maestro)
+## 4. 🏆 Análisis Algorítmico del Cuadro de Honor (Pre-Ronda)
 
-El podio fijo inicial (España, Francia, Inglaterra) se determinó mediante la **Matriz de Intersección de Probabilidades Cruzadas**:
+Para evitar que el podio contenga datos estáticos o arbitrarios, el script calcula dinámicamente las cuatro variables maestras de premiación del torneo procesando las matrices vivas de probabilidad inter-modelo mediante criterios algebraicos:
 
-1. **Estandarización de Probabilidades:** Se extrajeron las funciones de distribución de probabilidad para el campeón asignadas por cada modelo y se normalizaron a una escala común $P_i(X)$.
-2. **Filtrado por Varianza Mínima ($\sigma^2$):** Se calculó la desviación estándar de las probabilidades entre los distintos modelos para cada país. 
-3. **Criterio de Selección:** **España** se consolidó en el primer lugar porque, además de liderar el ranking de probabilidad neta, presentó la varianza más baja ($\sigma^2 \to 0$), lo que demuestra un consenso matemático total y unánime en el ecosistema analítico antes de iniciar el torneo.
+### Paso A: Esperanza de Densidad Cruzada
+Se evalúan las distribuciones de probabilidad a campeón $P_i(X)$ que cada modelo $i$ asigna a las selecciones en competencia, ponderándolas linealmente mediante el vector de pesos oficial:
+
+$$P_{\text{Combinada}}(X) = \sum_{i=1}^{n} (P_i(X) \times w_i)$$
+
+### Paso B: Minimización de Varianza ($\sigma^2 \to 0$)
+Para garantizar un consenso analítico total y purgar sesgos extremos de modelos individuales, se calcula la varianza muestral del ecosistema para cada argumento:
+
+$$\sigma^2(X) = \frac{1}{n} \sum_{i=1}^{n} (P_i(X) - \mu_X)^2$$
+
+El algoritmo ordena el Cuadro de Honor maximizando $P_{\text{Combinada}}$ y utilizando la varianza mínima $\sigma^2$ como criterio de estabilidad y desempate:
+1. **Campeón (🥇 1er Lugar):** Argumento que maximiza la densidad cruzada ponderada sujeta al menor índice de dispersión inter-modelo.
+2. **Subcampeón (🥈 2do Lugar):** Segundo valor de optimización en la matriz estandarizada de emparejamientos cruzados de la gran final.
+3. **Tercer Lugar (🥉 3er Lugar):** Tercera fuerza de convergencia probabilística derivada de la estabilidad temporal en coeficientes de rendimiento.
+4. **Máximo Goleador (⚽ Bota de Oro):** Cálculo matemático directo de la Densidad de Probabilidad Acumulada aplicada sobre los volúmenes globales de cuotas implícitas del mercado.
+
+---
+
+## 5. 💾 Persistencia de Datos y Coexistencia de Resultados
+
+El script implementa un almacenamiento persistente en `partidos_acumulado.csv`. Una vez que el script calcula un pronóstico para un `id_partido`, este se congela en el histórico. 
+
+El motor JavaScript web evalúa dinámicamente el estado del juego: si está *Pendiente*, bloquea las celdas reales. Al momento de actualizarse el vector de marcadores reales ($[Real_L, Real_V]$), el Dashboard presenta la comparativa directa en paralelo para auditorías automáticas de precisión.
