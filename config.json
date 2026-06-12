@@ -1,0 +1,10 @@
+{
+  "MUNDIAL_CONCLUIDO": false,
+  "PESOS_MODELOS": {
+    "opta": 0.30,
+    "innsbruck": 0.25,
+    "the_athletic": 0.20,
+    "medium_elo": 0.10,
+    "apuestas": 0.15
+  }
+}
