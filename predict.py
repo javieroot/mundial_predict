@@ -128,7 +128,7 @@ def analizar_partido(partido_id, info):
         "estadio": info.get("estadio", "Por definir"),
         "hora": info.get("hora", "--:--"),
         "local": local,
-        "visitante":访问,
+        "visitante": visitante,
         "m1_marcador_local": goles_m1_local, 
         "m1_marcador_visitante": goles_m1_visitante, 
         "m1_resultado_derivado": resultado_m1, 
