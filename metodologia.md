@@ -96,33 +96,33 @@ $$C_{\text{M2}} = \max(S_{\text{LOCAL}}, S_{\text{EMPATE}}, S_{\text{VISITANTE}}
 
 ## 🔀 4. Criterio Compuesto de Varianza Mínima ($\sigma^2$) para el Cuadro de Honor
 
-En el panel superior del Dashboard, tu función utiliza un DataFrame de Pandas para ordenar jerárquicamente a los favoritos. A igualdad de probabilidad combinada entre dos selecciones o líderes individuales, el algoritmo calcula la dispersión de opiniones mediante la fórmula de la varianza:
+En el panel superior del Dashboard, tu función utiliza un DataFrame de Pandas para ordenar jerárquicamente a los favoritos [INDEX]. A igualdad de probabilidad combinada entre dos selecciones o líderes individuales, el algoritmo calcula la dispersión de opiniones mediante la fórmula de la varianza [INDEX]:
 
 $$\sigma^2 = \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{N}$$
 
 Donde:
 *   $X_i$: La probabilidad que le dio un modelo específico a esa selección.
 *   $\mu$: El promedio aritmético simple de las opiniones para esa selección.
-*   $N$: El número total de modelos evaluados ($5$).
+*   $N$: El número total de modelos evaluados ($6$).
 
 ### ⚖️ La Regla Lógica del Desempate
 El script de Pandas ordena la tabla de forma descendente por Probabilidad, pero de forma ascendente por Varianza:
 
 $$\text{Ordenación DataFrame} = \text{sort(prob, var, ascending=[False, True])}$$
 
-Estadísticamente, la varianza mínima representa estabilidad y consistencia: el sistema prefiere un veredicto donde los 5 grandes están de acuerdo, por encima de una cifra inflada por un analista aislado.
+Estadísticamente, la varianza mínima representa estabilidad y consistencia: el sistema prefiere un veredicto donde los 6 grandes están de acuerdo, por encima de una cifra inflada por un analista aislado.
 
 ---
 
 ## 🎛️ 5. Coeficiente Compuesto de Trazabilidad (Origen Final del Dashboard)
 
-Para asegurar una honestidad analítica absoluta de cara al usuario en la web, el script `pipeline_mundial.py` utiliza álgebra de conjuntos en Python para deducir el origen del resultado, evaluando las etiquetas de origen guardadas en tu JSON base para cada uno de los 6 proveedores en un partido específico:
+Para asegurar una honestidad analítica absoluta de cara al usuario en la web, el script `pipeline_mundial.py` utiliza álgebra de conjuntos en Python para deducir el origen del resultado, evaluando las etiquetas de origen guardadas en tu JSON base para cada uno de los 6 proveedores en un partido específico [INDEX]:
 
 $$O = \{ \text{opta}, \text{apuestas}, \text{forebet}, \text{predictz}, \text{elo}, \text{google\_ai} \}$$
 
 El sistema aplica una función de cardinalidad (conteo de elementos únicos) sobre el conjunto $O$ para asignar la etiqueta final en la pantalla de la web:
 
-1.  **Si la cardinalidad es igual a 1 ($\lvert O \rvert = 1$):** Significa que no hay mezcla de datos. La etiqueta final mantiene el valor puro del conjunto:
+1.  **Si la cardinalidad es igual a 1 ($\lvert O \rvert = 1$):** Significa que no hay mezcla de datos. La etiqueta final mantiene el valor puro del conjunto [INDEX]:
     $$\text{Trazabilidad Final} = \text{Elemento Único de } O \quad (\text{ej: "proveedor" o "estimado por google"})$$
-2.  **Si la cardinalidad es mayor a 1 ($\lvert O \rvert > 1$):** Significa que el partido combina fuentes. El motor concatena los strings anteponiendo la palabra clave `"mixto"`:
+2.  **Si la cardinalidad es mayor a 1 ($\lvert O \rvert > 1$):** Significa que el partido combina fuentes. El motor concatena los strings anteponiendo la palabra clave `"mixto"` [INDEX]:
     $$\text{Trazabilidad Final} = \text{"mixto: "} + \text{unión ordenada de los elementos de } O$$
