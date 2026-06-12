@@ -39,7 +39,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "📊 Base acumulada, JSON de contingencia e index.html actualizados por sistema"
-        file_pattern: 'partidos_acumulado.csv index.html datos_modelos_manual.json'
+        file_pattern: '*'
 
     - name: Configurar Pages
       uses: actions/configure-pages@v5
