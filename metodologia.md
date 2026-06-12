@@ -7,7 +7,7 @@ has_math: true
 
 # 🧮 Arquitectura Matemática y Metodología Analítica - Mundial 2026
 
-Este documento detalla el núcleo matemático, algebraico y estadístico implementado en el motor `predict.py` para procesar, unificar y auditar las predicciones de la Copa del Mundo 2026. El sistema reduce el sesgo predictivo individual aislando la dispersión de datos a través de tres pilares algorítmicos.
+Este documento detalla el núcleo matemático, algebraico y Pipe estadístico implementado en el motor `predict.py` para procesar, unificar y auditar las predicciones de la Copa del Mundo 2026. El sistema reduce el sesgo predictivo individual aislando la dispersión de datos a través de tres pilares algorítmicos.
 
 ---
 
@@ -15,17 +15,16 @@ Este documento detalla el núcleo matemático, algebraico y estadístico impleme
 
 Ningún analista tiene el mismo nivel de certeza histórica. Para equilibrar el ecosistema, el sistema define un **Vector de Pesos Ponderados ($W$)** a partir de tu archivo `config.json`. La suma de estos pesos es estrictamente equivalente a la unidad ($1.0$ o $100\%$):
 
-$$W = \begin{bmatrix} w_{\text{opta}} & w_{\text{innsbruck}} & w_{\text{the\_athletic}} & w_{\text{medium\_elo}} & w_{\text{apuestas}} \end{bmatrix}$$
+$$W = \begin{bmatrix} w_{\text{opta}} & w_{\text{inns}} & w_{\text{ath}} & w_{\text{elo}} & w_{\text{apuestas}} \end{bmatrix}$$
 
 De acuerdo con la configuración optimizada de tu arquitectura, los valores asignados son:
-*   $w_{\text{opta}} = 0.30$ (Peso del microdata e IA)
-*   $w_{\text{innsbruck}} = 0.25$ (Peso de la distribución de Poisson macro)
-*   $w_{\text{the\_athletic}} = 0.20$ (Peso del análisis táctico humano)
-*   $w_{\text{apuestas}} = 0.15$ (Peso de la probabilidad implícita financiera)
-*   $w_{\text{medium\_elo}} = 0.10$ (Peso del rendimiento histórico puro)
+*   $w_{\text{opta}} = 0.30$ (Peso de Opta: microdata e IA)
+*   $w_{\text{inns}} = 0.25$ (Peso de Innsbruck: distribución de Poisson macro)
+*   $w_{\text{ath}} = 0.20$ (Peso de The Athletic: análisis táctico humano)
+*   $w_{\text{apuestas}} = 0.15$ (Peso del Mercado: probabilidad implícita financiera)
+*   $w_{\text{elo}} = 0.10$ (Peso de Medium ELO: rendimiento histórico puro)
 
 $$\sum_{i=1}^{n} w_i = 0.30 + 0.25 + 0.20 + 0.15 + 0.10 = 1.00$$
-
 ---
 
 ## ⚽ 2. Metodología M1: El Marcador Consolidado Ponderado
@@ -35,7 +34,7 @@ El Modelo M1 calcula la **Esperanza Matemática de Goles** de un partido. Es una
 ### 🔲 Las Matrices de Entrada de Goles ($G$)
 Para cualquier partido, los datos se estructuran en dos vectores columna de goles esperados ($G_L$ para el equipo Local y $G_V$ para el Visitante):
 
-$$G_L = \begin{bmatrix} g_{\text{opta, L}} \\ g_{\text{innsbruck, L}} \\ g_{\text{the\_athletic, L}} \\ g_{\text{medium\_elo, L}} \\ g_{\text{apuestas, L}} \end{bmatrix} \quad , \quad G_V = \begin{bmatrix} g_{\text{opta, V}} \\ g_{\text{innsbruck, V}} \\ g_{\text{the\_athletic, V}} \\ g_{\text{medium\_elo, V}} \\ g_{\text{apuestas, V}} \end{bmatrix}$$
+$$G_L = \begin{bmatrix} g_{\text{opta, L}} \\ g_{\text{inns, L}} \\ g_{\text{ath, L}} \\ g_{\text{elo, L}} \\ g_{\text{apuestas, L}} \end{bmatrix} \quad , \quad G_V = \begin{bmatrix} g_{\text{opta, V}} \\ g_{\text{inns, V}} \\ g_{\text{ath, V}} \\ g_{\text{elo, V}} \\ g_{\text{apuestas, V}} \end{bmatrix}$$
 
 ### 🧮 La Fórmula del Consenso M1
 La expectativa analítica final antes del redondeo se obtiene mediante el producto punto entre el Vector de Pesos ($W$) y los Vectores de Goles ($G$):
@@ -81,7 +80,7 @@ $$C_{\text{M2}} = \max(S_{\text{LOCAL}}, S_{\text{EMPATE}}, S_{\text{VISITANTE}}
 
 ## 🔀 4. Criterio Compuesto de Varianza Mínima ($\sigma^2$) para el Cuadro de Honor
 
-En el panel superior del Dashboard, tu función utiliza un DataFrame de Pandas para ordenar jerárquicamente a los favoritos. A igualdad de probabilidad combinada entre dos selecciones o líderes individuales, el algoritmo calcula algebraicamente la dispersión de opiniones mediante la fórmula de la varianza:
+En el panel superior del Dashboard, tu función utiliza un DataFrame de Pandas para ordenar jerárquicamente a los favoritos. A igualdad de probabilidad combinada entre dos selecciones o líderes individuales, el algoritmo calcula la dispersión de opiniones mediante la fórmula de la varianza:
 
 $$\sigma^2 = \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{N}$$
 
@@ -93,7 +92,7 @@ Donde:
 ### ⚖️ La Regla Lógica del Desempate
 El script de Pandas ordena la tabla de forma descendente por Probabilidad, pero de forma ascendente por Varianza:
 
-$$\text{Ordenación DataFrame} = \text{sort\_values}\Big(\text{by}=[\text{"prob"}, \text{"var"}], \text{ascending}=[\text{False}, \text{True}]\Big)$$
+$$\text{Ordenación DataFrame} = \text{sort(prob, var, ascending=[False, True])}$$
 
 Estadísticamente, la varianza mínima representa estabilidad y consistencia: el sistema prefiere un veredicto donde los 5 grandes están de acuerdo, por encima de una cifra inflada por un analista aislado.
 
@@ -103,7 +102,7 @@ Estadísticamente, la varianza mínima representa estabilidad y consistencia: el
 
 Para asegurar una honestidad analítica absoluta de cara al usuario en la web, el script `predict.py` utiliza álgebra de conjuntos en Python para deducir el origen del resultado, evaluando las etiquetas de origen guardadas en tu JSON base para cada uno de los 5 grandes proveedores en un partido específico:
 
-$$\text{Conjunto de Orígenes } (O) = \{ \text{orig}_{\text{opta}}, \text{orig}_{\text{innsbruck}}, \text{orig}_{\text{the\_athletic}}, \text{orig}_{\text{medium\_elo}}, \text{orig}_{\text{apuestas}} \}$$
+$$O = \{ \text{opta}, \text{inns}, \text{ath}, \text{elo}, \text{apuestas} \}$$
 
 El sistema aplica una función de cardinalidad (conteo de elementos únicos) sobre el conjunto $O$ para asignar la etiqueta final en la pantalla de la web:
 
@@ -111,4 +110,3 @@ El sistema aplica una función de cardinalidad (conteo de elementos únicos) sob
     $$\text{Trazabilidad Final} = \text{Elemento Único de } O \quad (\text{ej: "proveedor", "google" o "manual"})$$
 2.  **Si la cardinalidad es mayor a 1 ($\lvert O \rvert > 1$):** Significa que el partido combina fuentes. El motor concatena los strings anteponiendo la palabra clave `"mixto"`:
     $$\text{Trazabilidad Final} = \text{"mixto: "} + \text{unión ordenada de los elementos de } O$$
-
