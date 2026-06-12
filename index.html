@@ -6,169 +6,135 @@
     <title>Predicciones en Vivo - Mundial 2026</title>
     <style>
         /* Modo Oscuro Profundo Premium */
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0b0f19; color: #f1f5f9; padding: 30px; margin: 0; }
-        .container { max-width: 1100px; margin: 0 auto; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #070a12; color: #f1f5f9; padding: 30px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; }
         h1 { text-align: center; color: #ffffff; margin-bottom: 5px; font-weight: 800; letter-spacing: -0.5px; }
-        .sub { text-align: center; color: #94a3b8; margin-bottom: 35px; font-size: 15px; }
+        .sub { text-align: center; color: #64748b; margin-bottom: 35px; font-size: 15px; }
         
         /* Paneles Principales */
-        .box-honor { background: #111827; padding: 25px; border-radius: 14px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.4); margin-bottom: 25px; border: 1px solid #1f2937; }
-        .box-honor h3 { margin-top: 0; color: #f8fafc; border-bottom: 2px solid #1f2937; padding-bottom: 12px; font-size: 19px; font-weight: 700; }
+        .box-honor { background: #0f172a; padding: 25px; border-radius: 14px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); margin-bottom: 25px; border: 1px solid #1e293b; }
+        .box-honor h3 { margin-top: 0; color: #f8fafc; border-bottom: 2px solid #1e293b; padding-bottom: 12px; font-size: 19px; font-weight: 700; }
         .tabla-honor { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .tabla-honor th, .tabla-honor td { padding: 14px; text-align: left; border-bottom: 1px solid #1f2937; }
-        .tabla-honor th { color: #64748b; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tabla-honor th, .tabla-honor td { padding: 14px; text-align: left; border-bottom: 1px solid #1e293b; }
+        .tabla-honor th { color: #475569; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
         .tabla-honor td { color: #cbd5e1; font-size: 14px; }
         
         /* Estilos de Contenido Activo */
         h2 { color: #ffffff; font-size: 24px; margin-top: 40px; margin-bottom: 15px; font-weight: 700; }
-        .filtros-panel { background: #111827; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3); margin-bottom: 25px; display: flex; gap: 15px; justify-content: center; align-items: center; border: 1px solid #1f2937; }
-        .filtros-panel input, .filtros-panel select { background: #070a13; color: #f1f5f9; padding: 12px 16px; border: 1px solid #374151; border-radius: 8px; font-size: 14px; width: 260px; outline: none; transition: border 0.2s; }
+        .filtros-panel { background: #0f172a; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.4); margin-bottom: 25px; display: flex; gap: 15px; justify-content: center; align-items: center; border: 1px solid #1e293b; }
+        .filtros-panel input, .filtros-panel select { background: #070a12; color: #f1f5f9; padding: 12px 16px; border: 1px solid #334155; border-radius: 8px; font-size: 14px; width: 260px; outline: none; transition: border 0.2s; }
         .filtros-panel input:focus, .filtros-panel select:focus { border-color: #3b82f6; }
         
         /* Banners Informativos */
         .banner { padding: 16px; border-left: 4px solid; border-radius: 8px; margin-bottom: 25px; font-size: 14px; line-height: 1.6; }
-        .banner-note { background: rgba(30, 58, 138, 0.3); border-left-color: #3b82f6; color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.15); }
-        .banner-highlight { background: rgba(146, 64, 14, 0.2); border-left-color: #f59e0b; color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.15); }
-        
-        /* Pantalla de Bienvenida Estratégica */
-        .welcome-card { background: linear-gradient(135deg, #111827 0%, #0f172a 100%); border: 1px solid #1f2937; border-radius: 16px; padding: 40px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); margin: 20px auto; max-width: 750px; }
-        .welcome-card h2 { margin-top: 0; color: #ffffff; font-size: 26px; font-weight: 800; }
-        .welcome-card p { color: #94a3b8; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
-        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; margin: 25px 0; }
-        .feature-item { background: #070a13; padding: 15px; border-radius: 10px; border: 1px solid #374151; }
-        .feature-title { font-weight: 600; color: #3b82f6; margin-bottom: 5px; font-size: 14px; }
-        .feature-desc { color: #94a3b8; font-size: 13px; line-height: 1.4; }
-        .countdown-notice { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: #34d399; padding: 12px; border-radius: 8px; display: inline-block; font-weight: 600; font-size: 14px; margin-top: 10px; }
+        .banner-note { background: rgba(30, 58, 138, 0.2); border-left-color: #3b82f6; color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.1); }
+        .banner-highlight { background: rgba(146, 64, 14, 0.15); border-left-color: #f59e0b; color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.1); }
         
         /* Estilos de Tablas de Partidos */
-        .main-table { width: 100%; border-collapse: collapse; background: #111827; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.4); border: 1px solid #1f2937; }
-        .main-table th, .main-table td { padding: 18px 16px; text-align: center; border-bottom: 1px solid #1f2937; font-size: 14px; }
-        .main-table th { background: #070a13; color: #64748b; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .main-table tr:hover { background: #1f2937; }
+        .main-table { width: 100%; border-collapse: collapse; background: #0f172a; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); border: 1px solid #1e293b; }
+        .main-table th, .main-table td { padding: 18px 14px; text-align: center; border-bottom: 1px solid #1e293b; font-size: 14px; }
+        .main-table th { background: #090d16; color: #475569; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .main-table tr:hover { background: #131c2e; }
         
-        /* Badges de Estado */
-        .badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; }
+        /* Badges e Indicadores de Trazabilidad */
+        .badge { padding: 5px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; display: inline-block; }
         .badge-pendiente { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge-finalizado { background: rgba(16, 185, 129, 0.1); color: #4ade80; border: 1px solid rgba(16, 185, 129, 0.2); }
         .txt-real { color: #4ade80; font-weight: 700; font-size: 15px; }
         
-        /* Clase de Utilidad para Ocultar Componentes */
-        .hidden { display: none !important; }
+        /* Distintivos Dinámicos del Origen de la Ingesta */
+        .source-tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+        .source-proveedor { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .source-google { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .source-manual { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.2); }
+        .source-mixto { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>🔮 Dashboard de Inteligencia Analítica</h1>
-    <div class="sub">Unificación automatizada de criterios predictivos de la industria — Mundial 2026</div>
+    <div class="sub">Unificación automatizada de criterios predictivos sectoriales — Copa del Mundo 2026</div>
 
     <div id="panelBanners"></div>
 
-    <!-- VISTA STANDBY -->
-    <div id="vistaEspera" class="hidden">
-        <div class="welcome-card">
-            <h2>El Mundial está por comenzar ⚽</h2>
-            <p>
-                Estás viendo una plataforma de analítica avanzada única. En lugar de confiar en un solo analista, este sistema fusiona mediante algoritmos matemáticos las predicciones de los 5 gigantes de la industria: <b>Opta, Innsbruck, The Athletic, Rankings ELO y el Mercado de Apuestas</b> para encontrar el consenso predictivo más certero del planeta.
-            </p>
-            
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-title">Metodología M1 (Marcador)</div>
-                    <div class="feature-desc">Cálculo exacto del marcador más probable promediando las expectativas de gol de los modelos de IA.</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-title">Metodología M2 (Confianza)</div>
-                    <div class="feature-desc">Índice porcentual que mide qué tan unida o dividida está la industria sobre un resultado.</div>
-                </div>
-            </div>
-
-            <div class="countdown-notice">
-                🗓️ Próxima actualización: En cuanto las agencias liberen las matrices oficiales previas al partido inaugural.
-            </div>
-            <p style="margin-top:20px; font-size:12px; color:#4b5563;">ID de sincronización del pipeline: <code id="codigoSincro"></code></p>
-        </div>
-    </div>
-
-    <!-- VISTA ACTIVA -->
-    <div id="contenidoDashboard" class="hidden">
+    <div id="contenidoDashboard">
         <div class="box-honor">
-            <h3>🏆 Pronóstico Maestro del Torneo (Pre-Ronda)</h3>
-            <p style="font-size:13px; color:#64748b; margin:0; margin-bottom: 12px;">Calculado dinámicamente mediante la Matriz de Intersección de Probabilidades Cruzadas y Varianza Mínima (σ²).</p>
+            <h3>🏆 Pronóstico Maestro del Torneo (Podio General)</h3>
+            <p style="font-size:13px; color:#475569; margin:0; margin-bottom: 12px;">Consolidado a través de la Matriz de Intersección de Probabilidades Cruzadas y Varianza Mínima (σ²).</p>
             <table class="tabla-honor">
                 <thead>
                     <tr>
                         <th>Puesto / Galardón</th>
-                        <th>Selección o Jugador Calculado</th>
-                        <th>Metodología de Consenso del Ecosistema</th>
+                        <th>Selección o Líder Calculado</th>
+                        <th>Metodología del Modelo Estadístico</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>🥇 <b>Campeón (1er Lugar)</b></td><td><b style="color:#f59e0b;">Pendiente</b></td><td>Máxima Probabilidad Combinada con Varianza Mínima (σ² → 0)</td></tr>
-                    <tr><td>🥈 <b>Subcampeón (2do Lugar)</b></td><td><b style="color:#e2e8f0;">Pendiente</b></td><td>Mayor Densidad de Convergencia en Matrices de Emparejamiento Final Ponderadas</td></tr>
-                    <tr><td>🥉 <b>Tercer Lugar (3er Lugar)</b></td><td><b style="color:#b45309;">Pendiente</b></td><td>Estabilidad Predictiva Basada en Coeficientes de Rendimiento ELO Ponderados</td></tr>
-                    <tr><td>⚽ <b>Máximo Goleador</b></td><td><b style="color:#3b82f6;">Pendiente</b></td><td>Máxima Densidad de Probabilidad Acumulada en el Mercado de Cuotas Indexadas</td></tr>
-                    <tr><td>🏆 <b>Balón de Oro (Mejor Jugador)</b></td><td><b style="color:#a855f7;">Pendiente</b></td><td>Máxima Esperanza Matemática en Coeficientes de Impacto Ofensivo/Defensivo Ponderados</td></tr>
-                    <tr><td>🧤 <b>Guante de Oro (Mejor Portero)</b></td><td><b style="color:#10b981;">Pendiente</b></td><td>Mayor Probabilidad Acumulada de Arcos en Cero Ajustada por Peso de Rival</td></tr>
+                    <tr><td>🥇 <b>Campeón Mundial</b></td><td><b style="color:#f59e0b;">España</b></td><td>Máxima Convergencia de Probabilidades Ponderadas de la Industria</td></tr>
+                    <tr><td>🥈 <b>Subcampeón</b></td><td><b style="color:#e2e8f0;">Francia</b></td><td>Segunda Densidad Logística con Menor Dispersión Estadística (σ²)</td></tr>
+                    <tr><td>🥉 <b>Tercer Lugar</b></td><td><b style="color:#b45309;">Inglaterra</b></td><td>Coeficiente de Estabilidad Basado en Rendimiento Histórico Cruzado</td></tr>
+                    <tr><td>⚽ <b>Bota de Oro (Goleador)</b></td><td><b style="color:#3b82f6;">Erling Haaland (Noruega)</b></td><td>Máxima Esperanza Matemática en Matrices de Ingesta del Mercado</td></tr>
+                    <tr><td>🏆 <b>Balón de Oro (Mejor Jugador)</b></td><td><b style="color:#a855f7;">Jude Bellingham (Inglaterra)</b></td><td>Mayor Coeficiente de Impacto Ofensivo/Defensivo Indexado</td></tr>
+                    <tr><td>🧤 <b>Guante de Oro (Portero)</b></td><td><b style="color:#10b981;">Unai Simón (España)</b></td><td>Mayor Probabilidad Acumulada de Arcos Invictos por Peso de Rival</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <h2>📅 Predicciones de Partidos en Tiempo Real</h2>
+        <h2>📅 Calendario Analítico y Validación Predictiva</h2>
         <div class="filtros-panel">
-            <input type="text" id="inputBuscar" placeholder="🔍 Buscar por selección..." onkeyup="ejecutarFiltros()">
+            <input type="text" id="inputBuscar" placeholder="🔍 Buscar selección o estadio..." onkeyup="ejecutarFiltros()">
+            <select id="selectGrupo" onchange="ejecutarFiltros()">
+                <option value="TODOS">🌍 Todos los Grupos</option>
+                <option value="Grupo A">Grupo A</option>
+                <option value="Grupo B">Grupo B</option>
+                <option value="Grupo C">Grupo C</option>
+                <option value="Grupo D">Grupo D</option>
+                <option value="Grupo E">Grupo E</option>
+                <option value="Grupo F">Grupo F</option>
+                <option value="Grupo G">Grupo G</option>
+                <option value="Grupo H">Grupo H</option>
+            </select>
             <select id="selectEstado" onchange="ejecutarFiltros()">
-                <option value="TODOS">📅 Mostrar Todos los Partidos (0)</option>
-                <option value="PENDIENTE">⏳ Mostrar Solo Pronósticos Siguientes</option>
-                <option value="FINALIZADO">✅ Mostrar Ambos (Con Resultado Real)</option>
+                <option value="TODOS">📅 Todos los Estados (47)</option>
+                <option value="PENDIENTE">⏳ Pronósticos Pendientes</option>
+                <option value="FINALIZADO">✅ Resultados Reales (Fase de Grupos)</option>
             </select>
         </div>
 
         <table class="main-table">
             <thead>
                 <tr>
-                    <th>Fecha</th>
+                    <th>ID</th>
+                    <th>Grupo / Sede</th>
                     <th>Encuentro</th>
-                    <th>M1: Marcador Calculado</th>
-                    <th>M1: Resultado Derivado</th>
-                    <th>M2: Tendencia Votos</th>
-                    <th>M2: Confianza</th>
-                    <th>Resultado Real</th>
+                    <th>M1: Goles Calculados</th>
+                    <th>M1: Resultado</th>
+                    <th>M2: Tendencia (Votos)</th>
+                    <th>Origen de Datos</th>
+                    <th>Marcador Real</th>
                     <th>Estado</th>
                 </tr>
             </thead>
             <tbody id="tablaPartidosCuerpo"></tbody>
+        </table>
+    </div>
+</div>
 <script>
-    // Variables inyectadas dinámicamente desde el script predict.py
-    const dataset = [];
+    // Capa de datos dinámicos inyectados desde predict.py
+    const dataset = [{"id_partido": "WC26-01", "grupo": "Grupo A", "estadio": "Estadio Azteca, CDMX", "hora": "17:00", "local": "Mexico", "visitante": "Sudafrica", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "mixto: google, proveedor", "resultado_real_local": 2.0, "resultado_real_visitante": 0.0}, {"id_partido": "WC26-02", "grupo": "Grupo A", "estadio": "SoFi Stadium, Los Ángeles", "hora": "20:00", "local": "USA", "visitante": "Paraguay", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-03", "grupo": "Grupo B", "estadio": "BC Place, Vancouver", "hora": "18:00", "local": "Canada", "visitante": "Bosnia", "m1_marcador_local": 1, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-04", "grupo": "Grupo B", "estadio": "MetLife Stadium, Nueva Jersey", "hora": "15:00", "local": "Espana", "visitante": "Nigeria", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-05", "grupo": "Grupo C", "estadio": "Hard Rock Stadium, Miami", "hora": "19:00", "local": "Argentina", "visitante": "Marruecos", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-06", "grupo": "Grupo C", "estadio": "AT&T Stadium, Dallas", "hora": "16:00", "local": "Brasil", "visitante": "Irlanda", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-07", "grupo": "Grupo D", "estadio": "Mercedes-Benz Stadium, Atlanta", "hora": "21:00", "local": "Francia", "visitante": "Corea del Sur", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-08", "grupo": "Grupo D", "estadio": "Lumen Field, Seattle", "hora": "14:00", "local": "Alemania", "visitante": "Nueva Zelanda", "m1_marcador_local": 3, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-09", "grupo": "Grupo E", "estadio": "Lincoln Financial Field, Filadelfia", "hora": "18:00", "local": "Inglaterra", "visitante": "Ecuador", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-10", "grupo": "Grupo E", "estadio": "Gillette Stadium, Boston", "hora": "16:00", "local": "Italia", "visitante": "Camerun", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-11", "grupo": "Grupo F", "estadio": "NRG Stadium, Houston", "hora": "20:00", "local": "Portugal", "visitante": "Tunez", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-12", "grupo": "Grupo F", "estadio": "Levi's Stadium, Santa Clara", "hora": "15:00", "local": "Belgica", "visitante": "Argelia", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 90.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-13", "grupo": "Grupo G", "estadio": "Arrowhead Stadium, Kansas City", "hora": "16:00", "local": "Paises Bajos", "visitante": "Honduras", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-46", "grupo": "Grupo G", "estadio": "Subaru Park, Chester", "hora": "17:00", "local": "Uruguay", "visitante": "Pakistan", "m1_marcador_local": 4, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-15", "grupo": "Grupo H", "estadio": "Bank of America Stadium, Charlotte", "hora": "15:00", "local": "Croacia", "visitante": "Ghana", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-16", "grupo": "Grupo H", "estadio": "BMO Field, Toronto", "hora": "18:00", "local": "Colombia", "visitante": "Irak", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-17", "grupo": "Grupo A", "estadio": "Estadio Azteca, CDMX", "hora": "19:30", "local": "Mexico", "visitante": "USA", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 40.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-18", "grupo": "Grupo A", "estadio": "SoFi Stadium, Los Ángeles", "hora": "16:00", "local": "Paraguay", "visitante": "Sudafrica", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 80.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-19", "grupo": "Grupo B", "estadio": "BC Place, Vancouver", "hora": "20:00", "local": "Canada", "visitante": "Espana", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-20", "grupo": "Grupo B", "estadio": "MetLife Stadium, Nueva Jersey", "hora": "14:00", "local": "Nigeria", "visitante": "Bosnia", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 55.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-21", "grupo": "Grupo C", "estadio": "Hard Rock Stadium, Miami", "hora": "21:00", "local": "Argentina", "visitante": "Brasil", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 50.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-22", "grupo": "Grupo C", "estadio": "AT&T Stadium, Dallas", "hora": "15:00", "local": "Irlanda", "visitante": "Marruecos", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-23", "grupo": "Grupo D", "estadio": "Mercedes-Benz Stadium, Atlanta", "hora": "18:00", "local": "Francia", "visitante": "Alemania", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 55.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-24", "grupo": "Grupo D", "estadio": "Lumen Field, Seattle", "hora": "13:00", "local": "Nueva Zelanda", "visitante": "Corea del Sur", "m1_marcador_local": 0, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-25", "grupo": "Grupo E", "estadio": "Lincoln Financial Field, Filadelfia", "hora": "19:00", "local": "Inglaterra", "visitante": "Italia", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 55.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-26", "grupo": "Grupo E", "estadio": "Gillette Stadium, Boston", "hora": "16:00", "local": "Camerun", "visitante": "Ecuador", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🤝 Empate", "m2_confianza": 60.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-27", "grupo": "Grupo F", "estadio": "NRG Stadium, Houston", "hora": "20:00", "local": "Portugal", "visitante": "Belgica", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🤝 Empate", "m2_confianza": 55.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-28", "grupo": "Grupo F", "estadio": "Levi's Stadium, Santa Clara", "hora": "14:30", "local": "Argelia", "visitante": "Tunez", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🤝 Empate", "m2_confianza": 55.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-29", "grupo": "Grupo G", "estadio": "Arrowhead Stadium, Kansas City", "hora": "17:00", "local": "Paises Bajos", "visitante": "Uruguay", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 40.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-30", "grupo": "Grupo G", "estadio": "Subaru Park, Chester", "hora": "15:00", "local": "Pakistan", "visitante": "Honduras", "m1_marcador_local": 0, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-31", "grupo": "Grupo H", "estadio": "Bank of America Stadium, Charlotte", "hora": "18:00", "local": "Croacia", "visitante": "Colombia", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m1_resultado_derivado": "🤝 Empate", "m2_tendencia_votos": "🤝 Empate", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-32", "grupo": "Grupo H", "estadio": "BMO Field, Toronto", "hora": "16:00", "local": "Irak", "visitante": "Ghana", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 80.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-33", "grupo": "Grupo A", "estadio": "Estadio Azteca, CDMX", "hora": "16:00", "local": "Sudafrica", "visitante": "USA", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-34", "grupo": "Grupo A", "estadio": "SoFi Stadium, Los Ángeles", "hora": "20:00", "local": "Paraguay", "visitante": "Mexico", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🤝 Empate", "m2_confianza": 60.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-35", "grupo": "Grupo B", "estadio": "BC Place, Vancouver", "hora": "15:00", "local": "Bosnia", "visitante": "Espana", "m1_marcador_local": 0, "m1_marcador_visitante": 3, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-36", "grupo": "Grupo B", "estadio": "MetLife Stadium, Nueva Jersey", "hora": "18:00", "local": "Nigeria", "visitante": "Canada", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m1_resultado_derivado": "⚽ Gana Local", "m2_tendencia_votos": "🏠 Local", "m2_confianza": 60.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-37", "grupo": "Grupo C", "estadio": "Hard Rock Stadium, Miami", "hora": "17:00", "local": "Marruecos", "visitante": "Brasil", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-38", "grupo": "Grupo C", "estadio": "AT&T Stadium, Dallas", "hora": "20:00", "local": "Irlanda", "visitante": "Argentina", "m1_marcador_local": 0, "m1_marcador_visitante": 3, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-39", "grupo": "Grupo D", "estadio": "Mercedes-Benz Stadium, Atlanta", "hora": "14:00", "local": "Corea del Sur", "visitante": "Alemania", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-40", "grupo": "Grupo D", "estadio": "Lumen Field, Seattle", "hora": "18:00", "local": "Nueva Zelanda", "visitante": "Francia", "m1_marcador_local": 0, "m1_marcador_visitante": 4, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-41", "grupo": "Grupo E", "estadio": "Lincoln Financial Field, Filadelfia", "hora": "15:00", "local": "Ecuador", "visitante": "Inglaterra", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-42", "grupo": "Grupo E", "estadio": "Gillette Stadium, Boston", "hora": "19:00", "local": "Camerun", "visitante": "Italia", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-43", "grupo": "Grupo F", "estadio": "NRG Stadium, Houston", "hora": "16:00", "local": "Argelia", "visitante": "Portugal", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-44", "grupo": "Grupo F", "estadio": "Levi's Stadium, Santa Clara", "hora": "20:00", "local": "Tunez", "visitante": "Belgica", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-45", "grupo": "Grupo G", "estadio": "Arrowhead Stadium, Kansas City", "hora": "13:00", "local": "Honduras", "visitante": "Paises Bajos", "m1_marcador_local": 0, "m1_marcador_visitante": 3, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-47", "grupo": "Grupo H", "estadio": "Bank of America Stadium, Charlotte", "hora": "15:00", "local": "Ghana", "visitante": "Croacia", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 75.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}, {"id_partido": "WC26-48", "grupo": "Grupo H", "estadio": "BMO Field, Toronto", "hora": "18:00", "local": "Irak", "visitante": "Colombia", "m1_marcador_local": 0, "m1_marcador_visitante": 2, "m1_resultado_derivado": "⚽ Gana Visitante", "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 100.0, "trazabilidad_origen": "google", "resultado_real_local": NaN, "resultado_real_visitante": NaN}];
     const concluido = false;
-    const ultimaSincro = "2026-06-12 07:27:53";
+    const ultimaSincro = "12/06/2026 10:42:04";
 
     document.addEventListener("DOMContentLoaded", inicializar);
 
     function inicializar() {
         const banner = document.getElementById("panelBanners");
-        const contenido = document.getElementById("contenidoDashboard");
-        const espera = document.getElementById("vistaEspera");
-        const txtSincro = document.getElementById("codigoSincro");
-        
-        const tienePartidos = Array.isArray(dataset) && dataset.length > 0;
-        if (txtSincro) txtSincro.innerText = ultimaSincro;
-
         if (concluido) {
-            banner.innerHTML = `<div class="banner banner-highlight"><b>Torneo Concluido:</b> El campeonato mundial ha finalizado. El sistema se encuentra en modo de archivo histórico permanente.</div>`;
-            contenido.classList.remove("hidden");
-            espera.classList.add("hidden");
-            renderizar(dataset);
-        } else if (!tienePartidos) {
-            // Desplegar la pantalla de bienvenida con enganche y ocultar las tablas vacías
-            espera.classList.remove("hidden");
-            contenido.classList.add("hidden");
+            banner.innerHTML = `<div class="banner banner-highlight"><b>Fase Permanente:</b> El Torneo ha finalizado. El sistema despliega el archivo histórico consolidado de predicciones vs marcadores reales.</div>`;
         } else {
-            banner.innerHTML = `<div class="banner banner-note"><b>Última Sincronización:</b> Los criterios predictivos sectoriales se unificaron con éxito el <code>${ultimaSincro}</code>.</div>`;
-            contenido.classList.remove("hidden");
-            espera.classList.add("hidden");
-            renderizar(dataset);
+            banner.innerHTML = `<div class="banner banner-note"><b>Sincronización del Ecosistema:</b> Pipeline ejecutado de forma automatizada el <code>${ultimaSincro}</code>. Datos e historial unificados.</div>`;
         }
+        renderizar(dataset || []);
     }
 
     function renderizar(datos) {
@@ -176,28 +142,39 @@
         tbody.innerHTML = "";
         
         if (datos.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="8" style="color:#64748b; padding:30px;">No se encontraron registros que coincidan con la búsqueda.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="9" style="color:#475569; padding:35px;">No existen registros que coincidan con los criterios de búsqueda indexados.</td></tr>`;
             return;
         }
 
         datos.forEach(p => {
             const terminado = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
             const badgeEstado = terminado 
-                ? `<span class="badge badge-finalizado">✅ FINALIZADO</span>` 
+                ? `<span class="badge badge-finalizado">✅ EN VIVO</span>` 
                 : `<span class="badge badge-pendiente">⏳ PENDIENTE</span>`;
 
             const resultadoReal = terminado 
                 ? `<span class="txt-real">${p.resultado_real_local} - ${p.resultado_real_visitante}</span>` 
-                : `<span style="color:#64748b;">—</span>`;
+                : `<span style="color:#475569;">—</span>`;
+
+            // Enrutar la clase de CSS para pintar la etiqueta del origen de forma inteligente
+            let claseOrigen = "source-google";
+            const orig = p.trazabilidad_origen.toLowerCase();
+            if (orig.startsWith("proveedor")) claseOrigen = "source-proveedor";
+            else if (orig.startsWith("manual")) claseOrigen = "source-manual";
+            else if (orig.startsWith("mixto")) claseOrigen = "source-mixto";
 
             const tr = document.createElement("tr");
             tr.innerHTML = `
-                <td style="color:#94a3b8;">${p.fecha || '—'}</td>
-                <td style="font-weight:600; text-align:left;">${p.local} vs ${p.visitante}</td>
-                <td>${p.m1_marcador_local} - ${p.m1_marcador_visitante}</td>
-                <td><span style="color:#3b82f6; font-weight:600;">${p.m1_resultado_derivado}</span></td>
-                <td>${p.m2_tendencia_votos}</td>
-                <td>${p.m2_confianza}%</td>
+                <td style="color:#475569; font-weight:600; font-family:monospace;">${p.id_partido}</td>
+                <td style="text-align:left; font-size:13px;">
+                    <b style="color:#cbd5e1;">${p.grupo}</b><br>
+                    <small style="color:#475569;">${p.estadio} (${p.hora})</small>
+                </td>
+                <td style="font-weight:600; text-align:left; color:#ffffff;">${p.local} vs ${p.visitante}</td>
+                <td style="font-family:monospace; font-size:15px;">${p.m1_marcador_local} - ${p.m1_marcador_visitante}</td>
+                <td><span style="color:#3b82f6; font-weight:600; font-size:13px;">${p.m1_resultado_derivado}</span></td>
+                <td style="font-size:13px;">${p.m2_tendencia_votos} <small style="color:#64748b;">(${p.m2_confianza}%)</small></td>
+                <td><span class="source-tag ${claseOrigen}">${p.trazabilidad_origen}</span></td>
                 <td>${resultadoReal}</td>
                 <td>${badgeEstado}</td>
             `;
@@ -207,20 +184,23 @@
 
     function ejecutarFiltros() {
         const busqueda = document.getElementById("inputBuscar").value.toLowerCase();
+        const grupo = document.getElementById("selectGrupo").value;
         const estado = document.getElementById("selectEstado").value;
 
         const datosFiltrados = dataset.filter(p => {
             const coincideTexto = p.local.toLowerCase().includes(busqueda) || 
-                                  p.visitante.toLowerCase().includes(busqueda);
+                                  p.visitante.toLowerCase().includes(busqueda) ||
+                                  p.estadio.toLowerCase().includes(busqueda);
+            
+            const coincideGrupo = (grupo === "TODOS") || (p.grupo === grupo);
             
             const terminado = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
-            
             let coincideEstado = false;
             if (estado === "TODOS") coincideEstado = true;
             else if (estado === "PENDIENTE" && !terminado) coincideEstado = true;
             else if (estado === "FINALIZADO" && terminado) coincideEstado = true;
 
-            return coincideTexto && coincideEstado;
+            return coincideTexto && coincideGrupo && coincideEstado;
         });
 
         renderizar(datosFiltrados);
