@@ -21,21 +21,21 @@ def ejecutar_scraper_predicciones():
 
     # 2 Fuentes reales y alternativas de prensa por cada uno de los grandes proveedores
     FUENTES_PRENSA = [
-        # --- CLIENTES DE OPTA ---
-        {"medio": "ESPN Deportes (Cita Opta)", "url": "https://githubusercontent.com", "proveedor_clave": "opta"},
-        {"medio": "Fox Sports Analítica (Cita Opta)", "url": "https://githubusercontent.com", "proveedor_clave": "opta"},
+        # --- CLIENTES DE OPTA (Televisoras internacionales con derechos de transmisión) ---
+        {"medio": "ESPN Deportes Analítica", "url": "https://espn.com.mx", "proveedor_clave": "opta"},
+        {"medio": "Fox Sports Crónicas", "url": "https://foxsports.com.mx", "proveedor_clave": "opta"},
         
-        # --- CLIENTES DE INNSBRUCK ---
-        {"medio": "TyC Sports Notas (Cita Innsbruck)", "url": "https://githubusercontent.com", "proveedor_clave": "innsbruck"},
-        {"medio": "Die Presse Espejo (Cita Innsbruck)", "url": "https://githubusercontent.com", "proveedor_clave": "innsbruck"},
+        # --- CLIENTES DE INNSBRUCK (Prensa y televisión hispana y europea) ---
+        {"medio": "TyC Sports Pronósticos", "url": "https://tycsports.com", "proveedor_clave": "innsbruck"},
+        {"medio": "Diario AS Secciones", "url": "https://as.com", "proveedor_clave": "innsbruck"},
         
-        # --- CLIENTES DE THE ATHLETIC ---
-        {"medio": "The Athletic Blog", "url": "https://githubusercontent.com", "proveedor_clave": "the_athletic"},
-        {"medio": "New York Times Sports", "url": "https://githubusercontent.com", "proveedor_clave": "the_athletic"},
+        # --- CLIENTES DE THE ATHLETIC (Portales informativos y blogs abiertos) ---
+        {"medio": "The Athletic Portal", "url": "https://theathletic.com", "proveedor_clave": "the_athletic"},
+        {"medio": "Yahoo Sports Fútbol", "url": "https://yahoo.com", "proveedor_clave": "the_athletic"},
         
-        # --- COMPARADORES DE CASAS DE APUESTAS ---
-        {"medio": "Diario MARCA (Cuotas de Mercado)", "url": "https://githubusercontent.com", "proveedor_clave": "apuestas"},
-        {"medio": "Oddsportal Tablas (Consenso de Cuotas)", "url": "https://githubusercontent.com", "proveedor_clave": "apuestas"}
+        # --- COMPARADORES DE CASAS DE APUESTAS (Secciones abiertas de cuotas comerciales) ---
+        {"medio": "Diario MARCA Cuotas", "url": "https://marca.com", "proveedor_clave": "apuestas"},
+        {"medio": "Flashscore Tablas en Vivo", "url": "https://flashscore.com.mx", "proveedor_clave": "apuestas"}
     ]
     for fuente in FUENTES_PRENSA:
         try:
