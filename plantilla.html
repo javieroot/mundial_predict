@@ -87,66 +87,94 @@
 </div>
 
 <script>
+    // Variables dinámicas que inyectará tu archivo predict.py
     const dataset = {{DATASET_JSON}};
     const concluido = {{MODO_CONCLUIDO}};
     const ultimaSincro = "{{ULTIMA_SINCRO}}";
 
+    // Escuchar el evento de carga para iniciar la UI de forma segura
+    document.addEventListener("DOMContentLoaded", inicializar);
+
     function inicializar() {
         const banner = document.getElementById("panelBanners");
+        
+        // Comprobación robusta por si el dataset no es un arreglo válido
+        const tienePartidos = Array.isArray(dataset) && dataset.length > 0;
+
         if (concluido) {
             banner.innerHTML = `<div class="banner banner-highlight"><b>Torneo Concluido:</b> El campeonato mundial ha finalizado. El sistema se encuentra en modo de archivo histórico permanente.</div>`;
-        } else if (dataset.length === 0) {
-            banner.innerHTML = `<div class="banner banner-important"><b>Día de Descanso o Transición de Fase:</b> No se detectan partidos programados en las próximas horas. El sistema se reactivará automáticamente. <br><small>Verificación realizada el: <i>${ultimaSincro}</i></small></div>`;
+        } else if (!tienePartidos) {
+            banner.innerHTML = `<div class="banner banner-important"><b>Día de Descanso o Transición de Fase:</b> No se detectan partidos programados. El sistema se reactivará automáticamente en cuanto las agencias publiquen las cuotas.<br><small style="color:#fca5a5;">Verificación: <i>${ultimaSincro}</i></small></div>`;
         } else {
             banner.innerHTML = `<div class="banner banner-note"><b>Última Sincronización:</b> Los datos predictivos se recalcularon con éxito el <code>${ultimaSincro}</code>.</div>`;
         }
-        renderizar(dataset);
+        
+        renderizar(dataset || []);
     }
 
     function renderizar(datos) {
         const tbody = document.getElementById("tablaPartidosCuerpo");
         tbody.innerHTML = "";
+        
         if (datos.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="8" style="color:#64748b; padding:20px;">No hay registros acumulados todavía. En espera de partidos.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8" style="color:#64748b; padding:30px;">No se encontraron registros que coincidan con los criterios de búsqueda.</td></tr>`;
             return;
         }
-        datos.forEach(p => {
-            const terminado = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
-            const celdaReal = terminado ? `<span class="txt-real">⚽ ${p.resultado_real_local} - ${p.resultado_real_visitante}</span>` : `<span style="color:#94a3b8; font-size:13px;">⏳ Esperando juego</span>`;
-            const celdaEstado = terminado ? `<span class="badge badge-finalizado">Finalizado</span>` : `<span class="badge badge-pendiente">Pendiente</span>`;
 
+        datos.forEach(p => {
+            // Verificar de forma segura si el partido ya concluyó en la vida real
+            const terminado = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
+            
+            // Asignación dinámica de etiquetas de estado
+            const badgeEstado = terminado 
+                ? `<span class="badge badge-finalizado">✅ FINALIZADO</span>` 
+                : `<span class="badge badge-pendiente">⏳ PENDIENTE</span>`;
+
+            // Control de impresión para partidos no jugados todavía
+            const resultadoReal = terminado 
+                ? `<span class="txt-real">${p.resultado_real_local} - ${p.resultado_real_visitante}</span>` 
+                : `<span style="color:#64748b;">—</span>`;
+
+            // Construir la fila completa con las propiedades de tu lógica analítica
             const tr = document.createElement("tr");
-            tr.setAttribute("data-estado", terminado ? "FINALIZADO" : "PENDIENTE");
-            tr.setAttribute("data-busqueda", `${p.local.toLowerCase()} ${p.visitante.toLowerCase()}`);
             tr.innerHTML = `
-                <td>${p.fecha}</td>
-                <td><b>${p.local}</b> vs <b>${p.visitante}</b></td>
-                <td>\`${p.m1_marcador_local} - ${p.m1_marcador_visitante}\`</td>
-                <td>${p.m1_resultado}</td>
-                <td><i>${p.m2_tendencia}</i></td>
-                <td><b>${p.m2_confianza}</b></td>
-                <td>${celdaReal}</td>
-                <td>${celdaEstado}</td>
+                <td style="color:#94a3b8;">${p.fecha || '—'}</td>
+                <td style="font-weight:600; text-align:left;">${p.local} vs ${p.visitante}</td>
+                <td>${p.m1_marcador_local} - ${p.m1_marcador_visitante}</td>
+                <td><span style="color:#3b82f6; font-weight:600;">${p.m1_resultado_derivado}</span></td>
+                <td>${p.m2_tendencia_votos}</td>
+                <td>${p.m2_confianza}%</td>
+                <td>${resultadoReal}</td>
+                <td>${badgeEstado}</td>
             `;
             tbody.appendChild(tr);
         });
     }
 
+    // Función de filtrado reactivo para la búsqueda y selectores de la barra
     function ejecutarFiltros() {
-        const buscar = document.getElementById("inputBuscar").value.toLowerCase();
-        const filtro = document.getElementById("selectEstado").value;
-        const filas = document.querySelectorAll("#tablaPartidosCuerpo tr");
-        filas.forEach(f => {
-            const txt = f.getAttribute("data-busqueda");
-            const est = f.getAttribute("data-estado");
-            if(!txt) return;
-            const cEst = (filtro === "TODOS") || (est === filtro);
-            const cBus = txt.includes(buscar);
-            f.style.display = (cEst && cBus) ? "" : "none";
-        });
-    }
+        const busqueda = document.getElementById("inputBuscar").value.toLowerCase();
+        const estado = document.getElementById("selectEstado").value;
 
-    window.onload = inicializar;
+        const datosFiltrados = dataset.filter(p => {
+            // Filtrar por coincidencia en cadenas de nombres de selecciones
+            const coincideTexto = p.local.toLowerCase().includes(busqueda) || 
+                                  p.visitante.toLowerCase().includes(busqueda);
+            
+            const terminado = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
+            
+            // Evaluar el estado según la opción del selector HTML
+            let coincideEstado = false;
+            if (estado === "TODOS") coincideEstado = true;
+            else if (estado === "PENDIENTE" && !terminado) coincideEstado = true;
+            else if (estado === "FINALIZADO" && terminado) coincideEstado = true;
+
+            return coincideTexto && coincideEstado;
+        });
+
+        renderizar(datosFiltrados);
+    }
 </script>
 </body>
 </html>
+
