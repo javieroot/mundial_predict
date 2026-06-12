@@ -1,0 +1,40 @@
+{
+    "partidos": {
+        "Mexico_vs_Sudafrica": {
+            "opta": [2, 0],
+            "innsbruck": [2, 0],
+            "the_athletic": [2, 0],
+            "medium_elo": [2, 0],
+            "apuestas": [2, 0],
+            "real_l": null,
+            "real_v": null
+        },
+        "Canada_vs_Bosnia": {
+            "opta": [1, 0],
+            "innsbruck": [1, 0],
+            "the_athletic": [1, 0],
+            "medium_elo": [1, 0],
+            "apuestas": [1, 0],
+            "real_l": null,
+            "real_v": null
+        }
+    },
+    "probabilidades_campeon": {
+        "España": {"opta": 0.161, "innsbruck": 0.140, "the_athletic": 0.150, "medium_elo": 0.120, "apuestas": 0.180},
+        "Francia": {"opta": 0.134, "innsbruck": 0.150, "the_athletic": 0.140, "medium_elo": 0.160, "apuestas": 0.150},
+        "Inglaterra": {"opta": 0.112, "innsbruck": 0.110, "the_athletic": 0.130, "medium_elo": 0.110, "apuestas": 0.150},
+        "Argentina": {"opta": 0.104, "innsbruck": 0.120, "the_athletic": 0.110, "medium_elo": 0.150, "apuestas": 0.130}
+    },
+    "probabilidades_goleador": {
+        "Erling Haaland (Noruega)": {"opta": 0.25, "innsbruck": 0.20, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.25},
+        "Kylian Mbappé (Francia)": {"opta": 0.22, "innsbruck": 0.24, "the_athletic": 0.20, "medium_elo": 0.18, "apuestas": 0.22}
+    },
+    "probabilidades_jugador": {
+        "Jude Bellingham (Inglaterra)": {"opta": 0.28, "innsbruck": 0.25, "the_athletic": 0.26, "medium_elo": 0.20, "apuestas": 0.28},
+        "Lamine Yamal (España)": {"opta": 0.20, "innsbruck": 0.18, "the_athletic": 0.22, "medium_elo": 0.15, "apuestas": 0.20}
+    },
+    "probabilidades_portero": {
+        "Unai Simón (España)": {"opta": 0.24, "innsbruck": 0.20, "the_athletic": 0.25, "medium_elo": 0.18, "apuestas": 0.24},
+        "Emiliano Martínez (Argentina)": {"opta": 0.22, "innsbruck": 0.25, "the_athletic": 0.20, "medium_elo": 0.24, "apuestas": 0.22}
+    }
+}
