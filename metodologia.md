@@ -1,10 +1,3 @@
----
-layout: default
-title: Fundamentos Matemáticos
-nav_order: 2
-has_math: true
----
-
 # 🧮 Arquitectura Matemática y Metodología Analítica - Mundial 2026
 
 Este documento detalla el núcleo matemático, algebraico y estadístico implementado en el motor `predict.py` para procesar, unificar y auditar las predicciones de la Copa del Mundo 2026. El sistema reduce el sesgo predictivo individual aislando la dispersión de datos a través de tres pilares algorítmicos.
