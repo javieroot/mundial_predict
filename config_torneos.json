@@ -29,5 +29,64 @@
       "nombre": "Google AI",
       "tipo": "LLM / IA general"
     }
+  },
+  "configuracion_torneos": {
+    "mundial": {
+      "anfitriones_sedes": ["México", "Estados Unidos", "Canadá"],
+      "reglas_del_futbol": {
+        "es_liga_mx": false,
+        "goles_de_localia": 0.5,
+        "goles_base_equipo_neutro": 1.4,
+        "goles_minimos_permitidos": 0.0,
+        "goles_base_escape_local": 1.0,
+        "goles_base_escape_visitante": 0.0,
+        "inversor_algebraico": -1.0
+      },
+      "personalidad_de_las_marcas": {
+        "opta": { "piso_goles_local": 1.0, "ajuste_goles_visitante": 0.5 },
+        "elo": { "ventaja_minima_exigida": 0.5, "fuerza_de_la_jerarquia": 0.2, "colchon_goles_local": 1.0, "colchon_goles_visitante": 0.5 },
+        "forebet": { "ventaja_minima_exigida": 0.5, "multiplicador_local_si_golea": 0.85, "multiplicador_local_si_es_cerrado": 0.80, "multiplicador_visitante_si_sufre": 0.55, "multiplicador_visitante_si_compite": 0.65, "piso_goles_favorito": 1.0 },
+        "predictz": { "ventaja_minima_exigida": 1.0, "multiplicador_local_si_se_amarra": 0.70, "multiplicador_local_si_ataca": 0.75, "multiplicador_visitante_si_se_defiende": 0.60, "multiplicador_visitante_si_colapsa": 0.50, "piso_goles_bloque_bajo": 1.0 },
+        "google_ai": { "ventaja_minima_exigida": 1.0, "multiplicador_ia_si_golea": 1.4, "multiplicador_ia_estandar": 1.2, "piso_goleada_ia": 2.0, "piso_empate_ia": 1.0, "castigo_al_rival_debil": 0.8, "empuje_lineal_local": 1.0, "empuje_lineal_visitante": 0.5 }
+      }
+    },
+    "liga_mx_apertura": {
+      "anfitriones_sedes": [],
+      "reglas_del_futbol": {
+        "es_liga_mx": true,
+        "goles_de_localia": 0.65,
+        "goles_base_equipo_neutro": 1.5,
+        "goles_minimos_permitidos": 0.0,
+        "goles_base_escape_local": 1.0,
+        "goles_base_escape_visitante": 0.0,
+        "inversor_algebraico": -1.0
+      },
+      "personalidad_de_las_marcas": {
+        "opta": { "piso_goles_local": 1.0, "ajuste_goles_visitante": 0.6 },
+        "elo": { "ventaja_minima_exigida": 0.4, "fuerza_de_la_jerarquia": 0.15, "colchon_goles_local": 1.0, "colchon_goles_visitante": 0.5 },
+        "forebet": { "ventaja_minima_exigida": 0.4, "multiplicador_local_si_golea": 0.80, "multiplicador_local_si_es_cerrado": 0.75, "multiplicador_visitante_si_sufre": 0.60, "multiplicador_visitante_si_compite": 0.70, "piso_goles_favorito": 1.0 },
+        "predictz": { "ventaja_minima_exigida": 0.8, "multiplicador_local_si_se_amarra": 0.65, "multiplicador_local_si_ataca": 0.70, "multiplicador_visitante_si_se_defiende": 0.65, "multiplicador_visitante_si_colapsa": 0.55, "piso_goles_bloque_bajo": 1.0 },
+        "google_ai": { "ventaja_minima_exigida": 0.8, "multiplicador_ia_si_golea": 1.25, "multiplicador_ia_estandar": 1.15, "piso_goleada_ia": 1.5, "piso_empate_ia": 1.0, "castigo_al_rival_debil": 0.75, "empuje_lineal_local": 1.0, "empuje_lineal_visitante": 0.5 }
+      }
+    },
+    "liga_mx_clausura": {
+      "anfitriones_sedes": [],
+      "reglas_del_futbol": {
+        "es_liga_mx": true,
+        "goles_de_localia": 0.60,
+        "goles_base_equipo_neutro": 1.5,
+        "goles_minimos_permitidos": 0.0,
+        "goles_base_escape_local": 1.0,
+        "goles_base_escape_visitante": 0.0,
+        "inversor_algebraico": -1.0
+      },
+      "personalidad_de_las_marcas": {
+        "opta": { "piso_goles_local": 1.0, "ajuste_goles_visitante": 0.6 },
+        "elo": { "ventaja_minima_exigida": 0.4, "fuerza_de_la_jerarquia": 0.15, "colchon_goles_local": 1.0, "colchon_goles_visitante": 0.5 },
+        "forebet": { "ventaja_minima_exigida": 0.4, "multiplicador_local_si_golea": 0.80, "multiplicador_local_si_es_cerrado": 0.75, "multiplicador_visitante_si_sufre": 0.60, "multiplicador_visitante_si_compite": 0.70, "piso_goles_favorito": 1.0 },
+        "predictz": { "ventaja_minima_exigida": 0.8, "multiplicador_local_si_se_amarra": 0.65, "multiplicador_local_si_ataca": 0.70, "multiplicador_visitante_si_se_defiende": 0.65, "multiplicador_visitante_si_colapsa": 0.55, "piso_goles_bloque_bajo": 1.0 },
+        "google_ai": { "ventaja_minima_exigida": 0.8, "multiplicador_ia_si_golea": 1.25, "multiplicador_ia_estandar": 1.15, "piso_goleada_ia": 1.5, "piso_empate_ia": 1.0, "castigo_al_rival_debil": 0.75, "empuje_lineal_local": 1.0, "empuje_lineal_visitante": 0.5 }
+      }
+    }
   }
 }
