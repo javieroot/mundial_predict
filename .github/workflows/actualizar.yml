@@ -1,9 +1,11 @@
-name: Actualizacion Diaria de Predicciones
+name: Actualizacion Automatica de Predicciones
 
 on:
   schedule:
-    - cron: '0 23 * * *'
-  workflow_dispatch:
+    - cron: '0 23 * * *'    # Mantiene tu actualización diaria fija a las 11:00 PM
+    - cron: '0 12 * * 5'    # Fuerza ejecución los Viernes a las 12:00 PM (Apertura del fin de semana Liga MX)
+    - cron: '0 6 */3 * *'   # Despierta cada 3 días a las 6:00 AM (Monitoreo de fases en el Mundial)
+  workflow_dispatch:        # Te permite disparar el motor manualmente con un clic en GitHub
 
 jobs:
   build-and-deploy:
@@ -29,24 +31,23 @@ jobs:
     - name: Instalar Dependencias desde requirements.txt
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Ejecutar Pipeline Analítico por Etapas
+    - name: Ejecutar Pipeline Analítico por Capas
       run: |
-        # Etapa 1: El scraper peina la prensa y refina predicciones_base.json
+        # Capa 1: Descarga el fixture en caliente y guarda los datos brutos de la web con nulls
         python extractor.py
         
-        # Etapa 2: El predict toma la base, calcula M1/M2 con Pandas y crea resultados_dashboard.json
-        python predict.py
+        # Capa 2: Analiza los nulls de la jornada y activa el rescate inyectando tus matrices de poder
+        python estimador_fuentes.py
         
-        # Etapa 3: El actualizador busca marcadores finales en vivo e inyecta los resultados reales
-        python actualizar_resultados.py
+        # Capa 3: Calcula promedios ponderados enteros, define el origen [mixto/puro] y genera resultados_jornada.json
+        python generador_resultados.py
 
-
-    - name: Auto Guardar Base Acumulada e Interfaz en GitHub
+    - name: Auto Guardar Base Histórica y Enrutador Dinámico
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_message: "📊 Base acumulada, JSON de contingencia e index.html actualizados por sistema"
+        commit_message: "📊 Historial por jornada, matrices de poder autogeneradas y ruta_activa.json actualizados por sistema"
         file_pattern: '*'
 
     - name: Configurar Pages
