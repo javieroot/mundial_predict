@@ -1,0 +1,33 @@
+{
+  "fuentes_scraping": {
+    "url_elo_mundial": "https://eloratings.net",
+    "url_ligamx_posiciones": "https://flashscore.com.mx",
+    "url_calendario_jornada": "https://flashscore.com.mx"
+  },
+  "configuracion_proveedores": {
+    "opta": {
+      "nombre": "Opta Supercomputer",
+      "tipo": "IA deportiva profesional"
+    },
+    "apuestas": {
+      "nombre": "Mercado de apuestas",
+      "tipo": "Inteligencia colectiva del mercado"
+    },
+    "elo": {
+      "nombre": "World Football Elo",
+      "tipo": "Matemática histórica"
+    },
+    "forebet": {
+      "nombre": "Forebet",
+      "tipo": "Predictor estadístico"
+    },
+    "predictz": {
+      "nombre": "PredictZ",
+      "tipo": "Predictor independiente"
+    },
+    "google_ai": {
+      "nombre": "Google AI",
+      "tipo": "LLM / IA general"
+    }
+  }
+}
