@@ -83,88 +83,73 @@
             </div>
         </div>
     </main>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Predictor Engine - Dashboard</title>
-    <!-- Tailwind CSS (Framework visual principal) -->
-    <script src="https://tailwindcss.com"></script>
-    <style>
-        /* Oculta la barra de scroll horizontal en las píldoras de filtro en celulares */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    <!-- LÓGICA DE CONTROL JAVASCRIPT -->
+    <script>
+        let partidosGlobales = [];
+        let filtroFaseActual = "Todos";
 
-        /* 🛡️ ESTILOS NATIVOS DE RESPALDO (Evitan que la pantalla se rompa en Laptop si falla el CDN) */
-        body {
-            background-color: #111827 !important;
-            color: #f3f4f6 !important;
-            font-family: system-ui, -apple-system, sans-serif !important;
-        }
-        .tarjeta-partido {
-            background-color: #1f2937 !important;
-            border: 1px solid #374151 !important;
-            border-radius: 1rem !important;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            width: 100% !important;
-            max-width: 440px !important; /* Mantiene el tamaño compacto de app móvil en cualquier pantalla */
-        }
-        .bg-gray-850 { background-color: #1a222f !important; }
-        .bg-gray-900 { background-color: #111827 !important; }
-        .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important; }
-        
-        /* DISEÑO DE REJILLA COMPU: Si es laptop, acomoda las tarjetas de lado a lado */
-        .contenedor-tarjetas {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 1rem !important;
-            justify-content: center !important;
-        }
-    </style>
-</head>
-<body class="bg-gray-900 text-gray-100 font-sans antialiased min-h-screen">
+        // PASO 1: Doble lectura dinámica automática para optimizar la carga móvil
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('ruta_activa.json')
+                .then(response => {
+                    if (!response.ok) throw new Error("Falta ruta_activa.json en la raíz.");
+                    return response.json();
+                })
+                .then(puntero => {
+                    // Descarga en caliente el JSON exclusivo de la jornada actual
+                    return fetch(puntero.url_resultados);
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error("No se pudo cargar el archivo histórico de la jornada.");
+                    return response.json();
+                })
+                .then(data => {
+                    partidosGlobales = data.partidos || [];
+                    inicializarInterfaz(data);
+                })
+                .catch(error => {
+                    console.error("❌ Error de inicialización:", error);
+                    document.getElementById("lista-partidos").innerHTML = `
+                        <div class="text-center py-10 px-4 text-red-400 text-xs border border-red-900 bg-red-950/20 rounded-xl max-w-md mx-auto mt-4 w-full">
+                            <p class="font-bold mb-1">⚠️ Error de Sincronización con el Motor</p>
+                            <p class="text-gray-500 font-mono text-[11px] mt-2 bg-gray-950 p-2 rounded border border-gray-800">${error.message}</p>
+                        </div>
+                    `;
+                });
+        });
 
-    <!-- BARRA DE NAVEGACIÓN / CABECERA COMPACTA (Fija en la parte superior) -->
-    <header class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50 px-4 py-3 shadow-lg">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div class="flex justify-between items-center gap-4">
-                <div class="flex items-center gap-1">
-                    <span class="text-xl">📊</span>
-                    <h1 class="text-lg font-bold tracking-tight text-emerald-400">Engine Predictor</h1>
-                </div>
-                <span id="txt-torneo" class="text-xs bg-gray-700 px-2 py-1 rounded-md font-semibold text-gray-300">Cargando...</span>
-            </div>
+        function inicializarInterfaz(data) {
+            if (document.getElementById("loading")) document.getElementById("loading").remove();
+            document.getElementById("txt-torneo").textContent = data.torneo;
+            document.getElementById("txt-fase").textContent = `Fase: ${data.fase_activa}`;
             
-            <!-- BUSCADOR INTERACTIVO PREDICTIVO -->
-            <div class="relative flex-1 max-w-md">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">🔍</span>
-                <input type="text" id="buscador" placeholder="Buscar país, club, estadio o fase..." 
-                       class="w-full pl-9 pr-4 py-2 bg-gray-900 border border-gray-700 rounded-xl text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 placeholder-gray-500 text-gray-100">
-            </div>
+            generarFiltrosPildora(partidosGlobales);
+            renderizarTarjetas(partidosGlobales);
 
-            <!-- PÍLDORAS DE FILTRO TÁCTILES -->
-            <div id="contenedor-filtros" class="flex gap-2 overflow-x-auto no-scrollbar py-1 snap-x">
-                <!-- Se llenan dinámicamente con las fases del JSON -->
-            </div>
-        </div>
-    </header>
+            document.getElementById("buscador").addEventListener("input", filtrarPartidos);
+        }
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="max-w-4xl mx-auto px-4 py-4 mb-20">
-        <!-- Barra informativa de estado -->
-        <div class="text-[11px] text-gray-400 mb-3 font-medium flex justify-between border-b border-gray-800 pb-2">
-            <span id="txt-fase">Fase: Cargando...</span>
-            <span id="contador-partidos">Partidos: 0</span>
-        </div>
+        // Generar botones de filtrado rápido basados en los grupos/fases reales del JSON
+        function generarFiltrosPildora(partidos) {
+            const contenedor = document.getElementById("contenedor-filtros");
+            const fases = ["Todos", ...new Set(partidos.map(p => p.grupo))];
+            
+            contenedor.innerHTML = fases.map((fase, idx) => `
+                <button onclick="cambiarFiltroFase('${fase}', this)" 
+                        class="pildora-filtro snap-center shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${idx === 0 ? 'bg-emerald-500 text-gray-900' : 'bg-gray-800 text-gray-400 border border-gray-700'}">
+                    ${fase}
+                </button>
+            `).join('');
+        }
 
-        <!-- CONTENEDOR DINÁMICO DE TARJETAS DE PARTIDOS -->
-        <div id="lista-partidos" class="contenedor-tarjetas">
-            <!-- Spinner visual de carga inicial -->
-            <div id="loading" class="text-center py-12 text-gray-500 text-sm w-full">
-                <div class="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-emerald-500 rounded-full mb-2"></div>
-                <p>Conectando con el enrutador dinámico...</p>
-            </div>
-        </div>
-    </main>
+        function cambiarFiltroFase(fase, boton) {
+            filtroFaseActual = fase;
+            document.querySelectorAll(".pildora-filtro").forEach(b => {
+                b.classList.remove("bg-emerald-500", "text-gray-900");
+                b.classList.add("bg-gray-800", "text-gray-400", "border", "border-gray-700");
+            });
+            boton.classList.remove("bg-gray-800", "text-gray-400", "border", "border-gray-700");
+            boton.classList.add("bg-emerald-500", "text-gray-900");
+
+            filtrarPartidos();
+        }
