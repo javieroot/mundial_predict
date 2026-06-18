@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Predictor Engine - Dashboard</title>
-    <!-- Tailwind CSS principal -->
+    <!-- Tailwind CSS (Framework visual principal) -->
     <script src="https://tailwindcss.com"></script>
     <style>
         /* Oculta la barra de scroll horizontal en las píldoras de filtro en celulares */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* 🛡️ ESTILOS NATIVOS SUPREMOS (Obligan a la laptop a pintar el diseño oscuro sin depender de Tailwind) */
+        /* 🛡️ ESTILOS NATIVOS SUPREMOS (Obligan a la Laptop y Celular a pintar el diseño sin depender de Tailwind) */
         body {
             background-color: #111827 !important;
             color: #f3f4f6 !important;
@@ -30,6 +30,7 @@
             margin: 0 auto;
             padding: 1rem;
         }
+        /* REJILLA HÍBRIDA ADAPTATIVA: Lista vertical en celular, rejilla de lado a lado en Laptop */
         .contenedor-tarjetas {
             display: flex !important;
             flex-wrap: wrap !important;
@@ -44,7 +45,7 @@
             overflow: hidden !important;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             width: 100% !important;
-            max-width: 420px !important; /* Tamaño compacto estético de app móvil en laptop */
+            max-width: 440px !important; /* Mantiene el tamaño compacto estético en pantallas gigantes */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -52,14 +53,14 @@
         .encabezado-tarjeta {
             background-color: #1a222f !important;
             border-bottom: 1px solid #374151 !important;
-            padding: 0.5rem 1rem !important;
-            font-size: 10px !important;
+            padding: 0.6rem 1rem !important;
+            font-size: 11px !important;
             color: #9ca3af !important;
             display: flex;
             justify-content: space-between;
         }
         .bloque-marcador {
-            padding: 1.25rem 1rem !important;
+            padding: 1.5rem 1rem !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
@@ -68,9 +69,9 @@
             background-color: #111827 !important;
             border: 1px solid #374151 !important;
             border-radius: 0.75rem !important;
-            padding: 0.5rem 1.25rem !important;
+            padding: 0.5rem 1.5rem !important;
             font-family: monospace !important;
-            font-size: 1.35rem !important;
+            font-size: 1.5rem !important;
             font-weight: bold !important;
             color: #34d399 !important;
             box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.6);
@@ -92,12 +93,13 @@
         .linea-fuente {
             display: flex;
             justify-content: space-between;
-            padding: 0.35rem 0;
+            padding: 0.4rem 0;
             border-bottom: 1px solid #1e293b;
             align-items: center;
         }
         .linea-fuente:last-child { border: 0; }
         .font-mono { font-family: monospace !important; }
+        
         input[type="text"] {
             background-color: #111827 !important;
             border: 1px solid #374151 !important;
@@ -137,8 +139,8 @@
                 <input type="text" id="buscador" placeholder="🔍 Buscar país, estadio...">
             </div>
 
-            <!-- PÍLDORAS DE FILTRO -->
-            <div id="contenedor-filtros" style="display: flex; gap: 0.5rem; overflow-x: auto; max-width: 100%;">
+            <!-- PÍLDORAS DE FILTRO TÁCTILES -->
+            <div id="contenedor-filtros" style="display: flex; gap: 0.5rem; overflow-x: auto; max-width: 100%;" class="no-scrollbar">
                 <!-- Se llenan dinámicamente -->
             </div>
         </div>
@@ -181,7 +183,7 @@
                     inicializarInterfaz(data);
                 })
                 .catch(error => {
-                    console.error("❌ Error:", error);
+                    console.error("❌ Error de carga asíncrona:", error);
                     document.getElementById("lista-partidos").innerHTML = `
                         <div style="text-align: center; padding: 2rem; color: #f87171; border: 1px solid #7f1d1d; background-color: rgba(69, 10, 10, 0.2); border-radius: 0.75rem; width: 100%;">
                             <p>⚠️ Error de sincronización con el motor analítico.</p>
@@ -216,7 +218,8 @@
             filtroFaseActual = fase;
             filtrarPartidos();
         }
-        // RENDERIZADO POR CLASES NATIVAS INTERACTIVAS (Corrige la duplicidad de goles individuales)
+
+        // 🧠 RENDERIZADO SUPREMO (Corrige desparrames, duplica de goles e interactividad del acordeón)
         function renderizarTarjetas(partidos) {
             const lista = document.getElementById("lista-partidos");
             if (partidos.length === 0) {
@@ -231,57 +234,60 @@
                 return `
                 <div class="tarjeta-partido" data-fase="${p.grupo}" data-search="${p.etiqueta_busqueda}">
                     
-                    <!-- Encabezado de Tarjeta -->
+                    <!-- Encabezado Informativo -->
                     <div class="encabezado-tarjeta">
-                        <span>⏰ ${p.hora} | ${p.grupo}</span>
-                        <span>🏟️ ${p.estadio}</span>
+                        <span>⏰ ${p.hora || "--:--"} | ${p.grupo}</span>
+                        <span style="max-w: 180px; truncate; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">🏟️ ${p.estadio}</span>
                     </div>
 
-                    <!-- Metodología M1: Marcador Ponderado Core -->
+                    <!-- Metodología M1: Marcador Ponderado Core de tu Algoritmo -->
                     <div class="bloque-marcador">
-                        <div style="width: 35%; font-weight: bold; font-size: 12px; text-align: left; color: #e5e7eb;">${p.local}</div>
+                        <div style="width: 35%; font-weight: bold; font-size: 13px; text-align: left; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.local}</div>
                         <div class="caja-goles">${p.m1_marcador_local} - ${p.m1_marcador_visitante}</div>
-                        <div style="width: 35%; font-weight: bold; font-size: 12px; text-align: right; color: #e5e7eb;">${p.visitante}</div>
+                        <div style="width: 35%; font-weight: bold; font-size: 13px; text-align: right; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.visitante}</div>
                     </div>
 
-                    <!-- Metodología M2: Tendencia de Votos y Confianza -->
+                    <!-- Panel Metodología M2 (Votos Ponderados y Confianza) -->
                     <div class="panel-votos">
                         <div style="font-size: 11px; font-weight: bold; color: #34d399;">
                             M2: ${p.m2_tendencia_votos} <span style="color: #9ca3af; font-family: monospace; font-weight: normal; margin-left: 2px;">(${p.m2_confianza}%)</span>
                         </div>
-                        <button onclick="toggleAcordeon('${p.id_partido}', this)" style="background: none !important; border: none !important; color: #34d399 !important; padding: 0 !important; font-size: 11px !important; font-weight: bold; cursor: pointer;">
+                        <!-- Evento onclick blindado con la función interactiva nativa -->
+                        <button onclick="toggleAcordeon('${p.id_partido}', this)" style="background: none !important; border: none !important; color: #34d399 !important; padding: 0 !important; font-size: 11px !important; font-weight: bold; cursor: pointer; focus: outline-none;">
                             Detalle ▼
                         </button>
                     </div>
 
-                    <!-- 🔒 Acordeón de Trazabilidad Expandible (Oculto por defecto con display: none) -->
+                    <!-- 🔒 ACORDEÓN DE TRAZABILIDAD (Oculto herméticamente por defecto con display: none) -->
                     <div id="acordeon-${p.id_partido}" class="panel-acordeon" style="display: none;">
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #374151; padding-bottom: 0.25rem; margin-bottom: 0.5rem; align-items: center;">
-                            <span style="color: #6b7280; font-size: 10px; font-weight: bold; text-transform: uppercase; tracking-wider: 0.05em;">TRAZABILIDAD DE ORIGEN:</span>
-                            <span style="color: #34d399; font-size: 10px; font-family: monospace; font-weight: bold;">${p.trazabilidad_origen}</span>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #374151; padding-bottom: 0.35rem; margin-bottom: 0.5rem; align-items: center;">
+                            <span style="color: #6b7280; font-size: 9px; font-weight: bold; text-transform: uppercase;">TRAZABILIDAD DE ORIGEN:</span>
+                            <span style="color: #34d399; font-size: 9px; font-family: monospace; font-weight: bold;">${p.trazabilidad_origen}</span>
                         </div>
                         
-                        <!-- Desglose de predicciones individuales corregido -->
-                        ${marcasPermitidas.map(fuente => {
-                            const datosMarca = fuentes[fuente];
-                            if (!datosMarca || datosMarca.length < 2) return '';
-                            
-                            const alertas = p.alertas_fuentes || {};
-                            const esRescate = alertas[fuente] === "rescate_activado";
-                            const etiquetaAlerta = esRescate ? `<span style="background-color: #78350f; color: #fbbf24; border: 1px solid #92400e; font-size: 8px; padding: 1px 4px; border-radius: 4px; font-weight: bold; margin-right: 6px; font-family: sans-serif;">IFR</span>` : '';
-                            
-                            return `
-                                <div class="linea-fuente">
-                                    <span style="color: #9ca3af; text-transform: capitalize; font-size: 11px; font-weight: 500;">${fuente}</span>
-                                    <div style="display: flex; align-items: center;">
-                                        ${etiquetaAlerta}
-                                        <span class="font-mono" style="background-color: #374151; color: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">
-                                            ${datosMarca[0]} - ${datosMarca[1]}
-                                        </span>
+                        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+                            ${marcasPermitidas.map(fuente => {
+                                const datosMarca = fuentes[fuente];
+                                if (!datosMarca || datosMarca.length < 2) return '';
+                                
+                                const alertas = p.alertas_fuentes || {};
+                                const esRescate = alertas[fuente] === "rescate_activado";
+                                const etiquetaAlerta = esRescate ? `<span style="background-color: #78350f; color: #fbbf24; border: 1px solid #92400e; font-size: 8px; padding: 1px 4px; border-radius: 4px; font-weight: bold; margin-right: 6px; font-family: sans-serif;">IFR</span>` : '';
+                                
+                                return `
+                                    <div class="linea-fuente">
+                                        <span style="color: #9ca3af; text-transform: capitalize; font-size: 11px; font-weight: 500;">${fuente}</span>
+                                        <div style="display: flex; align-items: center; gap: 4px;">
+                                            ${etiquetaAlerta}
+                                            <!-- 🧠 TRATAMIENTO DE ÍNDICES EXACTO: 0=Local, 1=Visitante (Elimina la duplicidad 1-1) -->
+                                            <span class="font-mono" style="background-color: #374151; color: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">
+                                                ${datosMarca[0]} - ${datosMarca[1]}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            `;
-                        }).join('')}
+                                `;
+                            }).join('')}
+                        </div>
                     </div>
                 </div>
                 `;
@@ -290,11 +296,11 @@
             actualizarContador();
         }
 
-        // Control de alternancia de visualización del acordeón
+        // CONTROL DE INTERACTIVIDAD NATIVO (Garantiza el correcto despliegue del acordeón)
         function toggleAcordeon(id, boton) {
             const panel = document.getElementById(`acordeon-${id}`);
             if (panel) {
-                if (panel.style.display === "none") {
+                if (panel.style.display === "none" || panel.style.display === "") {
                     panel.style.display = "block";
                     boton.textContent = "Detalle ▲";
                 } else {
