@@ -256,15 +256,15 @@
 
                     <!-- 🔒 Acordeón de Trazabilidad Expandible (Oculto por defecto con display: none) -->
                     <div id="acordeon-${p.id_partido}" class="panel-acordeon" style="display: none;">
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #374151; padding-bottom: 0.25rem; margin-bottom: 0.5rem; items-center: center;">
-                            <span style="color: #6b7280; font-size: 10px; font-weight: bold; uppercase: tracking-wider;">TRAZABILIDAD DE ORIGEN:</span>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #374151; padding-bottom: 0.25rem; margin-bottom: 0.5rem; align-items: center;">
+                            <span style="color: #6b7280; font-size: 10px; font-weight: bold; text-transform: uppercase; tracking-wider: 0.05em;">TRAZABILIDAD DE ORIGEN:</span>
                             <span style="color: #34d399; font-size: 10px; font-family: monospace; font-weight: bold;">${p.trazabilidad_origen}</span>
                         </div>
                         
                         <!-- Desglose de predicciones individuales -->
                         ${marcasPermitidas.map(fuente => {
                             const datosMarca = fuentes[fuente];
-                            if (!datosMarca || datosMarca.length < 2) return '';
+                            if (!datosMarca) return '';
                             
                             const alertas = p.alertas_fuentes || {};
                             const esRescate = alertas[fuente] === "rescate_activado";
