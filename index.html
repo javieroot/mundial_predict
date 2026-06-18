@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Predictor Engine - Dashboard</title>
-    <!-- Tailwind CSS (Framework visual principal) -->
+    <!-- Framework visual secundario para consistencia de capas -->
     <script src="https://tailwindcss.com"></script>
     <style>
         /* Oculta la barra de scroll horizontal en las píldoras de filtro en celulares */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* 🛡️ ESTILOS NATIVOS SUPREMOS (Obligan a la Laptop y Celular a pintar el diseño sin depender de Tailwind) */
+        /* 🛡️ ESTILOS NATIVOS SUPREMOS (Obligan a Laptop y Celular a pintar el diseño sin depender de Tailwind) */
         body {
             background-color: #111827 !important;
             color: #f3f4f6 !important;
@@ -58,6 +58,7 @@
             color: #9ca3af !important;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         .bloque-marcador {
             padding: 1.5rem 1rem !important;
@@ -119,6 +120,7 @@
             font-size: 11px !important;
             font-weight: bold;
             transition: all 0.2s;
+            margin-right: 0.25rem;
         }
         .pildora-filtro:hover { color: white; border-color: #6b7280; }
     </style>
@@ -165,6 +167,7 @@
         let partidosGlobales = [];
         let filtroFaseActual = "Todos";
 
+        // PASO 1: Doble lectura dinámica automática para optimizar la carga móvil
         document.addEventListener("DOMContentLoaded", () => {
             fetch('ruta_activa.json')
                 .then(response => {
@@ -172,6 +175,7 @@
                     return response.json();
                 })
                 .then(puntero => {
+                    // Descarga en caliente el JSON exclusivo de la jornada actual
                     return fetch(puntero.url_resultados);
                 })
                 .then(response => {
@@ -208,7 +212,7 @@
             const fases = ["Todos", ...new Set(partidos.map(p => p.grupo))];
             
             contenedor.innerHTML = fases.map((fase, idx) => `
-                <button onclick="cambiarFiltroFase('${fase}', this)" class="pildora-filtro">
+                <button onclick="cambiarFiltroFase('${fase}', this)" class="pildora-filtro" style="${idx === 0 ? 'background-color: #34d399 !important; color: #111827 !important; border-color: #34d399 !important;' : ''}">
                     ${fase}
                 </button>
             `).join('');
@@ -216,10 +220,19 @@
 
         function cambiarFiltroFase(fase, boton) {
             filtroFaseActual = fase;
+            
+            document.querySelectorAll(".pildora-filtro").forEach(b => {
+                b.style.backgroundColor = "#374151";
+                b.style.color = "#9ca3af";
+                b.style.borderColor = "#4b5563";
+            });
+            boton.style.backgroundColor = "#34d399";
+            boton.style.color = "#111827";
+            boton.style.borderColor = "#34d399";
+
             filtrarPartidos();
         }
-
-        // 🧠 RENDERIZADO SUPREMO (Corrige desparrames, duplica de goles e interactividad del acordeón)
+        // 🧠 RENDERIZADO SUPREMO (Corrige desparrames, duplicidad de goles e interactividad del acordeón)
         function renderizarTarjetas(partidos) {
             const lista = document.getElementById("lista-partidos");
             if (partidos.length === 0) {
@@ -231,13 +244,28 @@
                 const fuentes = p.consenso_fuentes || {};
                 const marcasPermitidas = ["opta", "apuestas", "elo", "forebet", "predictz", "google_ai"];
 
+                // AUDITORÍA DE PARTIDOS FINALIZADOS:
+                // Valida si el Backend ya inyectó un resultado real de internet (no nulo)
+                const partidoConcluido = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
+                
+                // Si terminó, dibuja una insignia verde con el score real; si no, muestra la hora programada
+                const bloqueEstadoHora = partidoConcluido 
+                    ? `<span style="background-color: #064e3b; color: #34d399; border: 1px solid #047857; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-family: monospace; font-size: 10px;">FT: ${p.resultado_real_local} - ${p.resultado_real_visitante}</span>`
+                    : `<span>⏰ ${p.hora || "--:--"}</span>`;
+
+                const colorM2 = p.m2_tendencia_votos.includes("Local") ? "text-emerald-400 bg-emerald-950/40 border-emerald-800" : 
+                                p.m2_tendencia_votos.includes("Visitante") ? "text-blue-400 bg-blue-950/40 border-blue-800" : "text-amber-400 bg-amber-950/40 border-amber-800";
+                
+                const colorTrazabilidad = p.trazabilidad_origen.includes("mixto") ? "text-amber-400 border-amber-800 bg-amber-950/30" : "text-emerald-400 border-emerald-800 bg-emerald-950/30";
+
                 return `
                 <div class="tarjeta-partido" data-fase="${p.grupo}" data-search="${p.etiqueta_busqueda}">
                     
                     <!-- Encabezado Informativo -->
                     <div class="encabezado-tarjeta">
-                        <span>⏰ ${p.hora || "--:--"} | ${p.grupo}</span>
-                        <span style="max-w: 180px; truncate; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">🏟️ ${p.estadio}</span>
+                        ${bloqueEstadoHora}
+                        <span>${p.grupo}</span>
+                        <span style="max-w: 160px; truncate; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">🏟️ ${p.estadio}</span>
                     </div>
 
                     <!-- Metodología M1: Marcador Ponderado Core de tu Algoritmo -->
@@ -252,7 +280,7 @@
                         <div style="font-size: 11px; font-weight: bold; color: #34d399;">
                             M2: ${p.m2_tendencia_votos} <span style="color: #9ca3af; font-family: monospace; font-weight: normal; margin-left: 2px;">(${p.m2_confianza}%)</span>
                         </div>
-                        <!-- Evento onclick blindado con la función interactiva nativa -->
+                        <!-- Evento onclick interactivo nativo -->
                         <button onclick="toggleAcordeon('${p.id_partido}', this)" style="background: none !important; border: none !important; color: #34d399 !important; padding: 0 !important; font-size: 11px !important; font-weight: bold; cursor: pointer; focus: outline-none;">
                             Detalle ▼
                         </button>
@@ -279,7 +307,7 @@
                                         <span style="color: #9ca3af; text-transform: capitalize; font-size: 11px; font-weight: 500;">${fuente}</span>
                                         <div style="display: flex; align-items: center; gap: 4px;">
                                             ${etiquetaAlerta}
-                                            <!-- 🧠 TRATAMIENTO DE ÍNDICES EXACTO: 0=Local, 1=Visitante (Elimina la duplicidad 1-1) -->
+                                            <!-- 🧠 TRATAMIENTO DE ÍNDICES EXACTO: index 0 = Local, index 1 = Visitante -->
                                             <span class="font-mono" style="background-color: #374151; color: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">
                                                 ${datosMarca[0]} - ${datosMarca[1]}
                                             </span>
