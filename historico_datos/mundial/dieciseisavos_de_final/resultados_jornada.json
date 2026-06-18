@@ -1,0 +1,90 @@
+{
+  "torneo": "Mundial",
+  "fase_activa": "Dieciseisavos De Final",
+  "partidos": [
+    {
+      "id_partido": "mundial_dieciseisavos_de_final_pumas_juárez",
+      "grupo": "Jornada 1",
+      "estadio": "Estadio Olímpico Universitario",
+      "hora": "--:--",
+      "local": "Pumas",
+      "visitante": "Juárez",
+      "m1_marcador_local": 2,
+      "m1_marcador_visitante": 1,
+      "m1_resultado_derivado": "⚽ Gana Local",
+      "m2_tendencia_votos": "🏠 Local",
+      "m2_confianza": 65.0,
+      "trazabilidad_origen": "mixto: obtenido_web, rescate_ifr",
+      "resultado_real_local": null,
+      "resultado_real_visitante": null,
+      "consenso_fuentes": {
+        "opta": [
+          2,
+          1
+        ],
+        "apuestas": [
+          1,
+          1
+        ],
+        "elo": [
+          2,
+          2
+        ],
+        "forebet": [
+          3,
+          1
+        ],
+        "predictz": [
+          1,
+          0
+        ],
+        "google_ai": [
+          2.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id_partido": "mundial_dieciseisavos_de_final_guadalajara_américa",
+      "grupo": "Jornada 1",
+      "estadio": "Estadio Akron",
+      "hora": "--:--",
+      "local": "Guadalajara",
+      "visitante": "América",
+      "m1_marcador_local": 2,
+      "m1_marcador_visitante": 1,
+      "m1_resultado_derivado": "⚽ Gana Local",
+      "m2_tendencia_votos": "🏠 Local",
+      "m2_confianza": 65.0,
+      "trazabilidad_origen": "obtenido_web",
+      "resultado_real_local": null,
+      "resultado_real_visitante": null,
+      "consenso_fuentes": {
+        "opta": [
+          2,
+          1
+        ],
+        "apuestas": [
+          1,
+          1
+        ],
+        "elo": [
+          2,
+          2
+        ],
+        "forebet": [
+          3,
+          1
+        ],
+        "predictz": [
+          1,
+          0
+        ],
+        "google_ai": [
+          2,
+          1
+        ]
+      }
+    }
+  ]
+}

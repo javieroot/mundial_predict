@@ -1,0 +1,65 @@
+{
+  "partidos": [
+    {
+      "fase": "Jornada 1",
+      "estadio": "Estadio Olímpico Universitario",
+      "local": "Pumas",
+      "visitante": "Juárez",
+      "goles_proveedores": {
+        "opta": [
+          2,
+          1
+        ],
+        "apuestas": [
+          1,
+          1
+        ],
+        "elo": [
+          2,
+          2
+        ],
+        "forebet": [
+          3,
+          1
+        ],
+        "predictz": [
+          1,
+          0
+        ],
+        "google_ai": null
+      }
+    },
+    {
+      "fase": "Jornada 1",
+      "estadio": "Estadio Akron",
+      "local": "Guadalajara",
+      "visitante": "América",
+      "goles_proveedores": {
+        "opta": [
+          2,
+          1
+        ],
+        "apuestas": [
+          1,
+          1
+        ],
+        "elo": [
+          2,
+          2
+        ],
+        "forebet": [
+          3,
+          1
+        ],
+        "predictz": [
+          1,
+          0
+        ],
+        "google_ai": [
+          2,
+          1
+        ]
+      }
+    }
+  ]
+}
