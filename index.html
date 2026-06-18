@@ -153,3 +153,140 @@
 
             filtrarPartidos();
         }
+        // Renderizar las tarjetas unificando variables nativas M1 / M2 de tu Core
+        function renderizarTarjetas(partidos) {
+            const lista = document.getElementById("lista-partidos");
+            if (partidos.length === 0) {
+                lista.innerHTML = `<p class="text-center py-10 text-gray-500 text-xs w-full">No hay partidos en esta jornada.</p>`;
+                return;
+            }
+
+            lista.innerHTML = partidos.map(p => {
+                // Color dinámico según la tendencia de votos (M2) de tu Core
+                const colorM2 = p.m2_tendencia_votos.includes("Local") ? "text-emerald-400 bg-emerald-950/40 border-emerald-800" : 
+                                p.m2_tendencia_votos.includes("Visitante") ? "text-blue-400 bg-blue-950/40 border-blue-800" : "text-amber-400 bg-amber-950/40 border-amber-800";
+                
+                // Color dinámico del coeficiente de trazabilidad de origen
+                const colorTrazabilidad = p.trazabilidad_origen.includes("mixto") ? "text-amber-400 border-amber-800 bg-amber-950/30" : "text-emerald-400 border-emerald-800 bg-emerald-950/30";
+                
+                const fuentes = p.consenso_fuentes || {};
+                const marcasPermitidas = ["opta", "apuestas", "elo", "forebet", "predictz", "google_ai"];
+
+                return `
+                <div class="tarjeta-partido bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-md transition-all flex flex-col justify-between" 
+                     data-fase="${p.grupo}" data-search="${p.etiqueta_busqueda}">
+                    
+                    <div>
+                        <!-- Encabezado superior informativo -->
+                        <div class="px-4 py-2 bg-gray-850 border-b border-gray-700 flex justify-between items-center text-[10px] text-gray-400 font-medium">
+                            <span>⏰ ${p.hora} | ${p.grupo}</span>
+                            <span class="truncate max-w-[185px]">🏟️ ${p.estadio}</span>
+                        </div>
+
+                        <!-- Bloque Central: Metodología M1 (Marcador de tu Core) -->
+                        <div class="p-4 flex justify-between items-center">
+                            <div class="w-1/3 text-left font-bold text-xs text-gray-200 truncate">${p.local}</div>
+                            <div class="w-1/3 text-center bg-gray-900 py-1.5 px-2 rounded-xl border border-gray-700 font-mono text-base font-bold text-emerald-400 shadow-inner">
+                                ${p.m1_marcador_local} - ${p.m1_marcador_visitante}
+                            </div>
+                            <div class="w-1/3 text-right font-bold text-xs text-gray-200 truncate">${p.visitante}</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <!-- Panel de Metodología M2 (Votos y Confianza) -->
+                        <div class="px-4 py-2.5 bg-gray-850 border-t border-gray-700/50 flex justify-between items-center flex-wrap gap-2">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-[9px] uppercase font-bold px-2 py-0.5 rounded border ${colorM2}">
+                                    M2: ${p.m2_tendencia_votos}
+                                </span>
+                                <span class="text-[10px] font-mono text-gray-400 font-semibold">
+                                    (${p.m2_confianza}%)
+                                </span>
+                            </div>
+                            <button onclick="toggleAcordeon('${p.id_partido}', this)" class="text-xs text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1 focus:outline-none text-[11px]">
+                                <span>Detalle</span> <span class="icono-flecha transition-transform duration-200 text-[9px]">▼</span>
+                            </button>
+                        </div>
+
+                        <!-- Acordeón Expandible (Consenso y Trazabilidad) -->
+                        <div id="acordeon-${p.id_partido}" class="hidden bg-gray-900 px-4 py-3 border-t border-gray-700 space-y-2 text-xs">
+                            <div class="flex justify-between items-center mb-1 pb-1 border-b border-gray-800">
+                                <span class="text-gray-500 font-bold text-[9px] uppercase tracking-wider">Trazabilidad de Origen:</span>
+                                <span class="text-[9px] font-mono px-1.5 py-0.5 rounded border uppercase font-bold ${colorTrazabilidad}">
+                                    ${p.trazabilidad_origen}
+                                </span>
+                            </div>
+                            
+                            ${marcasPermitidas.map(fuente => {
+                                const datosMarca = fuentes[fuente];
+                                if (!datosMarca) return '';
+                                
+                                const alertas = p.alertas_fuentes || {};
+                                const esRescate = alertas[fuente] === "rescate_activado";
+                                const etiquetaAlerta = esRescate ? `<span class="text-[8px] bg-amber-950 text-amber-400 border border-amber-800 px-1 rounded font-mono font-bold">IFR</span>` : '';
+                                
+                                return `
+                                    <div class="flex justify-between items-center py-1 border-b border-gray-850 last:border-0">
+                                        <span class="capitalize text-gray-400 font-medium text-[11px]">${fuente}</span>
+                                        <div class="flex items-center gap-2">
+                                            ${etiquetaAlerta}
+                                            <span class="font-mono font-bold bg-gray-800 px-2 py-0.5 rounded text-gray-300 text-[11px]">
+                                                ${datosMarca[0]} - ${datosMarca[1]}
+                                            </span>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+            
+            actualizarContador();
+        }
+
+        // Control de apertura/cierre táctil del acordeón
+        function toggleAcordeon(id, boton) {
+            const panel = document.getElementById(`acordeon-${id}`);
+            const flecha = boton.querySelector(".icono-flecha");
+            
+            if (panel && panel.classList.contains("hidden")) {
+                panel.classList.remove("hidden");
+                flecha.classList.add("rotate-180");
+            } else if (panel) {
+                panel.classList.add("hidden");
+                flecha.classList.remove("rotate-180");
+            }
+        }
+
+        // Filtrado instantáneo combinado (Texto + Píldora activa)
+        function filtrarPartidos() {
+            const textoBuscador = document.getElementById("buscador").value.toLowerCase().trim();
+            const tarjetas = document.querySelectorAll(".tarjeta-partido");
+
+            tarjetas.forEach(tarjeta => {
+                const faseTarjeta = tarjeta.getAttribute("data-fase");
+                const textoTarjeta = tarjeta.getAttribute("data-search");
+
+                const cumpleFase = (filtroFaseActual === "Todos" || faseTarjeta === filtroFaseActual);
+                const cumpleTexto = textoTarjeta.includes(textoBuscador);
+
+                if (cumpleFase && cumpleTexto) {
+                    tarjeta.classList.remove("hidden");
+                } else {
+                    tarjeta.classList.add("hidden");
+                }
+            });
+
+            actualizarContador();
+        }
+
+        function actualizarContador() {
+            const visibles = document.querySelectorAll(".tarjeta-partido:not(.hidden)").length;
+            document.getElementById("contador-partidos").textContent = `Partidos: ${visibles}`;
+        }
+    </script>
+</body>
+</html>
