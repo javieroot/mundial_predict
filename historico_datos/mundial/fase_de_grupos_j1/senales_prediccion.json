@@ -1,0 +1,106 @@
+{
+  "partidos": [
+    {
+      "fase": "Fase de Grupos",
+      "estadio": "Estadio Azteca",
+      "local": "México",
+      "visitante": "Italia",
+      "goles_listos": {
+        "opta": {
+          "marcador": [
+            1.0,
+            2.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "apuestas": {
+          "marcador": [
+            1.0,
+            1.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "elo": {
+          "marcador": [
+            0.0,
+            2.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "forebet": {
+          "marcador": [
+            1.0,
+            3.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "predictz": {
+          "marcador": [
+            0.0,
+            1.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "google_ai": {
+          "marcador": [
+            1.0,
+            2.0
+          ],
+          "metodo": "obtenido_web"
+        }
+      },
+      "alertas_fuentes": {}
+    },
+    {
+      "fase": "Fase de Grupos",
+      "estadio": "MetLife Stadium",
+      "local": "Estados Unidos",
+      "visitante": "Francia",
+      "goles_listos": {
+        "opta": {
+          "marcador": [
+            1.0,
+            2.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "apuestas": {
+          "marcador": [
+            1.0,
+            1.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "elo": {
+          "marcador": [
+            0.0,
+            2.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "forebet": {
+          "marcador": [
+            1.0,
+            3.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "predictz": {
+          "marcador": [
+            0.0,
+            1.0
+          ],
+          "metodo": "obtenido_web"
+        },
+        "google_ai": {
+          "marcador": [
+            1.0,
+            2.0
+          ],
+          "metodo": "obtenido_web"
+        }
+      },
+      "alertas_fuentes": {}
+    }
+  ]
+}

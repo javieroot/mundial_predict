@@ -1,0 +1,90 @@
+{
+  "torneo": "Mundial",
+  "fase_activa": "Fase De Grupos J1",
+  "partidos": [
+    {
+      "id_partido": "mundial_fase_de_grupos_j1_méxico_italia",
+      "grupo": "Fase de Grupos",
+      "estadio": "Estadio Azteca",
+      "hora": "--:--",
+      "local": "México",
+      "visitante": "Italia",
+      "m1_marcador_local": 1,
+      "m1_marcador_visitante": 2,
+      "m1_resultado_derivado": "⚽ Gana Visitante",
+      "m2_tendencia_votos": "🚀 Visitante",
+      "m2_confianza": 80.0,
+      "trazabilidad_origen": "obtenido_web",
+      "resultado_real_local": null,
+      "resultado_real_visitante": null,
+      "consenso_fuentes": {
+        "opta": [
+          1.0,
+          2.0
+        ],
+        "apuestas": [
+          1.0,
+          1.0
+        ],
+        "elo": [
+          0.0,
+          2.0
+        ],
+        "forebet": [
+          1.0,
+          3.0
+        ],
+        "predictz": [
+          0.0,
+          1.0
+        ],
+        "google_ai": [
+          1.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "id_partido": "mundial_fase_de_grupos_j1_estados_unidos_francia",
+      "grupo": "Fase de Grupos",
+      "estadio": "MetLife Stadium",
+      "hora": "--:--",
+      "local": "Estados Unidos",
+      "visitante": "Francia",
+      "m1_marcador_local": 1,
+      "m1_marcador_visitante": 2,
+      "m1_resultado_derivado": "⚽ Gana Visitante",
+      "m2_tendencia_votos": "🚀 Visitante",
+      "m2_confianza": 80.0,
+      "trazabilidad_origen": "obtenido_web",
+      "resultado_real_local": null,
+      "resultado_real_visitante": null,
+      "consenso_fuentes": {
+        "opta": [
+          1.0,
+          2.0
+        ],
+        "apuestas": [
+          1.0,
+          1.0
+        ],
+        "elo": [
+          0.0,
+          2.0
+        ],
+        "forebet": [
+          1.0,
+          3.0
+        ],
+        "predictz": [
+          0.0,
+          1.0
+        ],
+        "google_ai": [
+          1.0,
+          2.0
+        ]
+      }
+    }
+  ]
+}

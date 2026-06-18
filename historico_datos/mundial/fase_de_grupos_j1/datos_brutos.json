@@ -1,0 +1,68 @@
+{
+  "partidos": [
+    {
+      "fase": "Fase de Grupos",
+      "estadio": "Estadio Azteca",
+      "local": "México",
+      "visitante": "Italia",
+      "goles_proveedores": {
+        "opta": [
+          1.0,
+          2.0
+        ],
+        "apuestas": [
+          1.0,
+          1.0
+        ],
+        "elo": [
+          0.0,
+          2.0
+        ],
+        "forebet": [
+          1.0,
+          3.0
+        ],
+        "predictz": [
+          0.0,
+          1.0
+        ],
+        "google_ai": [
+          1.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "fase": "Fase de Grupos",
+      "estadio": "MetLife Stadium",
+      "local": "Estados Unidos",
+      "visitante": "Francia",
+      "goles_proveedores": {
+        "opta": [
+          1.0,
+          2.0
+        ],
+        "apuestas": [
+          1.0,
+          1.0
+        ],
+        "elo": [
+          0.0,
+          2.0
+        ],
+        "forebet": [
+          1.0,
+          3.0
+        ],
+        "predictz": [
+          0.0,
+          1.0
+        ],
+        "google_ai": [
+          1.0,
+          2.0
+        ]
+      }
+    }
+  ]
+}
