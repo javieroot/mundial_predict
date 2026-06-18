@@ -53,6 +53,7 @@
             </div>
         </div>
     </main>
+
     <!-- LÓGICA DE CONTROL JAVASCRIPT -->
     <script>
         let partidosGlobales = [];
@@ -66,11 +67,10 @@
                     return response.json();
                 })
                 .then(puntero => {
-                    // Descarga dinámicamente SOLO los resultados de la jornada activa
                     return fetch(puntero.url_resultados);
                 })
                 .then(response => {
-                    if (!response.ok) throw new Error("No se pudo cargar el archivo histórico.");
+                    if (!response.ok) throw new Error("No se pudo cargar el archivo histórico de la jornada.");
                     return response.json();
                 })
                 .then(data => {
@@ -80,27 +80,25 @@
                 .catch(error => {
                     console.error("❌ Error de inicialización:", error);
                     document.getElementById("lista-partidos").innerHTML = `
-                        <div class="text-center py-10 text-red-400 text-xs border border-red-900 bg-red-950/20 rounded-xl">
-                            <p>⚠️ Error de sincronización con el motor analítico.</p>
-                            <p class="text-gray-500 mt-1">${error.message}</p>
+                        <div class="text-center py-10 px-4 text-red-400 text-xs border border-red-900 bg-red-950/20 rounded-xl max-w-md mx-auto mt-4">
+                            <p class="font-bold mb-1">⚠️ Error de sincronización con el motor analítico.</p>
+                            <p class="text-gray-500 font-mono text-[11px] mt-2 bg-gray-950 p-2 rounded border border-gray-800">${error.message}</p>
                         </div>
                     `;
                 });
         });
 
         function inicializarInterfaz(data) {
-            document.getElementById("loading").remove();
+            if (document.getElementById("loading")) document.getElementById("loading").remove();
             document.getElementById("txt-torneo").textContent = data.torneo;
             document.getElementById("txt-fase").textContent = `Fase: ${data.fase_activa}`;
             
             generarFiltrosPildora(partidosGlobales);
             renderizarTarjetas(partidosGlobales);
 
-            // Escuchar cambios en la barra de búsqueda escrita
             document.getElementById("buscador").addEventListener("input", filtrarPartidos);
         }
 
-        // Generar botones táctiles basados en las fases reales encontradas en el JSON
         function generarFiltrosPildora(partidos) {
             const contenedor = document.getElementById("contenedor-filtros");
             const fases = ["Todos", ...new Set(partidos.map(p => p.grupo))];
@@ -115,8 +113,6 @@
 
         function cambiarFiltroFase(fase, boton) {
             filtroFaseActual = fase;
-            
-            // Intercambiar estilos de selección de Tailwind
             document.querySelectorAll(".pildora-filtro").forEach(b => {
                 b.classList.remove("bg-emerald-500", "text-gray-900");
                 b.classList.add("bg-gray-800", "text-gray-400", "border", "border-gray-700");
@@ -135,12 +131,16 @@
             }
 
             lista.innerHTML = partidos.map(p => {
-                // Color dinámico de la insignia según la tendencia de votos (M2) de tu Core
+                // Color dinámico según la tendencia de votos (M2) de tu Core
                 const colorM2 = p.m2_tendencia_votos.includes("Local") ? "text-emerald-400 bg-emerald-950/40 border-emerald-800" : 
                                 p.m2_tendencia_votos.includes("Visitante") ? "text-blue-400 bg-blue-950/40 border-blue-800" : "text-amber-400 bg-amber-950/40 border-amber-800";
                 
-                // Color dinámico de la trazabilidad (Web pura o Mixta)
+                // Color dinámico del coeficiente de trazabilidad de origen
                 const colorTrazabilidad = p.trazabilidad_origen.includes("mixto") ? "text-amber-400 border-amber-800 bg-amber-950/30" : "text-emerald-400 border-emerald-800 bg-emerald-950/30";
+
+                // Red de seguridad: Extrae el consenso inyectado por tu función core
+                const fuentes = p.consenso_fuentes || {};
+                const marcasPermitidas = ["opta", "apuestas", "elo", "forebet", "predictz", "google_ai"];
 
                 return `
                 <div class="tarjeta-partido bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-md transition-all" 
@@ -152,7 +152,7 @@
                         <span class="truncate max-w-[180px]">🏟️ ${p.estadio}</span>
                     </div>
 
-                    <!-- Bloque Central: Metodología M1 (Marcador Ponderado) -->
+                    <!-- Bloque Central: Metodología M1 (Tu Marcador Ponderado Core) -->
                     <div class="p-4 flex justify-between items-center">
                         <div class="w-1/3 text-left font-bold text-xs text-gray-200 truncate">${p.local}</div>
                         <div class="w-1/3 text-center bg-gray-900 py-1.5 px-2 rounded-xl border border-gray-700 font-mono text-base font-bold text-emerald-400 shadow-inner">
@@ -176,7 +176,7 @@
                         </button>
                     </div>
 
-                    <!-- Acordeón Expandible (Consenso y Trazabilidad de Origen de tu Core) -->
+                    <!-- Acordeón Expandible (Consenso de Proveedores) -->
                     <div id="acordeon-${p.id_partido}" class="hidden bg-gray-900 px-4 py-3 border-t border-gray-700 space-y-2 text-xs">
                         <div class="flex justify-between items-center mb-1 pb-1 border-b border-gray-800">
                             <span class="text-gray-500 font-bold text-[9px] uppercase tracking-wider">Trazabilidad de Origen:</span>
@@ -185,17 +185,22 @@
                             </span>
                         </div>
                         
-                        <!-- Lista de lo que predijo cada marca antes del promedio -->
-                        ${Object.keys(p.consenso_fuentes).map(fuente => {
-                            const esRescate = p.alertas_fuentes[fuente] === "rescate_activado";
+                        <!-- Mapeo seguro del desglose individual iterando la lista permitida -->
+                        ${marcasPermitidas.map(fuente => {
+                            const datosMarca = fuentes[fuente];
+                            if (!datosMarca) return ''; // Ignora si no hay datos de la marca
+                            
+                            const alertas = p.alertas_fuentes || {};
+                            const esRescate = alertas[fuente] === "rescate_activado";
                             const etiquetaAlerta = esRescate ? `<span class="text-[8px] bg-amber-950 text-amber-400 border border-amber-800 px-1 rounded font-mono font-bold">IFR</span>` : '';
+                            
                             return `
                                 <div class="flex justify-between items-center py-1 border-b border-gray-850 last:border-0">
                                     <span class="capitalize text-gray-400 font-medium text-[11px]">${fuente}</span>
                                     <div class="flex items-center gap-2">
                                         ${etiquetaAlerta}
                                         <span class="font-mono font-bold bg-gray-800 px-2 py-0.5 rounded text-gray-300 text-[11px]">
-                                            ${p.consenso_fuentes[fuente][0]} - ${p.consenso_fuentes[fuente][1]}
+                                            ${datosMarca[0]} - ${datosMarca[1]}
                                         </span>
                                     </div>
                                 </div>
@@ -209,21 +214,19 @@
             actualizarContador();
         }
 
-        // Control de apertura/cierre táctil del acordeón de marcas
         function toggleAcordeon(id, boton) {
             const panel = document.getElementById(`acordeon-${id}`);
             const flecha = boton.querySelector(".icono-flecha");
             
-            if (panel.classList.contains("hidden")) {
+            if (panel && panel.classList.contains("hidden")) {
                 panel.classList.remove("hidden");
                 flecha.classList.add("rotate-180");
-            } else {
+            } else if (panel) {
                 panel.classList.add("hidden");
                 flecha.classList.remove("rotate-180");
             }
         }
 
-        // Filtrado instantáneo combinado (Texto del buscador + Píldora activa)
         function filtrarPartidos() {
             const textoBuscador = document.getElementById("buscador").value.toLowerCase().trim();
             const tarjetas = document.querySelectorAll(".tarjeta-partido");
