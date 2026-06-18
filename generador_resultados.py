@@ -30,7 +30,11 @@ def cargar_json(ruta):
 
 def guardar_json(data, ruta):
     """Escribe el entregable asegurando la creación dinámica de rutas históricas."""
-    os.makedirs(os.path.dirname(ruta), exist_ok=True)
+    # 🧠 CORRECCIÓN QUIRÚRGICA: Evita intentar crear directorios si la ruta está en la raíz
+    carpeta = os.path.dirname(ruta)
+    if carpeta:
+        os.makedirs(carpeta, exist_ok=True)
+        
     with open(ruta, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
