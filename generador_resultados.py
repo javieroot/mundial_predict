@@ -85,8 +85,6 @@ def analizar_partido(partido_id, info):
     dict_emojis = {"LOCAL": "🏠 Local", "VISITANTE": "🚀 Visitante", "EMPATE": "🤝 Empate"}
     
     # --- DETERMINACIÓN DEL COEFICIENTE DE TRAZABILIDAD (Lógica de Consenso) ---
-    # Si len es 1, significa que todas las fuentes compartieron el mismo método (ej: obtenido_web).
-    # De lo contrario, se marca como mixto y enlista los métodos activos ordenados alfabéticamente.
     if len(origenes_detectados) == 1:
         trazabilidad_final = list(origenes_detectados)[0]
     else:
@@ -103,8 +101,7 @@ def analizar_partido(partido_id, info):
         "estadio": info.get("estadio", "Por definir"),
         "hora": info.get("hora", "--:--"),
         "local": local,
-        "visitante": ... if len(equipos) > 1 else "Desconocido" if visitante == "Desconocido" else visitante,
-        "visitante_real_name": visitante,
+        "visitante": visitante,
         "m1_marcador_local": goles_m1_local, 
         "m1_marcador_visitante": goles_m1_visitante, 
         "m1_resultado_derivado": resultado_m1, 
@@ -113,7 +110,7 @@ def analizar_partido(partido_id, info):
         "trazabilidad_origen": trazabilidad_final,       
         "resultado_real_local": info.get("real_l", None), 
         "resultado_real_visitante": info.get("real_v", None),
-        "consenso_fuentes": info.get("consenso_crudo", {})  # Inyección para el acordeón móvil
+        "consenso_fuentes": info.get("consenso_crudo", {})  
     }
 
 def ejecutar_capa_resultados():
