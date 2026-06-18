@@ -216,7 +216,7 @@
             filtroFaseActual = fase;
             filtrarPartidos();
         }
-        // RENDERIZADO POR CLASES NATIVAS INTERACTIVAS
+        // RENDERIZADO POR CLASES NATIVAS INTERACTIVAS (Corrige la duplicidad de goles individuales)
         function renderizarTarjetas(partidos) {
             const lista = document.getElementById("lista-partidos");
             if (partidos.length === 0) {
@@ -261,10 +261,10 @@
                             <span style="color: #34d399; font-size: 10px; font-family: monospace; font-weight: bold;">${p.trazabilidad_origen}</span>
                         </div>
                         
-                        <!-- Desglose de predicciones individuales -->
+                        <!-- Desglose de predicciones individuales corregido -->
                         ${marcasPermitidas.map(fuente => {
                             const datosMarca = fuentes[fuente];
-                            if (!datosMarca) return '';
+                            if (!datosMarca || datosMarca.length < 2) return '';
                             
                             const alertas = p.alertas_fuentes || {};
                             const esRescate = alertas[fuente] === "rescate_activado";
