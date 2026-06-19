@@ -5,6 +5,8 @@
       "estadio": "Estadio Azteca",
       "local": "México",
       "visitante": "Italia",
+      "resultado_real_local": null,
+      "resultado_real_visitante": null,
       "goles_listos": {
         "opta": {
           "marcador": [
@@ -49,13 +51,22 @@
           "metodo": "obtenido_web"
         }
       },
-      "alertas_fuentes": {}
+      "alertas_fuentes": {
+        "opta": "estable",
+        "apuestas": "estable",
+        "elo": "estable",
+        "forebet": "estable",
+        "predictz": "estable",
+        "google_ai": "estable"
+      }
     },
     {
       "fase": "Fase de Grupos",
       "estadio": "MetLife Stadium",
       "local": "Estados Unidos",
       "visitante": "Francia",
+      "resultado_real_local": null,
+      "resultado_real_visitante": null,
       "goles_listos": {
         "opta": {
           "marcador": [
@@ -100,7 +111,14 @@
           "metodo": "obtenido_web"
         }
       },
-      "alertas_fuentes": {}
+      "alertas_fuentes": {
+        "opta": "estable",
+        "apuestas": "estable",
+        "elo": "estable",
+        "forebet": "estable",
+        "predictz": "estable",
+        "google_ai": "estable"
+      }
     }
   ]
 }
