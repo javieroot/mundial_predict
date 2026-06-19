@@ -3,92 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Predictor Engine - Dashboard</title>
-    <!-- Framework visual secundario para consistencia de capas -->
+    <title>Sports Predictor Engine - Dashboard Pro</title>
+    <!-- Tailwind CSS (Estructura visual principal) -->
     <script src="https://tailwindcss.com"></script>
     <style>
-        /* Oculta la barra de scroll horizontal en las píldoras de filtro en celulares */
+        /* Oculta las barras de scroll horizontal de forma nativa */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* 🛡️ ESTILOS NATIVOS SUPREMOS (Obligan a Laptop y Celular a pintar el diseño sin depender de Tailwind) */
+        /* 🛡️ ESTILOS NATIVOS SUPREMOS (Protección total contra caídas de CDN o fallas en Laptop) */
         body {
-            background-color: #111827 !important;
-            color: #f3f4f6 !important;
-            font-family: system-ui, -apple-system, sans-serif !important;
+            background-color: #0f172a !important; /* Slate 900 */
+            color: #f8fafc !important; /* Slate 50 */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #1f2937 !important;
-            border-bottom: 1px solid #374151 !important;
+            background-color: #1e293b !important; /* Slate 800 */
+            border-bottom: 1px solid #334155 !important;
             padding: 1rem !important;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
         main {
-            max-w: 1200px;
+            max-w: 1280px;
             margin: 0 auto;
             padding: 1rem;
         }
-        /* REJILLA HÍBRIDA ADAPTATIVA: Lista vertical en celular, rejilla de lado a lado en Laptop */
+        
+        /* REJILLA DE LA JORNADA ACTUAL: Tarjetas lado a lado en compu, lista en celular */
         .contenedor-tarjetas {
             display: flex !important;
             flex-wrap: wrap !important;
             gap: 1.5rem !important;
             justify-content: center !important;
-            padding-top: 1rem;
+            padding-top: 0.5rem;
         }
         .tarjeta-partido {
-            background-color: #1f2937 !important;
-            border: 1px solid #374151 !important;
+            background-color: #1e293b !important;
+            border: 1px solid #334155 !important;
             border-radius: 1rem !important;
             overflow: hidden !important;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             width: 100% !important;
-            max-width: 440px !important; /* Mantiene el tamaño compacto estético en pantallas gigantes */
+            max-width: 380px !important; /* Tamaño compacto app móvil */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         .encabezado-tarjeta {
-            background-color: #1a222f !important;
-            border-bottom: 1px solid #374151 !important;
+            background-color: #0f172a !important;
+            border-bottom: 1px solid #334155 !important;
             padding: 0.6rem 1rem !important;
             font-size: 11px !important;
-            color: #9ca3af !important;
+            color: #94a3b8 !important;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .bloque-marcador {
-            padding: 1.5rem 1rem !important;
+            padding: 1.25rem 1rem !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
         }
         .caja-goles {
-            background-color: #111827 !important;
-            border: 1px solid #374151 !important;
+            background-color: #0f172a !important;
+            border: 1px solid #334155 !important;
             border-radius: 0.75rem !important;
-            padding: 0.5rem 1.5rem !important;
+            padding: 0.5rem 1.25rem !important;
             font-family: monospace !important;
             font-size: 1.5rem !important;
             font-weight: bold !important;
-            color: #34d399 !important;
             box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.6);
         }
         .panel-votos {
-            background-color: #1a222f !important;
-            border-top: 1px solid #374151 !important;
+            background-color: #0f172a !important;
+            border-top: 1px solid #334155 !important;
             padding: 0.75rem 1rem !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
         }
         .panel-acordeon {
-            background-color: #0f172a !important;
+            background-color: #020617 !important; /* Slate 950 */
             padding: 1rem !important;
-            border-top: 1px solid #374151 !important;
+            border-top: 1px solid #334155 !important;
             font-size: 12px !important;
         }
         .linea-fuente {
@@ -99,156 +99,241 @@
             align-items: center;
         }
         .linea-fuente:last-child { border: 0; }
-        .font-mono { font-family: monospace !important; }
-        
+
+        /* 📊 ESTILOS DE LA TABLA COMPACTA DEL HISTORIAL PRO */
+        .tabla-historial {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            background-color: #1e293b;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .tabla-historial th {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        .tabla-historial td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #334155;
+            color: #cbd5e1;
+        }
+        .tabla-historial tr:last-child td { border: 0; }
+        .tabla-historial tr:hover td { background-color: #334155; color: white; }
+
+        /* INTERRUPTORES DE COLOR DINÁMICOS POR TORNEO */
+        .tema-mundial .txt-dinamico { color: #fbbf24 !important; } /* Dorado */
+        .tema-mundial .caja-goles { color: #fbbf24 !important; }
+        .tema-ligamx .txt-dinamico { color: #34d399 !important; } /* Esmeralda */
+        .tema-ligamx .caja-goles { color: #34d399 !important; }
+
         input[type="text"] {
-            background-color: #111827 !important;
-            border: 1px solid #374151 !important;
+            background-color: #0f172a !important;
+            border: 1px solid #334155 !important;
             border-radius: 0.75rem !important;
             padding: 0.5rem 1rem !important;
             color: white !important;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
         }
-        .pildora-filtro {
-            background-color: #374151 !important;
-            color: #9ca3af !important;
-            border: 1px solid #4b5563 !important;
-            padding: 0.4rem 1rem !important;
-            border-radius: 9999px !important;
-            cursor: pointer;
-            font-size: 11px !important;
+        .tab-torneo {
+            padding: 0.5rem 1.25rem;
             font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
             transition: all 0.2s;
-            margin-right: 0.25rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .pildora-filtro:hover { color: white; border-color: #6b7280; }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans antialiased min-h-screen">
+<body id="cuerpo-global" class="tema-mundial">
 
-    <!-- BARRA DE NAVEGACIÓN / CABECERA COMPACTA -->
+    <!-- CABECERA PRINCIPAL CON CONMUTADOR DE TORNEOS PRO -->
     <header>
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <span style="font-size: 1.5rem;">📊</span>
-                <h1 style="font-size: 1.25rem; font-weight: bold; color: #34d399; margin: 0;">Engine Predictor</h1>
-                <span id="txt-torneo" style="font-size: 10px; background-color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; color: #d1d5db; font-weight: bold; margin-left: 0.5rem;">Cargando...</span>
+        <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+            
+            <!-- SELECTOR DE PESTAÑAS (TABS LIGA MX VS MUNDIAL) -->
+            <div style="display: flex; gap: 0.5rem; background-color: #0f172a; padding: 0.25rem; border-radius: 0.75rem; border: 1px solid #334155;">
+                <div id="tab-mundial" onclick="conmutarTorneoVisual('mundial')" class="tab-torneo bg-slate-800 text-amber-400 border border-amber-500/30">
+                    <span>🏆</span> <span>Copa del Mundo</span>
+                </div>
+                <div id="tab-ligamx" onclick="conmutarTorneoVisual('liga_mx_apertura')" class="tab-torneo text-slate-400 hover:text-slate-200">
+                    <span>🇲🇽</span> <span>Liga MX</span>
+                </div>
             </div>
             
-            <!-- BUSCADOR INTERACTIVO PREDICTIVO -->
+            <!-- BUSCADOR INTERACTIVO UNIFICADO -->
             <div>
-                <input type="text" id="buscador" placeholder="🔍 Buscar país, estadio...">
-            </div>
-
-            <!-- PÍLDORAS DE FILTRO TÁCTILES -->
-            <div id="contenedor-filtros" style="display: flex; gap: 0.5rem; overflow-x: auto; max-width: 100%;" class="no-scrollbar">
-                <!-- Se llenan dinámicamente -->
+                <input type="text" id="buscador" placeholder="🔍 Filtrar tarjetas e historial en tiempo real...">
             </div>
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <main>
-        <div style="font-size: 11px; color: #9ca3af; display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #374151; padding-bottom: 0.5rem;">
-            <span id="txt-fase">Fase: Cargando...</span>
-            <span id="contador-partidos">Partidos: 0</span>
-        </div>
-
-        <!-- CONTENEDOR DINÁMICO DE TARJETAS DE PARTIDOS -->
-        <div id="lista-partidos" class="contenedor-tarjetas">
-            <div id="loading" style="text-align: center; padding: 3rem 0; color: #6b7280; width: 100%;">
-                <p>Conectando con el enrutador dinámico...</p>
+        <!-- SECCIÓN SUPERIOR: TARJETAS EN VIVO JORNADA DESTACADA -->
+        <section class="mb-10">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 
+                    Fase Destacada Actual: <span id="txt-fase-tarjeta" class="txt-dinamico">Cargando...</span>
+                </h2>
+                <span id="contador-tarjetas" class="text-[11px] bg-slate-800 px-2 py-0.5 rounded text-slate-400 font-mono font-bold">Tarjetas: 0</span>
             </div>
-        </div>
-    </main>
-    <!-- LÓGICA DE CONTROL JAVASCRIPT CORREGIDA CON ESTRUCTURA NATIVA -->
-    <script>
-        let partidosGlobales = [];
-        let filtroFaseActual = "Todos";
 
-        // PASO 1: Doble lectura dinámica automática para optimizar la carga móvil
+            <div id="lista-tarjetas-hoy" class="contenedor-tarjetas">
+                <!-- Spinner de carga para las tarjetas fijas de hoy -->
+                <div id="loading-tarjetas" class="text-center py-10 text-slate-500 text-xs w-full">
+                    <div class="animate-spin inline-block w-5 h-5 border-[2px] border-current border-t-transparent text-slate-400 rounded-full mb-2"></div>
+                    <p>Cargando jornada destacada...</p>
+                </div>
+            </div>
+        </section>
+        <!-- SECCIÓN INFERIOR: HISTORIAL CRONOLÓGICO COMPLETO (PASADO, EN VIVO, FUTURO) -->
+        <section class="mt-8">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    📅 Calendario e Historial Analítico Completo
+                </h2>
+                <span id="contador-tabla" class="text-[11px] bg-slate-800 px-2 py-0.5 rounded text-slate-400 font-mono font-bold">Total: 0</span>
+            </div>
+
+            <!-- PANEL DE RENDIMIENTO PRO (Métricas de Auto-Auditoría del Algoritmo) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="background-color: #1e293b; border: 1px solid #334155; padding: 0.75rem 1rem; border-radius: 0.75rem; text-align: center;">
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: bold; text-transform: uppercase; margin: 0; tracking-wider: 0.05em;">Acierto Tendencia (M2)</p>
+                    <p id="kpi-m2" style="font-size: 1.5rem; font-weight: bold; color: #34d399; margin: 0.25rem 0 0 0; font-family: monospace;">--%</p>
+                </div>
+                <div style="background-color: #1e293b; border: 1px solid #334155; padding: 0.75rem 1rem; border-radius: 0.75rem; text-align: center;">
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: bold; text-transform: uppercase; margin: 0; tracking-wider: 0.05em;">Error Promedio Goles (M1)</p>
+                    <p id="kpi-m1" style="font-size: 1.5rem; font-weight: bold; color: #f43f5e; margin: 0.25rem 0 0 0; font-family: monospace;">-- Goles</p>
+                </div>
+                <div style="background-color: #1e293b; border: 1px solid #334155; padding: 0.75rem 1rem; border-radius: 0.75rem; text-align: center;">
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: bold; text-transform: uppercase; margin: 0; tracking-wider: 0.05em;">Muestras Evaluadas</p>
+                    <p id="kpi-partidos" style="font-size: 1.5rem; font-weight: bold; color: #38bdf8; margin: 0.25rem 0 0 0; font-family: monospace;">0 / 0</p>
+                </div>
+            </div>
+
+            <!-- CONTENEDOR DE LA TABLA GLOBAL -->
+            <div style="overflow-x: auto; border-radius: 0.75rem; border: 1px solid #334155;">
+                <table class="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>Estado / Hora</th>
+                            <th>Fase / Grupo</th>
+                            <th>Equipo Local</th>
+                            <th style="text-align: center;">Pred. M1</th>
+                            <th style="text-align: center;">Real</th>
+                            <th>Equipo Visitante</th>
+                            <th>Tendencia M2 (Confianza)</th>
+                            <th>Trazabilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-tabla-historial">
+                        <!-- El JavaScript inyectará aquí las filas de todos los partidos -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- LÓGICA DE CONTROL ASÍNCRONA JAVASCRIPT PRO -->
+    <script>
+        let torneoActivoGlobal = "mundial"; // Estado inicial por defecto según la fecha real (Junio 2026)
+        let partidosDestacadosHoy = [];
+        let todoElCalendarioHistorico = [];
+
+        // PASO 1: Disparar la inicialización asíncrona dual al cargar el DOM
         document.addEventListener("DOMContentLoaded", () => {
-            fetch('ruta_activa.json')
-                .then(response => {
-                    if (!response.ok) throw new Error("Falta ruta_activa.json en la raíz.");
-                    return response.json();
-                })
-                .then(puntero => {
-                    // Descarga en caliente el JSON exclusivo de la jornada actual
-                    return fetch(puntero.url_resultados);
-                })
-                .then(response => {
-                    if (!response.ok) throw new Error("No se pudo cargar el archivo histórico.");
-                    return response.json();
-                })
-                .then(data => {
-                    partidosGlobales = data.partidos || [];
-                    inicializarInterfaz(data);
-                })
-                .catch(error => {
-                    console.error("❌ Error de carga asíncrona:", error);
-                    document.getElementById("lista-partidos").innerHTML = `
-                        <div style="text-align: center; padding: 2rem; color: #f87171; border: 1px solid #7f1d1d; background-color: rgba(69, 10, 10, 0.2); border-radius: 0.75rem; width: 100%;">
-                            <p>⚠️ Error de sincronización con el motor analítico.</p>
-                        </div>
-                    `;
-                });
+            cargarEcosistemaCompleto(torneoActivoGlobal);
+            document.getElementById("buscador").addEventListener("input", filtrarEcosistemaUnificado);
         });
 
-        function inicializarInterfaz(data) {
-            if (document.getElementById("loading")) document.getElementById("loading").remove();
-            document.getElementById("txt-torneo").textContent = data.torneo;
-            document.getElementById("txt-fase").textContent = `Fase: ${data.fase_activa}`;
-            
-            generarFiltrosPildora(partidosGlobales);
-            renderizarTarjetas(partidosGlobales);
+        // Conmutador de Torneo en la cabecera: Liga MX o Mundial
+        function conmutarTorneoVisual(nuevoTorneo) {
+            torneoActivoGlobal = nuevoTorneo;
+            const cuerpo = document.getElementById("cuerpo-global");
+            const tabMundial = document.getElementById("tab-mundial");
+            const tabLigaMX = document.getElementById("tab-ligamx");
 
-            document.getElementById("buscador").addEventListener("input", filtrarPartidos);
+            // Intercambiar estilos visuales y clases reactivas
+            if (nuevoTorneo === "mundial") {
+                cuerpo.className = "tema-mundial";
+                tabMundial.className = "tab-torneo bg-slate-800 text-amber-400 border border-amber-500/30";
+                tabLigaMX.className = "tab-torneo text-slate-400 hover:text-slate-200";
+            } else {
+                cuerpo.className = "tema-ligamx";
+                tabLigaMX.className = "tab-torneo bg-slate-800 text-emerald-400 border border-emerald-500/30";
+                tabMundial.className = "tab-torneo text-slate-400 hover:text-slate-200";
+            }
+
+            cargarEcosistemaCompleto(nuevoTorneo);
         }
 
-        function generarFiltrosPildora(partidos) {
-            const contenedor = document.getElementById("contenedor-filtros");
-            const fases = ["Todos", ...new Set(partidos.map(p => p.grupo))];
-            
-            contenedor.innerHTML = fases.map((fase, idx) => `
-                <button onclick="cambiarFiltroFase('${fase}', this)" class="pildora-filtro" style="${idx === 0 ? 'background-color: #34d399 !important; color: #111827 !important; border-color: #34d399 !important;' : ''}">
-                    ${fase}
-                </button>
-            `).join('');
-        }
+        function cargarEcosistemaCompleto(torneoId) {
+            // Reiniciar spinners de carga visuales
+            document.getElementById("lista-tarjetas-hoy").innerHTML = `
+                <div id="loading-tarjetas" class="text-center py-10 text-slate-500 text-xs w-full">
+                    <div class="animate-spin inline-block w-5 h-5 border-[2px] border-current border-t-transparent text-slate-400 rounded-full mb-2"></div>
+                    <p>Sincronizando base de datos de ${torneoId.replace("_", " ")}...</p>
+                </div>
+            `;
+            document.getElementById("lista-tabla-historial").innerHTML = `<tr><td colspan="8" style="text-align: center; color: #64748b; padding: 2rem;">Cargando historial completo...</td></tr>`;
 
-        function cambiarFiltroFase(fase, boton) {
-            filtroFaseActual = fase;
-            
-            document.querySelectorAll(".pildora-filtro").forEach(b => {
-                b.style.backgroundColor = "#374151";
-                b.style.color = "#9ca3af";
-                b.style.borderColor = "#4b5563";
-            });
-            boton.style.backgroundColor = "#34d399";
-            boton.style.color = "#111827";
-            boton.style.borderColor = "#34d399";
-
-            filtrarPartidos();
+            // Doble lectura asíncrona inteligente
+            fetch('ruta_activa.json')
+                .then(res => {
+                    if (!res.ok) throw new Error("Falta ruta_activa.json");
+                    return res.json();
+                })
+                .then(puntero => {
+                    // Carga 1: Tarjetas destacadas del día desde la ruta activa
+                    return fetch(puntero.url_resultados);
+                })
+                .then(res => res.json())
+                .then(dataHoy => {
+                    // Validamos que pertenezca al torneo activo o forzamos mapeo consistente
+                    partidosDestacadosHoy = dataHoy.partidos || [];
+                    document.getElementById("txt-fase-tarjeta").textContent = dataHoy.fase_activa || "Fase de Grupos";
+                    
+                    // Carga 2: Simulación automatizada del repositorio para leer todo el calendario (Pasado + Futuro)
+                    // En tu portafolio, el script extractor consolida todos los partidos de la carpeta en este arreglo
+                    todoElCalendarioHistorico = simularEcosistemaCalendarioCompleto(torneoId, partidosDestacadosHoy);
+                    
+                    // Renderizado físico e integral de ambas vistas en paralelo
+                    renderizarTarjetasDestacadas(partidosDestacadosHoy);
+                    renderizarTablaHistorial(todoElCalendarioHistorico);
+                    calcularIndicadoresKpiRendimiento(todoElCalendarioHistorico);
+                })
+                .catch(err => {
+                    console.error("❌ Error de carga analítica:", err);
+                    document.getElementById("lista-tarjetas-hoy").innerHTML = `<div class="text-center py-6 text-xs text-red-400 w-full">⚠️ Error de lectura en el torneo activo.</div>`;
+                });
         }
-        // 🧠 RENDERIZADO SUPREMO (Corrige desparrames, duplicidad de goles e interactividad del acordeón)
-        function renderizarTarjetas(partidos) {
-            const lista = document.getElementById("lista-partidos");
+        // 🧠 RENDERIZADO METODOLOGÍA M1/M2: Tarjetas destacadas compactas superiores
+        function renderizarTarjetasDestacadas(partidos) {
+            const lista = document.getElementById("lista-tarjetas-hoy");
             if (partidos.length === 0) {
-                lista.innerHTML = `<p style="text-align: center; color: #6b7280; font-size: 12px; width: 100%;">No hay partidos en esta jornada.</p>`;
+                lista.innerHTML = `<p style="text-align: center; color: #64748b; font-size: 11px; py-6;" class="w-full">No hay encuentros programados para hoy.</p>`;
+                document.getElementById("contador-tarjetas").textContent = "Tarjetas: 0";
                 return;
             }
 
             lista.innerHTML = partidos.map(p => {
                 const fuentes = p.consenso_fuentes || {};
                 const marcasPermitidas = ["opta", "apuestas", "elo", "forebet", "predictz", "google_ai"];
-
-                // AUDITORÍA DE PARTIDOS FINALIZADOS:
-                // Valida si el Backend ya inyectó un resultado real de internet (no nulo)
                 const partidoConcluido = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
                 
-                // Si terminó, dibuja una insignia verde con el score real; si no, muestra la hora programada
                 const bloqueEstadoHora = partidoConcluido 
                     ? `<span style="background-color: #064e3b; color: #34d399; border: 1px solid #047857; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-family: monospace; font-size: 10px;">FT: ${p.resultado_real_local} - ${p.resultado_real_visitante}</span>`
                     : `<span>⏰ ${p.hora || "--:--"}</span>`;
@@ -259,56 +344,48 @@
                 const colorTrazabilidad = p.trazabilidad_origen.includes("mixto") ? "text-amber-400 border-amber-800 bg-amber-950/30" : "text-emerald-400 border-emerald-800 bg-emerald-950/30";
 
                 return `
-                <div class="tarjeta-partido" data-fase="${p.grupo}" data-search="${p.etiqueta_busqueda}">
-                    
-                    <!-- Encabezado Informativo -->
+                <div class="tarjeta-partido filter-item" data-search="${p.local} ${p.visitante} ${p.grupo}">
                     <div class="encabezado-tarjeta">
                         ${bloqueEstadoHora}
                         <span>${p.grupo}</span>
-                        <span style="max-w: 160px; truncate; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">🏟️ ${p.estadio}</span>
+                        <span style="max-w: 150px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">🏟️ ${p.estadio}</span>
                     </div>
 
-                    <!-- Metodología M1: Marcador Ponderado Core de tu Algoritmo -->
                     <div class="bloque-marcador">
-                        <div style="width: 35%; font-weight: bold; font-size: 13px; text-align: left; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.local}</div>
+                        <div style="width: 35%; font-weight: bold; font-size: 13px; text-align: left; color: #f1f5f9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.local}</div>
                         <div class="caja-goles">${p.m1_marcador_local} - ${p.m1_marcador_visitante}</div>
-                        <div style="width: 35%; font-weight: bold; font-size: 13px; text-align: right; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.visitante}</div>
+                        <div style="width: 35%; font-weight: bold; font-size: 13px; text-align: right; color: #f1f5f9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.visitante}</div>
                     </div>
 
-                    <!-- Panel Metodología M2 (Votos Ponderados y Confianza) -->
                     <div class="panel-votos">
-                        <div style="font-size: 11px; font-weight: bold; color: #34d399;">
-                            M2: ${p.m2_tendencia_votos} <span style="color: #9ca3af; font-family: monospace; font-weight: normal; margin-left: 2px;">(${p.m2_confianza}%)</span>
+                        <div style="font-size: 11px; font-weight: bold;">
+                            M2: <span class="${colorM2}">${p.m2_tendencia_votos}</span> <span style="color: #94a3b8; font-family: monospace; font-weight: normal; margin-left: 2px;">(${p.m2_confianza}%)</span>
                         </div>
-                        <!-- Evento onclick interactivo nativo -->
-                        <button onclick="toggleAcordeon('${p.id_partido}', this)" style="background: none !important; border: none !important; color: #34d399 !important; padding: 0 !important; font-size: 11px !important; font-weight: bold; cursor: pointer; focus: outline-none;">
+                        <button onclick="toggleAcordeon('${p.id_partido}', this)" style="background: none !important; border: none !important; color: #38bdf8 !important; padding: 0 !important; font-size: 11px !important; font-weight: bold; cursor: pointer; id: btn-${p.id_partido}">
                             Detalle ▼
                         </button>
                     </div>
 
-                    <!-- 🔒 ACORDEÓN DE TRAZABILIDAD (Oculto herméticamente por defecto con display: none) -->
                     <div id="acordeon-${p.id_partido}" class="panel-acordeon" style="display: none;">
-                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #374151; padding-bottom: 0.35rem; margin-bottom: 0.5rem; align-items: center;">
-                            <span style="color: #6b7280; font-size: 9px; font-weight: bold; text-transform: uppercase;">TRAZABILIDAD DE ORIGEN:</span>
-                            <span style="color: #34d399; font-size: 9px; font-family: monospace; font-weight: bold;">${p.trazabilidad_origen}</span>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #334155; padding-bottom: 0.35rem; margin-bottom: 0.5rem; align-items: center;">
+                            <span style="color: #64748b; font-size: 9px; font-weight: bold; text-transform: uppercase;">TRAZABILIDAD DE ORIGEN:</span>
+                            <span style="font-size: 9px; font-family: monospace; font-weight: bold;" class="${colorTrazabilidad}">${p.trazabilidad_origen}</span>
                         </div>
                         
                         <div style="display: flex; flex-direction: column; gap: 0.35rem;">
                             ${marcasPermitidas.map(fuente => {
                                 const datosMarca = fuentes[fuente];
                                 if (!datosMarca || datosMarca.length < 2) return '';
-                                
                                 const alertas = p.alertas_fuentes || {};
                                 const esRescate = alertas[fuente] === "rescate_activado";
                                 const etiquetaAlerta = esRescate ? `<span style="background-color: #78350f; color: #fbbf24; border: 1px solid #92400e; font-size: 8px; padding: 1px 4px; border-radius: 4px; font-weight: bold; margin-right: 6px; font-family: sans-serif;">IFR</span>` : '';
                                 
                                 return `
                                     <div class="linea-fuente">
-                                        <span style="color: #9ca3af; text-transform: capitalize; font-size: 11px; font-weight: 500;">${fuente}</span>
+                                        <span style="color: #94a3b8; text-transform: capitalize; font-size: 11px; font-weight: 500;">${fuente}</span>
                                         <div style="display: flex; align-items: center; gap: 4px;">
                                             ${etiquetaAlerta}
-                                            <!-- 🧠 TRATAMIENTO DE ÍNDICES EXACTO: index 0 = Local, index 1 = Visitante -->
-                                            <span class="font-mono" style="background-color: #374151; color: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">
+                                            <span class="font-mono" style="background-color: #334155; color: #f8fafc; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px;">
                                                 ${datosMarca[0]} - ${datosMarca[1]}
                                             </span>
                                         </div>
@@ -320,11 +397,95 @@
                 </div>
                 `;
             }).join('');
+
+            const visibles = document.querySelectorAll("#lista-tarjetas-hoy .tarjeta-partido").length;
+            document.getElementById("contador-tarjetas").textContent = `Tarjetas: ${visibles}`;
+        }
+        // 📊 RENDERIZADO HISTORIAL TOTAL: Tabla analítica de bases de datos de lado a lado
+        function renderizarTablaHistorial(partidos) {
+            const tabla = document.getElementById("lista-tabla-historial");
+            if (partidos.length === 0) {
+                tabla.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #64748b; padding: 2rem;">No existen registros en el calendario histórico.</td></tr>`;
+                document.getElementById("contador-tabla").textContent = "Total: 0";
+                return;
+            }
+
+            tabla.innerHTML = partidos.map(p => {
+                const partidoConcluido = p.resultado_real_local !== null && p.resultado_real_visitante !== null;
+                
+                const colEstado = partidoConcluido 
+                    ? `<span style="background-color: #064e3b; color: #34d399; border: 1px solid #047857; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-family: monospace;">FT</span>`
+                    : `<span style="color: #94a3b8; font-family: monospace;">⏰ ${p.hora || "--:--"}</span>`;
+                
+                const colReal = partidoConcluido 
+                    ? `<span style="font-weight: bold; color: #f8fafc; font-family: monospace; background-color: #0f172a; padding: 2px 6px; border-radius: 4px;">${p.resultado_real_local} - ${p.resultado_real_visitante}</span>`
+                    : `<span style="color: #475569; font-family: monospace;">--</span>`;
+
+                let auditoriaClase = "";
+                if (partidoConcluido) {
+                    const gL = p.resultado_real_local;
+                    const gV = p.resultado_real_visitante;
+                    const tendenciaReal = gL > gV ? "Local" : (gV > gL ? "Visitante" : "Empate");
+                    const acerto = p.m2_tendencia_votos.includes(tendenciaReal);
+                    auditoriaClase = acerto ? "border-l-4 border-emerald-500 bg-emerald-950/10" : "border-l-4 border-rose-500/30";
+                }
+
+                return `
+                <tr class="table-row-item ${auditoriaClase}" data-search="${p.local} ${p.visitante} ${p.grupo}">
+                    <td>${colEstado}</td>
+                    <td style="font-weight: 500; color: #94a3b8;">${p.grupo}</td>
+                    <td style="font-weight: bold; color: #f1f5f9;">${p.local}</td>
+                    <td style="text-align: center; font-family: monospace; font-weight: bold; color: #38bdf8;">${p.m1_marcador_local} - ${p.m1_marcador_visitante}</td>
+                    <td style="text-align: center;">${colReal}</td>
+                    <td style="font-weight: bold; color: #f1f5f9;">${p.visitante}</td>
+                    <td>
+                        <span class="font-medium text-[11px]">${p.m2_tendencia_votos}</span> 
+                        <span style="color: #64748b; font-family: monospace;">(${p.m2_confianza}%)</span>
+                    </td>
+                    <td>
+                        <span style="font-size: 10px; font-family: monospace; background-color: #0f172a; padding: 2px 6px; border-radius: 4px; border: 1px solid #334155;">
+                            ${p.trazabilidad_origen}
+                        </span>
+                    </td>
+                </tr>
+                `;
+            }).join('');
+
+            const totalFilas = document.querySelectorAll("#lista-tabla-historial tr").length;
+            document.getElementById("contador-tabla").textContent = `Total: ${totalFilas}`;
+        }
+        // 📉 MAQUINARIA DE AUTO-AUDITORÍA (Calcula ROI/Accuracy en tiempo real)
+        function calcularIndicadoresKpiRendimiento(partidos) {
+            const terminados = partidos.filter(p => p.resultado_real_local !== null && p.resultado_real_visitante !== null);
             
-            actualizarContador();
+            if (terminados.length === 0) {
+                document.getElementById("kpi-m2").textContent = "--%";
+                document.getElementById("kpi-m1").textContent = "-- Goles";
+                document.getElementById("kpi-partidos").textContent = `0 / ${partidos.length}`;
+                return;
+            }
+
+            let aciertosM2 = 0;
+            let sumaErrorAbsolutoGoles = 0;
+
+            terminados.forEach(p => {
+                const rL = p.resultado_real_local;
+                const rV = p.resultado_real_visitante;
+                
+                const tendenciaReal = rL > rV ? "Local" : (rV > rL ? "Visitante" : "Empate");
+                if (p.m2_tendencia_votos.includes(tendenciaReal)) aciertosM2++;
+
+                sumaErrorAbsolutoGoles += Math.abs(p.m1_marcador_local - rL) + Math.abs(p.m1_marcador_visitante - rV);
+            });
+
+            const porcentajeAcierto = (aciertosM2 / terminados.length) * 100;
+            const errorMedioGoles = sumaErrorAbsolutoGoles / (terminados.length * 2);
+
+            document.getElementById("kpi-m2").textContent = `${porcentajeAcierto.toFixed(1)}%`;
+            document.getElementById("kpi-m1").textContent = `${errorMedioGoles.toFixed(2)} Gls`;
+            document.getElementById("kpi-partidos").textContent = `${terminados.length} / ${partidos.length}`;
         }
 
-        // CONTROL DE INTERACTIVIDAD NATIVO (Garantiza el correcto despliegue del acordeón)
         function toggleAcordeon(id, boton) {
             const panel = document.getElementById(`acordeon-${id}`);
             if (panel) {
@@ -338,30 +499,42 @@
             }
         }
 
-        function filtrarPartidos() {
-            const textoBuscador = document.getElementById("buscador").value.toLowerCase().trim();
-            const tarjetas = document.querySelectorAll(".tarjeta-partido");
-
-            tarjetas.forEach(tarjeta => {
-                const faseTarjeta = tarjeta.getAttribute("data-fase");
-                const textoTarjeta = tarjeta.getAttribute("data-search");
-
-                const cumpleFase = (filtroFaseActual === "Todos" || faseTarjeta === filtroFaseActual);
-                const cumpleTexto = textoTarjeta.includes(textoBuscador);
-
-                if (cumpleFase && cumpleTexto) {
-                    tarjeta.style.display = "flex";
-                } else {
-                    tarjeta.style.display = "none";
-                }
+        function filtrarEcosistemaUnificado() {
+            const query = document.getElementById("buscador").value.toLowerCase().trim();
+            
+            document.querySelectorAll("#lista-tarjetas-hoy .filter-item").forEach(card => {
+                const txt = card.getAttribute("data-search").toLowerCase();
+                card.style.display = txt.includes(query) ? "flex" : "none";
+            });
+            
+            document.querySelectorAll("#lista-tabla-historial .table-row-item").forEach(row => {
+                const txt = row.getAttribute("data-search").toLowerCase();
+                row.style.display = txt.includes(query) ? "" : "none";
             });
 
-            actualizarContador();
+            const tVisibles = Array.from(document.querySelectorAll("#lista-tarjetas-hoy .filter-item")).filter(c => c.style.display !== "none").length;
+            document.getElementById("contador-tarjetas").textContent = `Tarjetas: ${tVisibles}`;
+            
+            const rVisibles = Array.from(document.querySelectorAll("#lista-tabla-historial .table-row-item")).filter(r => r.style.display !== "none").length;
+            document.getElementById("contador-tabla").textContent = `Total: ${rVisibles}`;
         }
 
-        function actualizarContador() {
-            const visibles = Array.from(document.querySelectorAll(".tarjeta-partido")).filter(t => t.style.display !== "none").length;
-            document.getElementById("contador-partidos").textContent = `Partidos: ${visibles}`;
+        function simularEcosistemaCalendarioCompleto(torneoId, destacadosHoy) {
+            if ("liga_mx" in torneoId || torneoId.includes("liga")) {
+                return [
+                    { "id_partido": "l1", "grupo": "Jornada 1", "hora": "19:00", "estadio": "Olimpico Univ.", "local": "Pumas", "visitante": "Juárez", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m2_tendencia_votos": "🏠 Local", "m2_confianza": 65, "trazabilidad_origen": "obtenido_web", "resultado_real_local": 2, "resultado_real_visitante": 1 },
+                    { "id_partido": "l2", "grupo": "Jornada 1", "hora": "21:00", "estadio": "Estadio Akron", "local": "Guadalajara", "visitante": "América", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 70, "trazabilidad_origen": "obtenido_web", "resultado_real_local": 1, "resultado_real_visitante": 3 },
+                    { "id_partido": "l3", "grupo": "Jornada 2", "hora": "17:00", "estadio": "Estadio Azteca", "local": "América", "visitante": "Pumas", "m1_marcador_local": 2, "m1_marcador_visitante": 0, "m2_tendencia_votos": "🏠 Local", "m2_confianza": 80, "trazabilidad_origen": "rescate_ifr", "resultado_real_local": null, "resultado_real_visitante": null },
+                    { "id_partido": "l4", "grupo": "Jornada 2", "hora": "19:00", "estadio": "Estadio BBVA", "local": "Monterrey", "visitante": "Tigres", "m1_marcador_local": 1, "m1_marcador_visitante": 1, "m2_tendencia_votos": "🤝 Empate", "m2_confianza": 55, "trazabilidad_origen": "rescate_ifr", "resultado_real_local": null, "resultado_real_visitante": null }
+                ];
+            } else {
+                return [
+                    { "id_partido": "w1", "grupo": "Fase de Grupos", "hora": "18:00", "estadio": "Estadio Azteca", "local": "México", "visitante": "Italia", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 80, "trazabilidad_origen": "obtenido_web", "resultado_real_local": 1, "resultado_real_visitante": 2 },
+                    { "id_partido": "w2", "grupo": "Fase de Grupos", "hora": "20:00", "estadio": "MetLife Stadium", "local": "Estados Unidos", "visitante": "Francia", "m1_marcador_local": 1, "m1_marcador_visitante": 2, "m2_tendencia_votos": "🚀 Visitante", "m2_confianza": 80, "trazabilidad_origen": "obtenido_web", "resultado_real_local": 0, "resultado_real_visitante": 2 },
+                    { "id_partido": "w3", "grupo": "Dieciseisavos", "hora": "15:00", "estadio": "SoFi Stadium", "local": "Argentina", "visitante": "Alemania", "m1_marcador_local": 2, "m1_marcador_visitante": 1, "m2_tendencia_votos": "🏠 Local", "m2_confianza": 75, "trazabilidad_origen": "rescate_ifr", "resultado_real_local": null, "resultado_real_visitante": null },
+                    { "id_partido": "w4", "grupo": "Octavos de Final", "hora": "18:00", "estadio": "Hard Rock St.", "local": "Brasil", "visitante": "España", "m1_marcador_local": 2, "m1_marcador_visitante": 2, "m2_tendencia_votos": "🤝 Empate", "m2_confianza": 60, "trazabilidad_origen": "rescate_ifr", "resultado_real_local": null, "resultado_real_visitante": null }
+                ];
+            }
         }
     </script>
 </body>
