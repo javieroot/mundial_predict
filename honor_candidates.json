@@ -1,0 +1,3034 @@
+{
+    "tournament": "world_cup_2026",
+    "tournament_id": "20260000-0000-0000-0000-000000000001",
+    "top_scorer_candidates": [
+        {
+            "team_id": "20260000-0000-0000-0000-000000000238",
+            "position": "FIELD",
+            "player_id": "5184884d-626c-44be-8640-ad1580f65606",
+            "team_code": "ALG",
+            "team_name": "Argelia",
+            "player_name": "Amine Gouiri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000238",
+            "position": "FIELD",
+            "player_id": "41509daa-add1-44df-bc5e-6c75de695c82",
+            "team_code": "ALG",
+            "team_name": "Argelia",
+            "player_name": "Baghdad Bounedjah",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000238",
+            "position": "FIELD",
+            "player_id": "7b2e452a-45a0-469a-970e-a8027bb699b0",
+            "team_code": "ALG",
+            "team_name": "Argelia",
+            "player_name": "Riyad Mahrez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000237",
+            "position": "FIELD",
+            "player_id": "3c794e11-8da2-46ea-aef6-7fd8b645ee27",
+            "team_code": "ARG",
+            "team_name": "Argentina",
+            "player_name": "Julián Álvarez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000237",
+            "position": "FIELD",
+            "player_id": "ca84f9ad-14ca-4d77-96d0-1cba075d8507",
+            "team_code": "ARG",
+            "team_name": "Argentina",
+            "player_name": "Lautaro Martínez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000237",
+            "position": "FIELD",
+            "player_id": "7e31aadc-91cd-467c-b0dc-079664d7330c",
+            "team_code": "ARG",
+            "team_name": "Argentina",
+            "player_name": "Lionel Messi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000215",
+            "position": "FIELD",
+            "player_id": "0b813afc-1d23-4d37-8ec7-9bdbfd9ae327",
+            "team_code": "AUS",
+            "team_name": "Australia",
+            "player_name": "Craig Goodwin",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000215",
+            "position": "FIELD",
+            "player_id": "b3da779e-5ed1-47d2-91c9-523418547038",
+            "team_code": "AUS",
+            "team_name": "Australia",
+            "player_name": "Kusini Yengi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000215",
+            "position": "FIELD",
+            "player_id": "48e1f448-05b1-402f-b59a-b048a8d99689",
+            "team_code": "AUS",
+            "team_name": "Australia",
+            "player_name": "Mitchell Duke",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000239",
+            "position": "FIELD",
+            "player_id": "6ecd2bf9-00d7-4a40-8efc-49c857a22b02",
+            "team_code": "AUT",
+            "team_name": "Austria",
+            "player_name": "Marcel Sabitzer",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000239",
+            "position": "FIELD",
+            "player_id": "15c7169a-3415-42ea-9042-08094ac7f1c2",
+            "team_code": "AUT",
+            "team_name": "Austria",
+            "player_name": "Marko Arnautović",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000239",
+            "position": "FIELD",
+            "player_id": "73c67eaf-b5c7-457e-8971-835a2afef80f",
+            "team_code": "AUT",
+            "team_name": "Austria",
+            "player_name": "Michael Gregoritsch",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000227",
+            "position": "FIELD",
+            "player_id": "c4ed6a5f-2e8e-4ec7-90e7-1110cb226c46",
+            "team_code": "BEL",
+            "team_name": "Bélgica",
+            "player_name": "Jérémy Doku",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000227",
+            "position": "FIELD",
+            "player_id": "6ec182de-5416-4fe7-956e-68d74c50198d",
+            "team_code": "BEL",
+            "team_name": "Bélgica",
+            "player_name": "Kevin De Bruyne",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000227",
+            "position": "FIELD",
+            "player_id": "565ee287-0fc4-403d-933f-065c687f83f8",
+            "team_code": "BEL",
+            "team_name": "Bélgica",
+            "player_name": "Romelu Lukaku",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000206",
+            "position": "FIELD",
+            "player_id": "519366e5-af45-472e-afb2-950f1fea4f54",
+            "team_code": "BIH",
+            "team_name": "Bosnia y Herzegovina",
+            "player_name": "Amar Dedić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000206",
+            "position": "FIELD",
+            "player_id": "319a240f-170b-4cd1-b29a-d85af3385a91",
+            "team_code": "BIH",
+            "team_name": "Bosnia y Herzegovina",
+            "player_name": "Edin Džeko",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000206",
+            "position": "FIELD",
+            "player_id": "3fa4fd38-0704-4e44-a657-9df1d20e89bd",
+            "team_code": "BIH",
+            "team_name": "Bosnia y Herzegovina",
+            "player_name": "Ermedin Demirović",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000209",
+            "position": "FIELD",
+            "player_id": "f2a53cbd-0db9-4925-b6d9-69a176855a93",
+            "team_code": "BRA",
+            "team_name": "Brasil",
+            "player_name": "Endrick",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000209",
+            "position": "FIELD",
+            "player_id": "595aeed8-ae37-4d45-9860-0b20f2c54b5f",
+            "team_code": "BRA",
+            "team_name": "Brasil",
+            "player_name": "Rodrygo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000209",
+            "position": "FIELD",
+            "player_id": "29cb9d14-6060-43a5-890d-d5bc1aea5c8b",
+            "team_code": "BRA",
+            "team_name": "Brasil",
+            "player_name": "Vinícius Júnior",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000205",
+            "position": "FIELD",
+            "player_id": "676939f5-7b0e-4d1e-a2cc-281a36866a7a",
+            "team_code": "CAN",
+            "team_name": "Canadá",
+            "player_name": "Alphonso Davies",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000205",
+            "position": "FIELD",
+            "player_id": "5775f8fd-99f7-479a-a934-58ed69e34eef",
+            "team_code": "CAN",
+            "team_name": "Canadá",
+            "player_name": "Cyle Larin",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000205",
+            "position": "FIELD",
+            "player_id": "5ea4bfcd-cf4e-4fe2-964b-9292b0761061",
+            "team_code": "CAN",
+            "team_name": "Canadá",
+            "player_name": "Jonathan David",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000217",
+            "position": "FIELD",
+            "player_id": "35824638-e90b-4615-b102-f3cbe519258f",
+            "team_code": "CIV",
+            "team_name": "Costa de Marfil",
+            "player_name": "Franck Kessié",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000217",
+            "position": "FIELD",
+            "player_id": "19300fa2-3929-4add-abe8-f9e4974cb4f8",
+            "team_code": "CIV",
+            "team_name": "Costa de Marfil",
+            "player_name": "Sébastien Haller",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000217",
+            "position": "FIELD",
+            "player_id": "1092c2f5-d0fc-45ed-a78f-8791a3714016",
+            "team_code": "CIV",
+            "team_name": "Costa de Marfil",
+            "player_name": "Simon Adingra",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000242",
+            "position": "FIELD",
+            "player_id": "28517190-aac2-430b-a06f-e1f48fdbf76d",
+            "team_code": "COD",
+            "team_name": "RD Congo",
+            "player_name": "Cédric Bakambu",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000242",
+            "position": "FIELD",
+            "player_id": "99902be5-c1f1-4211-8f2f-b61cb65c031e",
+            "team_code": "COD",
+            "team_name": "RD Congo",
+            "player_name": "Silas",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000242",
+            "position": "FIELD",
+            "player_id": "c5a4a6df-867e-4baa-a4db-880f51275018",
+            "team_code": "COD",
+            "team_name": "RD Congo",
+            "player_name": "Yoane Wissa",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000244",
+            "position": "FIELD",
+            "player_id": "28150545-e5f6-4627-ba5e-e5cca8007566",
+            "team_code": "COL",
+            "team_name": "Colombia",
+            "player_name": "James Rodríguez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000244",
+            "position": "FIELD",
+            "player_id": "c77211ab-b7ec-4b4e-abae-f754bbf213bf",
+            "team_code": "COL",
+            "team_name": "Colombia",
+            "player_name": "Jhon Durán",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000244",
+            "position": "FIELD",
+            "player_id": "443a61e0-0394-40d4-9cb8-63fc14745aca",
+            "team_code": "COL",
+            "team_name": "Colombia",
+            "player_name": "Luis Díaz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000232",
+            "position": "FIELD",
+            "player_id": "fe89d477-5998-4103-af0a-2e5870ec2361",
+            "team_code": "CPV",
+            "team_name": "Cabo Verde",
+            "player_name": "Bebé",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000232",
+            "position": "FIELD",
+            "player_id": "0b08ccb8-9a02-4949-be12-f376cda46198",
+            "team_code": "CPV",
+            "team_name": "Cabo Verde",
+            "player_name": "Garry Rodrigues",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000232",
+            "position": "FIELD",
+            "player_id": "c2b5e57d-e08f-47d1-adbe-d5149f28bac4",
+            "team_code": "CPV",
+            "team_name": "Cabo Verde",
+            "player_name": "Ryan Mendes",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000248",
+            "position": "FIELD",
+            "player_id": "986795bc-c672-4597-9fb9-74d55ecb5639",
+            "team_code": "CRO",
+            "team_name": "Croacia",
+            "player_name": "Andrej Kramarić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000248",
+            "position": "FIELD",
+            "player_id": "9849406c-3410-4c82-b616-e6fcd243bae8",
+            "team_code": "CRO",
+            "team_name": "Croacia",
+            "player_name": "Ivan Perišić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000248",
+            "position": "FIELD",
+            "player_id": "f0dad357-56e2-423c-89e9-3af76a59d4d2",
+            "team_code": "CRO",
+            "team_name": "Croacia",
+            "player_name": "Luka Modrić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000220",
+            "position": "FIELD",
+            "player_id": "069943ea-ba0c-4c06-a583-a7f50050f72f",
+            "team_code": "CUW",
+            "team_name": "Curazao",
+            "player_name": "Gervane Kastaneer",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000220",
+            "position": "FIELD",
+            "player_id": "d329182d-0627-4fcf-9a9e-6d3ba8c2c3b5",
+            "team_code": "CUW",
+            "team_name": "Curazao",
+            "player_name": "Juninho Bacuna",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000220",
+            "position": "FIELD",
+            "player_id": "8b1d7442-0f9c-4e97-a1c7-8bb9911448b0",
+            "team_code": "CUW",
+            "team_name": "Curazao",
+            "player_name": "Rangelo Janga",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000204",
+            "position": "FIELD",
+            "player_id": "77647012-d993-44d1-89aa-c8b2abf4c55c",
+            "team_code": "CZE",
+            "team_name": "Chequia",
+            "player_name": "Adam Hložek",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000204",
+            "position": "FIELD",
+            "player_id": "77977905-8f54-456d-bf13-74d7e6bec52e",
+            "team_code": "CZE",
+            "team_name": "Chequia",
+            "player_name": "Patrik Schick",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000204",
+            "position": "FIELD",
+            "player_id": "c10a4b3e-8cc7-4def-a5a9-a53cd3b832c1",
+            "team_code": "CZE",
+            "team_name": "Chequia",
+            "player_name": "Tomáš Souček",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000218",
+            "position": "FIELD",
+            "player_id": "7f8a8e6d-364f-4b28-9d7c-2b449e632649",
+            "team_code": "ECU",
+            "team_name": "Ecuador",
+            "player_name": "Enner Valencia",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000218",
+            "position": "FIELD",
+            "player_id": "94ad7e9c-1c5e-4e44-90a5-118f20659f4e",
+            "team_code": "ECU",
+            "team_name": "Ecuador",
+            "player_name": "Kendry Páez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000218",
+            "position": "FIELD",
+            "player_id": "cf6a5a53-2eb6-455d-9692-bd672d926d31",
+            "team_code": "ECU",
+            "team_name": "Ecuador",
+            "player_name": "Moisés Caicedo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000228",
+            "position": "FIELD",
+            "player_id": "4a2bb99d-8afa-4006-aa5a-28c48a51c87e",
+            "team_code": "EGY",
+            "team_name": "Egipto",
+            "player_name": "Mohamed Salah",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000228",
+            "position": "FIELD",
+            "player_id": "e6314a4f-fd52-4ba9-873f-833997fb4023",
+            "team_code": "EGY",
+            "team_name": "Egipto",
+            "player_name": "Mostafa Mohamed",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000228",
+            "position": "FIELD",
+            "player_id": "12b23382-bc84-4242-92d3-3650bea433a3",
+            "team_code": "EGY",
+            "team_name": "Egipto",
+            "player_name": "Omar Marmoush",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000247",
+            "position": "FIELD",
+            "player_id": "bffc689e-e39f-4aab-8cba-d6d31ba4c576",
+            "team_code": "ENG",
+            "team_name": "Inglaterra",
+            "player_name": "Harry Kane",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000247",
+            "position": "FIELD",
+            "player_id": "8bd728db-7d91-4a6b-98c1-28a9056372fd",
+            "team_code": "ENG",
+            "team_name": "Inglaterra",
+            "player_name": "Jude Bellingham",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000247",
+            "position": "FIELD",
+            "player_id": "b7a320fa-0333-4543-9025-41d4d9e32ce3",
+            "team_code": "ENG",
+            "team_name": "Inglaterra",
+            "player_name": "Phil Foden",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000231",
+            "position": "FIELD",
+            "player_id": "d4465868-a41f-4085-b388-7dc2cd6f8db2",
+            "team_code": "ESP",
+            "team_name": "España",
+            "player_name": "Álvaro Morata",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000231",
+            "position": "FIELD",
+            "player_id": "7ad195fe-1714-403a-ac39-11a48c34b122",
+            "team_code": "ESP",
+            "team_name": "España",
+            "player_name": "Lamine Yamal",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000231",
+            "position": "FIELD",
+            "player_id": "0063d9c3-9472-452d-8c83-af73fe2c3579",
+            "team_code": "ESP",
+            "team_name": "España",
+            "player_name": "Nico Williams",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000233",
+            "position": "FIELD",
+            "player_id": "91470e16-0ec7-41fb-b41e-b83abc899bb1",
+            "team_code": "FRA",
+            "team_name": "Francia",
+            "player_name": "Antoine Griezmann",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000233",
+            "position": "FIELD",
+            "player_id": "94de5082-5341-4226-b97e-a89725233e24",
+            "team_code": "FRA",
+            "team_name": "Francia",
+            "player_name": "Kylian Mbappé",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000233",
+            "position": "FIELD",
+            "player_id": "1b018d33-8f2a-487c-99d3-b466c3641a9d",
+            "team_code": "FRA",
+            "team_name": "Francia",
+            "player_name": "Ousmane Dembélé",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000219",
+            "position": "FIELD",
+            "player_id": "5a2b3d02-0af2-4bad-981a-b80abc6b6741",
+            "team_code": "GER",
+            "team_name": "Alemania",
+            "player_name": "Florian Wirtz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000219",
+            "position": "FIELD",
+            "player_id": "7e5ae2a4-a78f-4f3e-91d7-2fda0b4b3aa4",
+            "team_code": "GER",
+            "team_name": "Alemania",
+            "player_name": "Jamal Musiala",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000219",
+            "position": "FIELD",
+            "player_id": "604d82f8-d276-48c0-a162-52415cb54077",
+            "team_code": "GER",
+            "team_name": "Alemania",
+            "player_name": "Kai Havertz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000245",
+            "position": "FIELD",
+            "player_id": "e08a9b56-b088-4e44-8879-dc03bec1f4d8",
+            "team_code": "GHA",
+            "team_name": "Ghana",
+            "player_name": "Iñaki Williams",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000245",
+            "position": "FIELD",
+            "player_id": "b9439710-80cd-4d07-8652-068e5afe4fdc",
+            "team_code": "GHA",
+            "team_name": "Ghana",
+            "player_name": "Jordan Ayew",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000245",
+            "position": "FIELD",
+            "player_id": "b403f71e-b5dc-4fa1-b8df-830f143102e9",
+            "team_code": "GHA",
+            "team_name": "Ghana",
+            "player_name": "Mohammed Kudus",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000211",
+            "position": "FIELD",
+            "player_id": "a0dc5abc-1b90-4714-ac47-537a49b991b0",
+            "team_code": "HAI",
+            "team_name": "Haití",
+            "player_name": "Carnejy Antoine",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000211",
+            "position": "FIELD",
+            "player_id": "9cc9afb2-af79-4885-8307-9faae1be49ed",
+            "team_code": "HAI",
+            "team_name": "Haití",
+            "player_name": "Duckens Nazon",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000211",
+            "position": "FIELD",
+            "player_id": "ddefc7aa-ed0f-4e01-91cb-77431bf2f3af",
+            "team_code": "HAI",
+            "team_name": "Haití",
+            "player_name": "Frantzdy Pierrot",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000225",
+            "position": "FIELD",
+            "player_id": "b015739e-79a4-4731-9f2c-1a7da79c6e3a",
+            "team_code": "IRN",
+            "team_name": "Irán",
+            "player_name": "Alireza Jahanbakhsh",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000225",
+            "position": "FIELD",
+            "player_id": "98375a96-ac73-48fc-972e-ebca54002d90",
+            "team_code": "IRN",
+            "team_name": "Irán",
+            "player_name": "Mehdi Taremi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000225",
+            "position": "FIELD",
+            "player_id": "57fd8ce2-7962-4e64-9d2d-5ff58fb4a242",
+            "team_code": "IRN",
+            "team_name": "Irán",
+            "player_name": "Sardar Azmoun",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000235",
+            "position": "FIELD",
+            "player_id": "4f7a876b-fe18-4fd2-b53f-dac12d5668a4",
+            "team_code": "IRQ",
+            "team_name": "Irak",
+            "player_name": "Ali Jasim",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000235",
+            "position": "FIELD",
+            "player_id": "6bce456c-2334-4ab7-93f2-78b2f13cbf83",
+            "team_code": "IRQ",
+            "team_name": "Irak",
+            "player_name": "Aymen Hussein",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000235",
+            "position": "FIELD",
+            "player_id": "1188a2a0-2172-46e4-a325-8da32336b301",
+            "team_code": "IRQ",
+            "team_name": "Irak",
+            "player_name": "Mohanad Ali",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000240",
+            "position": "FIELD",
+            "player_id": "bc6b8ce1-d8ce-4119-83dc-871d750c6152",
+            "team_code": "JOR",
+            "team_name": "Jordania",
+            "player_name": "Ali Olwan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000240",
+            "position": "FIELD",
+            "player_id": "035ccf42-3085-45ab-b7d4-8fecf7e39019",
+            "team_code": "JOR",
+            "team_name": "Jordania",
+            "player_name": "Mousa Al-Taamari",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000240",
+            "position": "FIELD",
+            "player_id": "34e727b8-a247-494c-be28-182e73ab6a48",
+            "team_code": "JOR",
+            "team_name": "Jordania",
+            "player_name": "Yazan Al-Naimat",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000222",
+            "position": "FIELD",
+            "player_id": "fdb120a9-7397-4997-9a43-1187a556d6bd",
+            "team_code": "JPN",
+            "team_name": "Japón",
+            "player_name": "Ritsu Doan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000222",
+            "position": "FIELD",
+            "player_id": "c4e678e8-16fe-4017-a2ec-6362d2d0b437",
+            "team_code": "JPN",
+            "team_name": "Japón",
+            "player_name": "Takefusa Kubo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000222",
+            "position": "FIELD",
+            "player_id": "eb3969e5-b9cd-4507-b3e5-088d98249e0d",
+            "team_code": "JPN",
+            "team_name": "Japón",
+            "player_name": "Takumi Minamino",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000203",
+            "position": "FIELD",
+            "player_id": "76882a82-350a-4967-ac1d-2786c1bda1dc",
+            "team_code": "KOR",
+            "team_name": "Corea del Sur",
+            "player_name": "Hwang Hee-chan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000203",
+            "position": "FIELD",
+            "player_id": "b7e66405-03b9-40ba-afc5-57c926d77a70",
+            "team_code": "KOR",
+            "team_name": "Corea del Sur",
+            "player_name": "Lee Kang-in",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000203",
+            "position": "FIELD",
+            "player_id": "62026eb2-bc45-4548-8687-5d567ed59a61",
+            "team_code": "KOR",
+            "team_name": "Corea del Sur",
+            "player_name": "Son Heung-min",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000229",
+            "position": "FIELD",
+            "player_id": "c05489f1-e6b6-4567-8b46-c2b57067401d",
+            "team_code": "KSA",
+            "team_name": "Arabia Saudita",
+            "player_name": "Firas Al-Buraikan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000229",
+            "position": "FIELD",
+            "player_id": "35752119-91eb-48ce-bf7b-bbe78e9dc4ed",
+            "team_code": "KSA",
+            "team_name": "Arabia Saudita",
+            "player_name": "Saleh Al-Shehri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000229",
+            "position": "FIELD",
+            "player_id": "4bcdaf96-a9a7-4844-9a18-01947bf58774",
+            "team_code": "KSA",
+            "team_name": "Arabia Saudita",
+            "player_name": "Salem Al-Dawsari",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000210",
+            "position": "FIELD",
+            "player_id": "b4c71f01-a4af-4d64-b608-c1324679f842",
+            "team_code": "MAR",
+            "team_name": "Marruecos",
+            "player_name": "Achraf Hakimi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000210",
+            "position": "FIELD",
+            "player_id": "4dc9cb29-b154-4419-9102-437ff31a12fb",
+            "team_code": "MAR",
+            "team_name": "Marruecos",
+            "player_name": "Brahim Díaz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000210",
+            "position": "FIELD",
+            "player_id": "b2f75581-a9b6-4035-a533-6abbe3c2f7c0",
+            "team_code": "MAR",
+            "team_name": "Marruecos",
+            "player_name": "Youssef En-Nesyri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000201",
+            "position": "FIELD",
+            "player_id": "e00aee2a-3cd1-4bbf-9f11-48381c7b8c79",
+            "team_code": "MEX",
+            "team_name": "México",
+            "player_name": "Julián Quiñones",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000201",
+            "position": "FIELD",
+            "player_id": "2e869a6b-cf4e-4da2-b3b6-c7299b998a96",
+            "team_code": "MEX",
+            "team_name": "México",
+            "player_name": "Raúl Jiménez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000201",
+            "position": "FIELD",
+            "player_id": "177aa6a0-74d4-4992-ad02-a95b300e1963",
+            "team_code": "MEX",
+            "team_name": "México",
+            "player_name": "Roberto Alvarado",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000221",
+            "position": "FIELD",
+            "player_id": "14dd1089-d467-438b-9e3a-8911a3e7f3fe",
+            "team_code": "NED",
+            "team_name": "Países Bajos",
+            "player_name": "Cody Gakpo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000221",
+            "position": "FIELD",
+            "player_id": "b5095eaf-6a3f-450b-a259-79e169c228a2",
+            "team_code": "NED",
+            "team_name": "Países Bajos",
+            "player_name": "Memphis Depay",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000221",
+            "position": "FIELD",
+            "player_id": "45f8a80b-0c72-4e46-9b11-f664def8b49d",
+            "team_code": "NED",
+            "team_name": "Países Bajos",
+            "player_name": "Xavi Simons",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000236",
+            "position": "FIELD",
+            "player_id": "3d43b6fb-9105-412e-a38c-be532b5d19e1",
+            "team_code": "NOR",
+            "team_name": "Noruega",
+            "player_name": "Alexander Sørloth",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000236",
+            "position": "FIELD",
+            "player_id": "ac3b1504-da01-410d-b540-ddb796562564",
+            "team_code": "NOR",
+            "team_name": "Noruega",
+            "player_name": "Erling Haaland",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000236",
+            "position": "FIELD",
+            "player_id": "1d000267-1a1c-41fd-bc39-160cf4d554da",
+            "team_code": "NOR",
+            "team_name": "Noruega",
+            "player_name": "Martin Ødegaard",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000226",
+            "position": "FIELD",
+            "player_id": "c7ebd986-9e19-4cf4-9a4a-6719dc110cc8",
+            "team_code": "NZL",
+            "team_name": "Nueva Zelanda",
+            "player_name": "Chris Wood",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000226",
+            "position": "FIELD",
+            "player_id": "4bff2f22-f4f3-49f9-972b-f24895f139e9",
+            "team_code": "NZL",
+            "team_name": "Nueva Zelanda",
+            "player_name": "Kosta Barbarouses",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000226",
+            "position": "FIELD",
+            "player_id": "ea0b4652-5b7a-444b-add5-c7a2d18b2e59",
+            "team_code": "NZL",
+            "team_name": "Nueva Zelanda",
+            "player_name": "Sarpreet Singh",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000246",
+            "position": "FIELD",
+            "player_id": "76ef252f-26d1-47e3-b0a4-4676a56a205b",
+            "team_code": "PAN",
+            "team_name": "Panamá",
+            "player_name": "Cecilio Waterman",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000246",
+            "position": "FIELD",
+            "player_id": "8925a3e0-0066-4fac-b32b-f4452cd89764",
+            "team_code": "PAN",
+            "team_name": "Panamá",
+            "player_name": "Ismael Díaz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000246",
+            "position": "FIELD",
+            "player_id": "efeab977-0063-4a42-9e6f-6ec86668dc3b",
+            "team_code": "PAN",
+            "team_name": "Panamá",
+            "player_name": "José Fajardo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000214",
+            "position": "FIELD",
+            "player_id": "dfcee283-c616-4908-b3ef-e39447f58447",
+            "team_code": "PAR",
+            "team_name": "Paraguay",
+            "player_name": "Julio Enciso",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000214",
+            "position": "FIELD",
+            "player_id": "2954a1a9-5f1a-4b7f-9794-b7d789cdeb5c",
+            "team_code": "PAR",
+            "team_name": "Paraguay",
+            "player_name": "Miguel Almirón",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000214",
+            "position": "FIELD",
+            "player_id": "6081de81-8656-40d5-bed3-993d28594820",
+            "team_code": "PAR",
+            "team_name": "Paraguay",
+            "player_name": "Ramón Sosa",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000241",
+            "position": "FIELD",
+            "player_id": "9059892c-8e13-42b2-8e94-4c33fdf2a909",
+            "team_code": "POR",
+            "team_name": "Portugal",
+            "player_name": "Cristiano Ronaldo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000241",
+            "position": "FIELD",
+            "player_id": "6669ed3d-d806-4f54-9e27-548ddbdb2ada",
+            "team_code": "POR",
+            "team_name": "Portugal",
+            "player_name": "Gonçalo Ramos",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000241",
+            "position": "FIELD",
+            "player_id": "b3b5b65b-1e9b-49f7-bec1-982fdce90049",
+            "team_code": "POR",
+            "team_name": "Portugal",
+            "player_name": "Rafael Leão",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000207",
+            "position": "FIELD",
+            "player_id": "f301f1e6-06d7-4cb3-85dc-c9e790a396fc",
+            "team_code": "QAT",
+            "team_name": "Catar",
+            "player_name": "Akram Afif",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000207",
+            "position": "FIELD",
+            "player_id": "4e048337-db24-4ac1-a963-fbae61c92e8b",
+            "team_code": "QAT",
+            "team_name": "Catar",
+            "player_name": "Almoez Ali",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000207",
+            "position": "FIELD",
+            "player_id": "10836ec6-2c7a-4ec7-bf09-0d8e902f687f",
+            "team_code": "QAT",
+            "team_name": "Catar",
+            "player_name": "Hassan Al-Haydos",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000202",
+            "position": "FIELD",
+            "player_id": "f1c27e14-763b-4dbf-bf83-69c1043cc848",
+            "team_code": "RSA",
+            "team_name": "Sudáfrica",
+            "player_name": "Evidence Makgopa",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000202",
+            "position": "FIELD",
+            "player_id": "1f3f1104-7a66-4800-b72f-9fc6b632155d",
+            "team_code": "RSA",
+            "team_name": "Sudáfrica",
+            "player_name": "Lyle Foster",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000202",
+            "position": "FIELD",
+            "player_id": "fc8dd426-3bfb-47c0-8edd-8cac201ed1cc",
+            "team_code": "RSA",
+            "team_name": "Sudáfrica",
+            "player_name": "Percy Tau",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000212",
+            "position": "FIELD",
+            "player_id": "96c684b9-1ec4-40d2-b477-8018cc4fce43",
+            "team_code": "SCO",
+            "team_name": "Escocia",
+            "player_name": "Che Adams",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000212",
+            "position": "FIELD",
+            "player_id": "77538ff0-96e8-4e13-8ec6-37bddb54bb62",
+            "team_code": "SCO",
+            "team_name": "Escocia",
+            "player_name": "John McGinn",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000212",
+            "position": "FIELD",
+            "player_id": "192556e9-bd92-478c-8b0a-1f13a137ac6c",
+            "team_code": "SCO",
+            "team_name": "Escocia",
+            "player_name": "Scott McTominay",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000234",
+            "position": "FIELD",
+            "player_id": "0091b0c5-ad5f-41da-8953-81d9aa5d1eb5",
+            "team_code": "SEN",
+            "team_name": "Senegal",
+            "player_name": "Ismaïla Sarr",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000234",
+            "position": "FIELD",
+            "player_id": "7bbbc357-ef08-4890-9cf0-c1de82b85ccf",
+            "team_code": "SEN",
+            "team_name": "Senegal",
+            "player_name": "Nicolas Jackson",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000234",
+            "position": "FIELD",
+            "player_id": "1f2f34cb-9fb1-454b-977e-f70e2305bbc4",
+            "team_code": "SEN",
+            "team_name": "Senegal",
+            "player_name": "Sadio Mané",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000208",
+            "position": "FIELD",
+            "player_id": "de41b502-2c3f-4b50-8ef1-7a7ebc705912",
+            "team_code": "SUI",
+            "team_name": "Suiza",
+            "player_name": "Breel Embolo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000208",
+            "position": "FIELD",
+            "player_id": "cd8a0237-56de-451d-acbe-ec15e07170af",
+            "team_code": "SUI",
+            "team_name": "Suiza",
+            "player_name": "Dan Ndoye",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000208",
+            "position": "FIELD",
+            "player_id": "e63c8244-cbe6-4576-afb9-bec370a89abe",
+            "team_code": "SUI",
+            "team_name": "Suiza",
+            "player_name": "Xherdan Shaqiri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000223",
+            "position": "FIELD",
+            "player_id": "d8750e5b-399f-40c7-ba77-4b5286c7b58d",
+            "team_code": "SWE",
+            "team_name": "Suecia",
+            "player_name": "Alexander Isak",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000223",
+            "position": "FIELD",
+            "player_id": "0db27759-9a49-46c5-bd92-0471ed3cd19b",
+            "team_code": "SWE",
+            "team_name": "Suecia",
+            "player_name": "Dejan Kulusevski",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000223",
+            "position": "FIELD",
+            "player_id": "ccc3f677-20af-44f1-bcd0-ac77d97f2798",
+            "team_code": "SWE",
+            "team_name": "Suecia",
+            "player_name": "Viktor Gyökeres",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000224",
+            "position": "FIELD",
+            "player_id": "808564d3-3086-41bb-bd11-39a821d4ade4",
+            "team_code": "TUN",
+            "team_name": "Túnez",
+            "player_name": "Elias Achouri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000224",
+            "position": "FIELD",
+            "player_id": "2a7ab406-b9cc-46a4-9e93-ff39e6eb3779",
+            "team_code": "TUN",
+            "team_name": "Túnez",
+            "player_name": "Seifeddine Jaziri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000224",
+            "position": "FIELD",
+            "player_id": "a1769087-9582-45aa-af26-3d301ad590af",
+            "team_code": "TUN",
+            "team_name": "Túnez",
+            "player_name": "Youssef Msakni",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000216",
+            "position": "FIELD",
+            "player_id": "c77cfd34-5e03-4c0a-9428-85da2b7035dc",
+            "team_code": "TUR",
+            "team_name": "Turquía",
+            "player_name": "Arda Güler",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000216",
+            "position": "FIELD",
+            "player_id": "a17291ca-e5a7-4561-8d06-36ac77ee096c",
+            "team_code": "TUR",
+            "team_name": "Turquía",
+            "player_name": "Hakan Çalhanoğlu",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000216",
+            "position": "FIELD",
+            "player_id": "ea22a4fe-1cea-4c6b-94d5-d1e9c67975fd",
+            "team_code": "TUR",
+            "team_name": "Turquía",
+            "player_name": "Kenan Yıldız",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000230",
+            "position": "FIELD",
+            "player_id": "23d06fdb-29d5-4d63-a344-344ccf970b86",
+            "team_code": "URU",
+            "team_name": "Uruguay",
+            "player_name": "Darwin Núñez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000230",
+            "position": "FIELD",
+            "player_id": "e258d52f-d123-4998-ac89-91d296156d5a",
+            "team_code": "URU",
+            "team_name": "Uruguay",
+            "player_name": "Facundo Pellistri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000230",
+            "position": "FIELD",
+            "player_id": "7f99e955-dedf-4d31-9c93-16d6b13cefc3",
+            "team_code": "URU",
+            "team_name": "Uruguay",
+            "player_name": "Federico Valverde",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000213",
+            "position": "FIELD",
+            "player_id": "fdc0b7f5-1aa6-4adb-a7b9-6a216bcf113b",
+            "team_code": "USA",
+            "team_name": "Estados Unidos",
+            "player_name": "Christian Pulisic",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000213",
+            "position": "FIELD",
+            "player_id": "a64c615a-10f8-4b1a-8991-e1936870c245",
+            "team_code": "USA",
+            "team_name": "Estados Unidos",
+            "player_name": "Folarin Balogun",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000213",
+            "position": "FIELD",
+            "player_id": "14ddd531-4cb8-4d4f-b0cd-2c3d6042c4ab",
+            "team_code": "USA",
+            "team_name": "Estados Unidos",
+            "player_name": "Ricardo Pepi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000243",
+            "position": "FIELD",
+            "player_id": "b81bbea2-db1d-415f-a71f-45a5c8b1bd18",
+            "team_code": "UZB",
+            "team_name": "Uzbekistán",
+            "player_name": "Abbosbek Fayzullaev",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000243",
+            "position": "FIELD",
+            "player_id": "354c2a80-c90c-4b45-8dd1-179dbbc0bf56",
+            "team_code": "UZB",
+            "team_name": "Uzbekistán",
+            "player_name": "Eldor Shomurodov",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000243",
+            "position": "FIELD",
+            "player_id": "d6e3c8d9-3aa3-405f-aeeb-19814be97f16",
+            "team_code": "UZB",
+            "team_name": "Uzbekistán",
+            "player_name": "Jaloliddin Masharipov",
+            "is_special_candidate": true
+        }
+    ],
+    "best_player_candidates": [
+        {
+            "team_id": "20260000-0000-0000-0000-000000000238",
+            "position": "FIELD",
+            "player_id": "5184884d-626c-44be-8640-ad1580f65606",
+            "team_code": "ALG",
+            "team_name": "Argelia",
+            "player_name": "Amine Gouiri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000238",
+            "position": "FIELD",
+            "player_id": "41509daa-add1-44df-bc5e-6c75de695c82",
+            "team_code": "ALG",
+            "team_name": "Argelia",
+            "player_name": "Baghdad Bounedjah",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000238",
+            "position": "FIELD",
+            "player_id": "7b2e452a-45a0-469a-970e-a8027bb699b0",
+            "team_code": "ALG",
+            "team_name": "Argelia",
+            "player_name": "Riyad Mahrez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000237",
+            "position": "FIELD",
+            "player_id": "3c794e11-8da2-46ea-aef6-7fd8b645ee27",
+            "team_code": "ARG",
+            "team_name": "Argentina",
+            "player_name": "Julián Álvarez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000237",
+            "position": "FIELD",
+            "player_id": "ca84f9ad-14ca-4d77-96d0-1cba075d8507",
+            "team_code": "ARG",
+            "team_name": "Argentina",
+            "player_name": "Lautaro Martínez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000237",
+            "position": "FIELD",
+            "player_id": "7e31aadc-91cd-467c-b0dc-079664d7330c",
+            "team_code": "ARG",
+            "team_name": "Argentina",
+            "player_name": "Lionel Messi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000215",
+            "position": "FIELD",
+            "player_id": "0b813afc-1d23-4d37-8ec7-9bdbfd9ae327",
+            "team_code": "AUS",
+            "team_name": "Australia",
+            "player_name": "Craig Goodwin",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000215",
+            "position": "FIELD",
+            "player_id": "b3da779e-5ed1-47d2-91c9-523418547038",
+            "team_code": "AUS",
+            "team_name": "Australia",
+            "player_name": "Kusini Yengi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000215",
+            "position": "FIELD",
+            "player_id": "48e1f448-05b1-402f-b59a-b048a8d99689",
+            "team_code": "AUS",
+            "team_name": "Australia",
+            "player_name": "Mitchell Duke",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000239",
+            "position": "FIELD",
+            "player_id": "6ecd2bf9-00d7-4a40-8efc-49c857a22b02",
+            "team_code": "AUT",
+            "team_name": "Austria",
+            "player_name": "Marcel Sabitzer",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000239",
+            "position": "FIELD",
+            "player_id": "15c7169a-3415-42ea-9042-08094ac7f1c2",
+            "team_code": "AUT",
+            "team_name": "Austria",
+            "player_name": "Marko Arnautović",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000239",
+            "position": "FIELD",
+            "player_id": "73c67eaf-b5c7-457e-8971-835a2afef80f",
+            "team_code": "AUT",
+            "team_name": "Austria",
+            "player_name": "Michael Gregoritsch",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000227",
+            "position": "FIELD",
+            "player_id": "c4ed6a5f-2e8e-4ec7-90e7-1110cb226c46",
+            "team_code": "BEL",
+            "team_name": "Bélgica",
+            "player_name": "Jérémy Doku",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000227",
+            "position": "FIELD",
+            "player_id": "6ec182de-5416-4fe7-956e-68d74c50198d",
+            "team_code": "BEL",
+            "team_name": "Bélgica",
+            "player_name": "Kevin De Bruyne",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000227",
+            "position": "FIELD",
+            "player_id": "565ee287-0fc4-403d-933f-065c687f83f8",
+            "team_code": "BEL",
+            "team_name": "Bélgica",
+            "player_name": "Romelu Lukaku",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000206",
+            "position": "FIELD",
+            "player_id": "519366e5-af45-472e-afb2-950f1fea4f54",
+            "team_code": "BIH",
+            "team_name": "Bosnia y Herzegovina",
+            "player_name": "Amar Dedić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000206",
+            "position": "FIELD",
+            "player_id": "319a240f-170b-4cd1-b29a-d85af3385a91",
+            "team_code": "BIH",
+            "team_name": "Bosnia y Herzegovina",
+            "player_name": "Edin Džeko",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000206",
+            "position": "FIELD",
+            "player_id": "3fa4fd38-0704-4e44-a657-9df1d20e89bd",
+            "team_code": "BIH",
+            "team_name": "Bosnia y Herzegovina",
+            "player_name": "Ermedin Demirović",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000209",
+            "position": "FIELD",
+            "player_id": "f2a53cbd-0db9-4925-b6d9-69a176855a93",
+            "team_code": "BRA",
+            "team_name": "Brasil",
+            "player_name": "Endrick",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000209",
+            "position": "FIELD",
+            "player_id": "595aeed8-ae37-4d45-9860-0b20f2c54b5f",
+            "team_code": "BRA",
+            "team_name": "Brasil",
+            "player_name": "Rodrygo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000209",
+            "position": "FIELD",
+            "player_id": "29cb9d14-6060-43a5-890d-d5bc1aea5c8b",
+            "team_code": "BRA",
+            "team_name": "Brasil",
+            "player_name": "Vinícius Júnior",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000205",
+            "position": "FIELD",
+            "player_id": "676939f5-7b0e-4d1e-a2cc-281a36866a7a",
+            "team_code": "CAN",
+            "team_name": "Canadá",
+            "player_name": "Alphonso Davies",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000205",
+            "position": "FIELD",
+            "player_id": "5775f8fd-99f7-479a-a934-58ed69e34eef",
+            "team_code": "CAN",
+            "team_name": "Canadá",
+            "player_name": "Cyle Larin",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000205",
+            "position": "FIELD",
+            "player_id": "5ea4bfcd-cf4e-4fe2-964b-9292b0761061",
+            "team_code": "CAN",
+            "team_name": "Canadá",
+            "player_name": "Jonathan David",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000217",
+            "position": "FIELD",
+            "player_id": "35824638-e90b-4615-b102-f3cbe519258f",
+            "team_code": "CIV",
+            "team_name": "Costa de Marfil",
+            "player_name": "Franck Kessié",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000217",
+            "position": "FIELD",
+            "player_id": "19300fa2-3929-4add-abe8-f9e4974cb4f8",
+            "team_code": "CIV",
+            "team_name": "Costa de Marfil",
+            "player_name": "Sébastien Haller",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000217",
+            "position": "FIELD",
+            "player_id": "1092c2f5-d0fc-45ed-a78f-8791a3714016",
+            "team_code": "CIV",
+            "team_name": "Costa de Marfil",
+            "player_name": "Simon Adingra",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000242",
+            "position": "FIELD",
+            "player_id": "28517190-aac2-430b-a06f-e1f48fdbf76d",
+            "team_code": "COD",
+            "team_name": "RD Congo",
+            "player_name": "Cédric Bakambu",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000242",
+            "position": "FIELD",
+            "player_id": "99902be5-c1f1-4211-8f2f-b61cb65c031e",
+            "team_code": "COD",
+            "team_name": "RD Congo",
+            "player_name": "Silas",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000242",
+            "position": "FIELD",
+            "player_id": "c5a4a6df-867e-4baa-a4db-880f51275018",
+            "team_code": "COD",
+            "team_name": "RD Congo",
+            "player_name": "Yoane Wissa",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000244",
+            "position": "FIELD",
+            "player_id": "28150545-e5f6-4627-ba5e-e5cca8007566",
+            "team_code": "COL",
+            "team_name": "Colombia",
+            "player_name": "James Rodríguez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000244",
+            "position": "FIELD",
+            "player_id": "c77211ab-b7ec-4b4e-abae-f754bbf213bf",
+            "team_code": "COL",
+            "team_name": "Colombia",
+            "player_name": "Jhon Durán",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000244",
+            "position": "FIELD",
+            "player_id": "443a61e0-0394-40d4-9cb8-63fc14745aca",
+            "team_code": "COL",
+            "team_name": "Colombia",
+            "player_name": "Luis Díaz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000232",
+            "position": "FIELD",
+            "player_id": "fe89d477-5998-4103-af0a-2e5870ec2361",
+            "team_code": "CPV",
+            "team_name": "Cabo Verde",
+            "player_name": "Bebé",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000232",
+            "position": "FIELD",
+            "player_id": "0b08ccb8-9a02-4949-be12-f376cda46198",
+            "team_code": "CPV",
+            "team_name": "Cabo Verde",
+            "player_name": "Garry Rodrigues",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000232",
+            "position": "FIELD",
+            "player_id": "c2b5e57d-e08f-47d1-adbe-d5149f28bac4",
+            "team_code": "CPV",
+            "team_name": "Cabo Verde",
+            "player_name": "Ryan Mendes",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000248",
+            "position": "FIELD",
+            "player_id": "986795bc-c672-4597-9fb9-74d55ecb5639",
+            "team_code": "CRO",
+            "team_name": "Croacia",
+            "player_name": "Andrej Kramarić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000248",
+            "position": "FIELD",
+            "player_id": "9849406c-3410-4c82-b616-e6fcd243bae8",
+            "team_code": "CRO",
+            "team_name": "Croacia",
+            "player_name": "Ivan Perišić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000248",
+            "position": "FIELD",
+            "player_id": "f0dad357-56e2-423c-89e9-3af76a59d4d2",
+            "team_code": "CRO",
+            "team_name": "Croacia",
+            "player_name": "Luka Modrić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000220",
+            "position": "FIELD",
+            "player_id": "069943ea-ba0c-4c06-a583-a7f50050f72f",
+            "team_code": "CUW",
+            "team_name": "Curazao",
+            "player_name": "Gervane Kastaneer",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000220",
+            "position": "FIELD",
+            "player_id": "d329182d-0627-4fcf-9a9e-6d3ba8c2c3b5",
+            "team_code": "CUW",
+            "team_name": "Curazao",
+            "player_name": "Juninho Bacuna",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000220",
+            "position": "FIELD",
+            "player_id": "8b1d7442-0f9c-4e97-a1c7-8bb9911448b0",
+            "team_code": "CUW",
+            "team_name": "Curazao",
+            "player_name": "Rangelo Janga",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000204",
+            "position": "FIELD",
+            "player_id": "77647012-d993-44d1-89aa-c8b2abf4c55c",
+            "team_code": "CZE",
+            "team_name": "Chequia",
+            "player_name": "Adam Hložek",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000204",
+            "position": "FIELD",
+            "player_id": "77977905-8f54-456d-bf13-74d7e6bec52e",
+            "team_code": "CZE",
+            "team_name": "Chequia",
+            "player_name": "Patrik Schick",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000204",
+            "position": "FIELD",
+            "player_id": "c10a4b3e-8cc7-4def-a5a9-a53cd3b832c1",
+            "team_code": "CZE",
+            "team_name": "Chequia",
+            "player_name": "Tomáš Souček",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000218",
+            "position": "FIELD",
+            "player_id": "7f8a8e6d-364f-4b28-9d7c-2b449e632649",
+            "team_code": "ECU",
+            "team_name": "Ecuador",
+            "player_name": "Enner Valencia",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000218",
+            "position": "FIELD",
+            "player_id": "94ad7e9c-1c5e-4e44-90a5-118f20659f4e",
+            "team_code": "ECU",
+            "team_name": "Ecuador",
+            "player_name": "Kendry Páez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000218",
+            "position": "FIELD",
+            "player_id": "cf6a5a53-2eb6-455d-9692-bd672d926d31",
+            "team_code": "ECU",
+            "team_name": "Ecuador",
+            "player_name": "Moisés Caicedo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000228",
+            "position": "FIELD",
+            "player_id": "4a2bb99d-8afa-4006-aa5a-28c48a51c87e",
+            "team_code": "EGY",
+            "team_name": "Egipto",
+            "player_name": "Mohamed Salah",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000228",
+            "position": "FIELD",
+            "player_id": "e6314a4f-fd52-4ba9-873f-833997fb4023",
+            "team_code": "EGY",
+            "team_name": "Egipto",
+            "player_name": "Mostafa Mohamed",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000228",
+            "position": "FIELD",
+            "player_id": "12b23382-bc84-4242-92d3-3650bea433a3",
+            "team_code": "EGY",
+            "team_name": "Egipto",
+            "player_name": "Omar Marmoush",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000247",
+            "position": "FIELD",
+            "player_id": "bffc689e-e39f-4aab-8cba-d6d31ba4c576",
+            "team_code": "ENG",
+            "team_name": "Inglaterra",
+            "player_name": "Harry Kane",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000247",
+            "position": "FIELD",
+            "player_id": "8bd728db-7d91-4a6b-98c1-28a9056372fd",
+            "team_code": "ENG",
+            "team_name": "Inglaterra",
+            "player_name": "Jude Bellingham",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000247",
+            "position": "FIELD",
+            "player_id": "b7a320fa-0333-4543-9025-41d4d9e32ce3",
+            "team_code": "ENG",
+            "team_name": "Inglaterra",
+            "player_name": "Phil Foden",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000231",
+            "position": "FIELD",
+            "player_id": "d4465868-a41f-4085-b388-7dc2cd6f8db2",
+            "team_code": "ESP",
+            "team_name": "España",
+            "player_name": "Álvaro Morata",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000231",
+            "position": "FIELD",
+            "player_id": "7ad195fe-1714-403a-ac39-11a48c34b122",
+            "team_code": "ESP",
+            "team_name": "España",
+            "player_name": "Lamine Yamal",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000231",
+            "position": "FIELD",
+            "player_id": "0063d9c3-9472-452d-8c83-af73fe2c3579",
+            "team_code": "ESP",
+            "team_name": "España",
+            "player_name": "Nico Williams",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000233",
+            "position": "FIELD",
+            "player_id": "91470e16-0ec7-41fb-b41e-b83abc899bb1",
+            "team_code": "FRA",
+            "team_name": "Francia",
+            "player_name": "Antoine Griezmann",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000233",
+            "position": "FIELD",
+            "player_id": "94de5082-5341-4226-b97e-a89725233e24",
+            "team_code": "FRA",
+            "team_name": "Francia",
+            "player_name": "Kylian Mbappé",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000233",
+            "position": "FIELD",
+            "player_id": "1b018d33-8f2a-487c-99d3-b466c3641a9d",
+            "team_code": "FRA",
+            "team_name": "Francia",
+            "player_name": "Ousmane Dembélé",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000219",
+            "position": "FIELD",
+            "player_id": "5a2b3d02-0af2-4bad-981a-b80abc6b6741",
+            "team_code": "GER",
+            "team_name": "Alemania",
+            "player_name": "Florian Wirtz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000219",
+            "position": "FIELD",
+            "player_id": "7e5ae2a4-a78f-4f3e-91d7-2fda0b4b3aa4",
+            "team_code": "GER",
+            "team_name": "Alemania",
+            "player_name": "Jamal Musiala",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000219",
+            "position": "FIELD",
+            "player_id": "604d82f8-d276-48c0-a162-52415cb54077",
+            "team_code": "GER",
+            "team_name": "Alemania",
+            "player_name": "Kai Havertz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000245",
+            "position": "FIELD",
+            "player_id": "e08a9b56-b088-4e44-8879-dc03bec1f4d8",
+            "team_code": "GHA",
+            "team_name": "Ghana",
+            "player_name": "Iñaki Williams",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000245",
+            "position": "FIELD",
+            "player_id": "b9439710-80cd-4d07-8652-068e5afe4fdc",
+            "team_code": "GHA",
+            "team_name": "Ghana",
+            "player_name": "Jordan Ayew",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000245",
+            "position": "FIELD",
+            "player_id": "b403f71e-b5dc-4fa1-b8df-830f143102e9",
+            "team_code": "GHA",
+            "team_name": "Ghana",
+            "player_name": "Mohammed Kudus",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000211",
+            "position": "FIELD",
+            "player_id": "a0dc5abc-1b90-4714-ac47-537a49b991b0",
+            "team_code": "HAI",
+            "team_name": "Haití",
+            "player_name": "Carnejy Antoine",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000211",
+            "position": "FIELD",
+            "player_id": "9cc9afb2-af79-4885-8307-9faae1be49ed",
+            "team_code": "HAI",
+            "team_name": "Haití",
+            "player_name": "Duckens Nazon",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000211",
+            "position": "FIELD",
+            "player_id": "ddefc7aa-ed0f-4e01-91cb-77431bf2f3af",
+            "team_code": "HAI",
+            "team_name": "Haití",
+            "player_name": "Frantzdy Pierrot",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000225",
+            "position": "FIELD",
+            "player_id": "b015739e-79a4-4731-9f2c-1a7da79c6e3a",
+            "team_code": "IRN",
+            "team_name": "Irán",
+            "player_name": "Alireza Jahanbakhsh",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000225",
+            "position": "FIELD",
+            "player_id": "98375a96-ac73-48fc-972e-ebca54002d90",
+            "team_code": "IRN",
+            "team_name": "Irán",
+            "player_name": "Mehdi Taremi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000225",
+            "position": "FIELD",
+            "player_id": "57fd8ce2-7962-4e64-9d2d-5ff58fb4a242",
+            "team_code": "IRN",
+            "team_name": "Irán",
+            "player_name": "Sardar Azmoun",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000235",
+            "position": "FIELD",
+            "player_id": "4f7a876b-fe18-4fd2-b53f-dac12d5668a4",
+            "team_code": "IRQ",
+            "team_name": "Irak",
+            "player_name": "Ali Jasim",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000235",
+            "position": "FIELD",
+            "player_id": "6bce456c-2334-4ab7-93f2-78b2f13cbf83",
+            "team_code": "IRQ",
+            "team_name": "Irak",
+            "player_name": "Aymen Hussein",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000235",
+            "position": "FIELD",
+            "player_id": "1188a2a0-2172-46e4-a325-8da32336b301",
+            "team_code": "IRQ",
+            "team_name": "Irak",
+            "player_name": "Mohanad Ali",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000240",
+            "position": "FIELD",
+            "player_id": "bc6b8ce1-d8ce-4119-83dc-871d750c6152",
+            "team_code": "JOR",
+            "team_name": "Jordania",
+            "player_name": "Ali Olwan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000240",
+            "position": "FIELD",
+            "player_id": "035ccf42-3085-45ab-b7d4-8fecf7e39019",
+            "team_code": "JOR",
+            "team_name": "Jordania",
+            "player_name": "Mousa Al-Taamari",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000240",
+            "position": "FIELD",
+            "player_id": "34e727b8-a247-494c-be28-182e73ab6a48",
+            "team_code": "JOR",
+            "team_name": "Jordania",
+            "player_name": "Yazan Al-Naimat",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000222",
+            "position": "FIELD",
+            "player_id": "fdb120a9-7397-4997-9a43-1187a556d6bd",
+            "team_code": "JPN",
+            "team_name": "Japón",
+            "player_name": "Ritsu Doan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000222",
+            "position": "FIELD",
+            "player_id": "c4e678e8-16fe-4017-a2ec-6362d2d0b437",
+            "team_code": "JPN",
+            "team_name": "Japón",
+            "player_name": "Takefusa Kubo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000222",
+            "position": "FIELD",
+            "player_id": "eb3969e5-b9cd-4507-b3e5-088d98249e0d",
+            "team_code": "JPN",
+            "team_name": "Japón",
+            "player_name": "Takumi Minamino",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000203",
+            "position": "FIELD",
+            "player_id": "76882a82-350a-4967-ac1d-2786c1bda1dc",
+            "team_code": "KOR",
+            "team_name": "Corea del Sur",
+            "player_name": "Hwang Hee-chan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000203",
+            "position": "FIELD",
+            "player_id": "b7e66405-03b9-40ba-afc5-57c926d77a70",
+            "team_code": "KOR",
+            "team_name": "Corea del Sur",
+            "player_name": "Lee Kang-in",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000203",
+            "position": "FIELD",
+            "player_id": "62026eb2-bc45-4548-8687-5d567ed59a61",
+            "team_code": "KOR",
+            "team_name": "Corea del Sur",
+            "player_name": "Son Heung-min",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000229",
+            "position": "FIELD",
+            "player_id": "c05489f1-e6b6-4567-8b46-c2b57067401d",
+            "team_code": "KSA",
+            "team_name": "Arabia Saudita",
+            "player_name": "Firas Al-Buraikan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000229",
+            "position": "FIELD",
+            "player_id": "35752119-91eb-48ce-bf7b-bbe78e9dc4ed",
+            "team_code": "KSA",
+            "team_name": "Arabia Saudita",
+            "player_name": "Saleh Al-Shehri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000229",
+            "position": "FIELD",
+            "player_id": "4bcdaf96-a9a7-4844-9a18-01947bf58774",
+            "team_code": "KSA",
+            "team_name": "Arabia Saudita",
+            "player_name": "Salem Al-Dawsari",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000210",
+            "position": "FIELD",
+            "player_id": "b4c71f01-a4af-4d64-b608-c1324679f842",
+            "team_code": "MAR",
+            "team_name": "Marruecos",
+            "player_name": "Achraf Hakimi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000210",
+            "position": "FIELD",
+            "player_id": "4dc9cb29-b154-4419-9102-437ff31a12fb",
+            "team_code": "MAR",
+            "team_name": "Marruecos",
+            "player_name": "Brahim Díaz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000210",
+            "position": "FIELD",
+            "player_id": "b2f75581-a9b6-4035-a533-6abbe3c2f7c0",
+            "team_code": "MAR",
+            "team_name": "Marruecos",
+            "player_name": "Youssef En-Nesyri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000201",
+            "position": "FIELD",
+            "player_id": "e00aee2a-3cd1-4bbf-9f11-48381c7b8c79",
+            "team_code": "MEX",
+            "team_name": "México",
+            "player_name": "Julián Quiñones",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000201",
+            "position": "FIELD",
+            "player_id": "2e869a6b-cf4e-4da2-b3b6-c7299b998a96",
+            "team_code": "MEX",
+            "team_name": "México",
+            "player_name": "Raúl Jiménez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000201",
+            "position": "FIELD",
+            "player_id": "177aa6a0-74d4-4992-ad02-a95b300e1963",
+            "team_code": "MEX",
+            "team_name": "México",
+            "player_name": "Roberto Alvarado",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000221",
+            "position": "FIELD",
+            "player_id": "14dd1089-d467-438b-9e3a-8911a3e7f3fe",
+            "team_code": "NED",
+            "team_name": "Países Bajos",
+            "player_name": "Cody Gakpo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000221",
+            "position": "FIELD",
+            "player_id": "b5095eaf-6a3f-450b-a259-79e169c228a2",
+            "team_code": "NED",
+            "team_name": "Países Bajos",
+            "player_name": "Memphis Depay",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000221",
+            "position": "FIELD",
+            "player_id": "45f8a80b-0c72-4e46-9b11-f664def8b49d",
+            "team_code": "NED",
+            "team_name": "Países Bajos",
+            "player_name": "Xavi Simons",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000236",
+            "position": "FIELD",
+            "player_id": "3d43b6fb-9105-412e-a38c-be532b5d19e1",
+            "team_code": "NOR",
+            "team_name": "Noruega",
+            "player_name": "Alexander Sørloth",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000236",
+            "position": "FIELD",
+            "player_id": "ac3b1504-da01-410d-b540-ddb796562564",
+            "team_code": "NOR",
+            "team_name": "Noruega",
+            "player_name": "Erling Haaland",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000236",
+            "position": "FIELD",
+            "player_id": "1d000267-1a1c-41fd-bc39-160cf4d554da",
+            "team_code": "NOR",
+            "team_name": "Noruega",
+            "player_name": "Martin Ødegaard",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000226",
+            "position": "FIELD",
+            "player_id": "c7ebd986-9e19-4cf4-9a4a-6719dc110cc8",
+            "team_code": "NZL",
+            "team_name": "Nueva Zelanda",
+            "player_name": "Chris Wood",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000226",
+            "position": "FIELD",
+            "player_id": "4bff2f22-f4f3-49f9-972b-f24895f139e9",
+            "team_code": "NZL",
+            "team_name": "Nueva Zelanda",
+            "player_name": "Kosta Barbarouses",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000226",
+            "position": "FIELD",
+            "player_id": "ea0b4652-5b7a-444b-add5-c7a2d18b2e59",
+            "team_code": "NZL",
+            "team_name": "Nueva Zelanda",
+            "player_name": "Sarpreet Singh",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000246",
+            "position": "FIELD",
+            "player_id": "76ef252f-26d1-47e3-b0a4-4676a56a205b",
+            "team_code": "PAN",
+            "team_name": "Panamá",
+            "player_name": "Cecilio Waterman",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000246",
+            "position": "FIELD",
+            "player_id": "8925a3e0-0066-4fac-b32b-f4452cd89764",
+            "team_code": "PAN",
+            "team_name": "Panamá",
+            "player_name": "Ismael Díaz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000246",
+            "position": "FIELD",
+            "player_id": "efeab977-0063-4a42-9e6f-6ec86668dc3b",
+            "team_code": "PAN",
+            "team_name": "Panamá",
+            "player_name": "José Fajardo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000214",
+            "position": "FIELD",
+            "player_id": "dfcee283-c616-4908-b3ef-e39447f58447",
+            "team_code": "PAR",
+            "team_name": "Paraguay",
+            "player_name": "Julio Enciso",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000214",
+            "position": "FIELD",
+            "player_id": "2954a1a9-5f1a-4b7f-9794-b7d789cdeb5c",
+            "team_code": "PAR",
+            "team_name": "Paraguay",
+            "player_name": "Miguel Almirón",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000214",
+            "position": "FIELD",
+            "player_id": "6081de81-8656-40d5-bed3-993d28594820",
+            "team_code": "PAR",
+            "team_name": "Paraguay",
+            "player_name": "Ramón Sosa",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000241",
+            "position": "FIELD",
+            "player_id": "9059892c-8e13-42b2-8e94-4c33fdf2a909",
+            "team_code": "POR",
+            "team_name": "Portugal",
+            "player_name": "Cristiano Ronaldo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000241",
+            "position": "FIELD",
+            "player_id": "6669ed3d-d806-4f54-9e27-548ddbdb2ada",
+            "team_code": "POR",
+            "team_name": "Portugal",
+            "player_name": "Gonçalo Ramos",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000241",
+            "position": "FIELD",
+            "player_id": "b3b5b65b-1e9b-49f7-bec1-982fdce90049",
+            "team_code": "POR",
+            "team_name": "Portugal",
+            "player_name": "Rafael Leão",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000207",
+            "position": "FIELD",
+            "player_id": "f301f1e6-06d7-4cb3-85dc-c9e790a396fc",
+            "team_code": "QAT",
+            "team_name": "Catar",
+            "player_name": "Akram Afif",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000207",
+            "position": "FIELD",
+            "player_id": "4e048337-db24-4ac1-a963-fbae61c92e8b",
+            "team_code": "QAT",
+            "team_name": "Catar",
+            "player_name": "Almoez Ali",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000207",
+            "position": "FIELD",
+            "player_id": "10836ec6-2c7a-4ec7-bf09-0d8e902f687f",
+            "team_code": "QAT",
+            "team_name": "Catar",
+            "player_name": "Hassan Al-Haydos",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000202",
+            "position": "FIELD",
+            "player_id": "f1c27e14-763b-4dbf-bf83-69c1043cc848",
+            "team_code": "RSA",
+            "team_name": "Sudáfrica",
+            "player_name": "Evidence Makgopa",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000202",
+            "position": "FIELD",
+            "player_id": "1f3f1104-7a66-4800-b72f-9fc6b632155d",
+            "team_code": "RSA",
+            "team_name": "Sudáfrica",
+            "player_name": "Lyle Foster",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000202",
+            "position": "FIELD",
+            "player_id": "fc8dd426-3bfb-47c0-8edd-8cac201ed1cc",
+            "team_code": "RSA",
+            "team_name": "Sudáfrica",
+            "player_name": "Percy Tau",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000212",
+            "position": "FIELD",
+            "player_id": "96c684b9-1ec4-40d2-b477-8018cc4fce43",
+            "team_code": "SCO",
+            "team_name": "Escocia",
+            "player_name": "Che Adams",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000212",
+            "position": "FIELD",
+            "player_id": "77538ff0-96e8-4e13-8ec6-37bddb54bb62",
+            "team_code": "SCO",
+            "team_name": "Escocia",
+            "player_name": "John McGinn",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000212",
+            "position": "FIELD",
+            "player_id": "192556e9-bd92-478c-8b0a-1f13a137ac6c",
+            "team_code": "SCO",
+            "team_name": "Escocia",
+            "player_name": "Scott McTominay",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000234",
+            "position": "FIELD",
+            "player_id": "0091b0c5-ad5f-41da-8953-81d9aa5d1eb5",
+            "team_code": "SEN",
+            "team_name": "Senegal",
+            "player_name": "Ismaïla Sarr",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000234",
+            "position": "FIELD",
+            "player_id": "7bbbc357-ef08-4890-9cf0-c1de82b85ccf",
+            "team_code": "SEN",
+            "team_name": "Senegal",
+            "player_name": "Nicolas Jackson",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000234",
+            "position": "FIELD",
+            "player_id": "1f2f34cb-9fb1-454b-977e-f70e2305bbc4",
+            "team_code": "SEN",
+            "team_name": "Senegal",
+            "player_name": "Sadio Mané",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000208",
+            "position": "FIELD",
+            "player_id": "de41b502-2c3f-4b50-8ef1-7a7ebc705912",
+            "team_code": "SUI",
+            "team_name": "Suiza",
+            "player_name": "Breel Embolo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000208",
+            "position": "FIELD",
+            "player_id": "cd8a0237-56de-451d-acbe-ec15e07170af",
+            "team_code": "SUI",
+            "team_name": "Suiza",
+            "player_name": "Dan Ndoye",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000208",
+            "position": "FIELD",
+            "player_id": "e63c8244-cbe6-4576-afb9-bec370a89abe",
+            "team_code": "SUI",
+            "team_name": "Suiza",
+            "player_name": "Xherdan Shaqiri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000223",
+            "position": "FIELD",
+            "player_id": "d8750e5b-399f-40c7-ba77-4b5286c7b58d",
+            "team_code": "SWE",
+            "team_name": "Suecia",
+            "player_name": "Alexander Isak",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000223",
+            "position": "FIELD",
+            "player_id": "0db27759-9a49-46c5-bd92-0471ed3cd19b",
+            "team_code": "SWE",
+            "team_name": "Suecia",
+            "player_name": "Dejan Kulusevski",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000223",
+            "position": "FIELD",
+            "player_id": "ccc3f677-20af-44f1-bcd0-ac77d97f2798",
+            "team_code": "SWE",
+            "team_name": "Suecia",
+            "player_name": "Viktor Gyökeres",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000224",
+            "position": "FIELD",
+            "player_id": "808564d3-3086-41bb-bd11-39a821d4ade4",
+            "team_code": "TUN",
+            "team_name": "Túnez",
+            "player_name": "Elias Achouri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000224",
+            "position": "FIELD",
+            "player_id": "2a7ab406-b9cc-46a4-9e93-ff39e6eb3779",
+            "team_code": "TUN",
+            "team_name": "Túnez",
+            "player_name": "Seifeddine Jaziri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000224",
+            "position": "FIELD",
+            "player_id": "a1769087-9582-45aa-af26-3d301ad590af",
+            "team_code": "TUN",
+            "team_name": "Túnez",
+            "player_name": "Youssef Msakni",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000216",
+            "position": "FIELD",
+            "player_id": "c77cfd34-5e03-4c0a-9428-85da2b7035dc",
+            "team_code": "TUR",
+            "team_name": "Turquía",
+            "player_name": "Arda Güler",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000216",
+            "position": "FIELD",
+            "player_id": "a17291ca-e5a7-4561-8d06-36ac77ee096c",
+            "team_code": "TUR",
+            "team_name": "Turquía",
+            "player_name": "Hakan Çalhanoğlu",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000216",
+            "position": "FIELD",
+            "player_id": "ea22a4fe-1cea-4c6b-94d5-d1e9c67975fd",
+            "team_code": "TUR",
+            "team_name": "Turquía",
+            "player_name": "Kenan Yıldız",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000230",
+            "position": "FIELD",
+            "player_id": "23d06fdb-29d5-4d63-a344-344ccf970b86",
+            "team_code": "URU",
+            "team_name": "Uruguay",
+            "player_name": "Darwin Núñez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000230",
+            "position": "FIELD",
+            "player_id": "e258d52f-d123-4998-ac89-91d296156d5a",
+            "team_code": "URU",
+            "team_name": "Uruguay",
+            "player_name": "Facundo Pellistri",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000230",
+            "position": "FIELD",
+            "player_id": "7f99e955-dedf-4d31-9c93-16d6b13cefc3",
+            "team_code": "URU",
+            "team_name": "Uruguay",
+            "player_name": "Federico Valverde",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000213",
+            "position": "FIELD",
+            "player_id": "fdc0b7f5-1aa6-4adb-a7b9-6a216bcf113b",
+            "team_code": "USA",
+            "team_name": "Estados Unidos",
+            "player_name": "Christian Pulisic",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000213",
+            "position": "FIELD",
+            "player_id": "a64c615a-10f8-4b1a-8991-e1936870c245",
+            "team_code": "USA",
+            "team_name": "Estados Unidos",
+            "player_name": "Folarin Balogun",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000213",
+            "position": "FIELD",
+            "player_id": "14ddd531-4cb8-4d4f-b0cd-2c3d6042c4ab",
+            "team_code": "USA",
+            "team_name": "Estados Unidos",
+            "player_name": "Ricardo Pepi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000243",
+            "position": "FIELD",
+            "player_id": "b81bbea2-db1d-415f-a71f-45a5c8b1bd18",
+            "team_code": "UZB",
+            "team_name": "Uzbekistán",
+            "player_name": "Abbosbek Fayzullaev",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000243",
+            "position": "FIELD",
+            "player_id": "354c2a80-c90c-4b45-8dd1-179dbbc0bf56",
+            "team_code": "UZB",
+            "team_name": "Uzbekistán",
+            "player_name": "Eldor Shomurodov",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000243",
+            "position": "FIELD",
+            "player_id": "d6e3c8d9-3aa3-405f-aeeb-19814be97f16",
+            "team_code": "UZB",
+            "team_name": "Uzbekistán",
+            "player_name": "Jaloliddin Masharipov",
+            "is_special_candidate": true
+        }
+    ],
+    "best_goalkeeper_candidates": [
+        {
+            "team_id": "20260000-0000-0000-0000-000000000238",
+            "position": "GK",
+            "player_id": "579103af-48cb-4f83-a609-aa97b01c7a85",
+            "team_code": "ALG",
+            "team_name": "Argelia",
+            "player_name": "Anthony Mandrea",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000237",
+            "position": "GK",
+            "player_id": "719404e1-49d7-4fa9-b056-510f01b3ca73",
+            "team_code": "ARG",
+            "team_name": "Argentina",
+            "player_name": "Emiliano Martínez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000215",
+            "position": "GK",
+            "player_id": "82f6b222-58cd-4526-a020-b531020dad73",
+            "team_code": "AUS",
+            "team_name": "Australia",
+            "player_name": "Mathew Ryan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000239",
+            "position": "GK",
+            "player_id": "0d6641d8-c6ef-452c-bfb6-cb1825f1ca23",
+            "team_code": "AUT",
+            "team_name": "Austria",
+            "player_name": "Patrick Pentz",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000227",
+            "position": "GK",
+            "player_id": "7d53e4db-69e0-4033-a9ae-69a747c20ad4",
+            "team_code": "BEL",
+            "team_name": "Bélgica",
+            "player_name": "Thibaut Courtois",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000206",
+            "position": "GK",
+            "player_id": "4f37f45d-72b5-4d8f-95e9-a553e603569d",
+            "team_code": "BIH",
+            "team_name": "Bosnia y Herzegovina",
+            "player_name": "Ibrahim Šehić",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000209",
+            "position": "GK",
+            "player_id": "2cb760b8-4438-4195-ab22-9d00fce8bb5e",
+            "team_code": "BRA",
+            "team_name": "Brasil",
+            "player_name": "Alisson Becker",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000205",
+            "position": "GK",
+            "player_id": "5880fb88-001d-4b86-8c01-ccc02d9bd08c",
+            "team_code": "CAN",
+            "team_name": "Canadá",
+            "player_name": "Maxime Crépeau",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000217",
+            "position": "GK",
+            "player_id": "1997f6b6-e53f-4d09-a0c3-fb640d2e9da4",
+            "team_code": "CIV",
+            "team_name": "Costa de Marfil",
+            "player_name": "Yahia Fofana",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000242",
+            "position": "GK",
+            "player_id": "5592ac3a-2b0a-4c46-b322-962fea8d4330",
+            "team_code": "COD",
+            "team_name": "RD Congo",
+            "player_name": "Lionel Mpasi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000244",
+            "position": "GK",
+            "player_id": "dd09276f-a513-4f02-a37e-4e0143227eb3",
+            "team_code": "COL",
+            "team_name": "Colombia",
+            "player_name": "Camilo Vargas",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000232",
+            "position": "GK",
+            "player_id": "7a3ceddb-2a8c-45ea-890f-b30f1bf7734f",
+            "team_code": "CPV",
+            "team_name": "Cabo Verde",
+            "player_name": "Vozinha",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000248",
+            "position": "GK",
+            "player_id": "6d935170-4dd3-439f-af21-a74cbe8ef715",
+            "team_code": "CRO",
+            "team_name": "Croacia",
+            "player_name": "Dominik Livaković",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000220",
+            "position": "GK",
+            "player_id": "a8c47c19-b3f4-4b9b-86a5-591316c78516",
+            "team_code": "CUW",
+            "team_name": "Curazao",
+            "player_name": "Eloy Room",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000204",
+            "position": "GK",
+            "player_id": "9b9acee4-cf04-4859-aeb6-a124e2701fe6",
+            "team_code": "CZE",
+            "team_name": "Chequia",
+            "player_name": "Matěj Kovář",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000218",
+            "position": "GK",
+            "player_id": "607b11cc-1401-4d35-ba16-a2f366d5def3",
+            "team_code": "ECU",
+            "team_name": "Ecuador",
+            "player_name": "Hernán Galíndez",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000228",
+            "position": "GK",
+            "player_id": "b4dd78ee-5727-4469-aa0e-84fe10701a3b",
+            "team_code": "EGY",
+            "team_name": "Egipto",
+            "player_name": "Mohamed El Shenawy",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000247",
+            "position": "GK",
+            "player_id": "6c180ac8-e52d-4739-8fa7-d4822615b04c",
+            "team_code": "ENG",
+            "team_name": "Inglaterra",
+            "player_name": "Jordan Pickford",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000231",
+            "position": "GK",
+            "player_id": "55b62a79-6694-44e7-a1ce-5441fe262eed",
+            "team_code": "ESP",
+            "team_name": "España",
+            "player_name": "Unai Simón",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000233",
+            "position": "GK",
+            "player_id": "abe88124-4e58-47f0-9f4d-008c10112700",
+            "team_code": "FRA",
+            "team_name": "Francia",
+            "player_name": "Mike Maignan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000219",
+            "position": "GK",
+            "player_id": "fad6bd94-d53a-45bb-9d4d-273eb0819e85",
+            "team_code": "GER",
+            "team_name": "Alemania",
+            "player_name": "Manuel Neuer",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000245",
+            "position": "GK",
+            "player_id": "5fd98f7d-78b0-45f5-b258-46c71ec94596",
+            "team_code": "GHA",
+            "team_name": "Ghana",
+            "player_name": "Lawrence Ati-Zigi",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000211",
+            "position": "GK",
+            "player_id": "a6258dcc-1a39-4f4a-885b-0584e4ef0d8c",
+            "team_code": "HAI",
+            "team_name": "Haití",
+            "player_name": "Johny Placide",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000225",
+            "position": "GK",
+            "player_id": "068af982-15c7-4607-8ae1-04965debd1dc",
+            "team_code": "IRN",
+            "team_name": "Irán",
+            "player_name": "Alireza Beiranvand",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000235",
+            "position": "GK",
+            "player_id": "358c8d00-6fb9-4fb9-8d9b-c632e09a60a8",
+            "team_code": "IRQ",
+            "team_name": "Irak",
+            "player_name": "Jalal Hassan",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000240",
+            "position": "GK",
+            "player_id": "59bac79e-3ea8-4dbe-9123-128958ac7fd1",
+            "team_code": "JOR",
+            "team_name": "Jordania",
+            "player_name": "Yazeed Abulaila",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000222",
+            "position": "GK",
+            "player_id": "26594cbe-8b24-4342-bda0-ce071501475b",
+            "team_code": "JPN",
+            "team_name": "Japón",
+            "player_name": "Zion Suzuki",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000203",
+            "position": "GK",
+            "player_id": "c9b298ce-031a-4511-8b0c-fca86c7ed647",
+            "team_code": "KOR",
+            "team_name": "Corea del Sur",
+            "player_name": "Jo Hyeon-woo",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000229",
+            "position": "GK",
+            "player_id": "1671e356-e4b0-44f2-8d4b-7e2c76a6d774",
+            "team_code": "KSA",
+            "team_name": "Arabia Saudita",
+            "player_name": "Mohammed Al-Owais",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000210",
+            "position": "GK",
+            "player_id": "edc0ade4-8c1f-4ed5-a7de-400a124b11a7",
+            "team_code": "MAR",
+            "team_name": "Marruecos",
+            "player_name": "Yassine Bounou",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000201",
+            "position": "GK",
+            "player_id": "f575799d-79d7-4628-b108-3525ab78ddbb",
+            "team_code": "MEX",
+            "team_name": "México",
+            "player_name": "Raúl Rangel",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000221",
+            "position": "GK",
+            "player_id": "0c6e0d52-dcaf-4e00-bf78-1b921dc63814",
+            "team_code": "NED",
+            "team_name": "Países Bajos",
+            "player_name": "Bart Verbruggen",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000236",
+            "position": "GK",
+            "player_id": "ad8fb03e-3b35-407f-8b3e-d5137bd10933",
+            "team_code": "NOR",
+            "team_name": "Noruega",
+            "player_name": "Ørjan Nyland",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000226",
+            "position": "GK",
+            "player_id": "5273d2ae-fb0d-4c29-90e2-e994ef4f2168",
+            "team_code": "NZL",
+            "team_name": "Nueva Zelanda",
+            "player_name": "Max Crocombe",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000246",
+            "position": "GK",
+            "player_id": "088e40ea-fec3-47b2-a266-4162778690fa",
+            "team_code": "PAN",
+            "team_name": "Panamá",
+            "player_name": "Orlando Mosquera",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000214",
+            "position": "GK",
+            "player_id": "42e145a4-993e-4701-aeb1-0f19e85ba2d2",
+            "team_code": "PAR",
+            "team_name": "Paraguay",
+            "player_name": "Roberto Fernández",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000241",
+            "position": "GK",
+            "player_id": "0da3456e-ae41-482a-b67b-12a1a260b8db",
+            "team_code": "POR",
+            "team_name": "Portugal",
+            "player_name": "Diogo Costa",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000207",
+            "position": "GK",
+            "player_id": "044d3704-88ba-4782-b948-e0ad468c22b8",
+            "team_code": "QAT",
+            "team_name": "Catar",
+            "player_name": "Meshaal Barsham",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000202",
+            "position": "GK",
+            "player_id": "71c8fa83-67e0-4328-8ddb-a334bddb509c",
+            "team_code": "RSA",
+            "team_name": "Sudáfrica",
+            "player_name": "Ronwen Williams",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000212",
+            "position": "GK",
+            "player_id": "fc6c8997-1692-4622-8ffa-5f7c42ee0021",
+            "team_code": "SCO",
+            "team_name": "Escocia",
+            "player_name": "Angus Gunn",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000234",
+            "position": "GK",
+            "player_id": "5162cce3-692d-4e08-8896-b495db998e41",
+            "team_code": "SEN",
+            "team_name": "Senegal",
+            "player_name": "Édouard Mendy",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000208",
+            "position": "GK",
+            "player_id": "e1ee39e5-d4e2-4c0c-9f4f-82f60ff6c5d2",
+            "team_code": "SUI",
+            "team_name": "Suiza",
+            "player_name": "Yann Sommer",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000223",
+            "position": "GK",
+            "player_id": "33d22592-ab9b-4074-a6b3-17ada75f42a0",
+            "team_code": "SWE",
+            "team_name": "Suecia",
+            "player_name": "Robin Olsen",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000224",
+            "position": "GK",
+            "player_id": "1478a1da-dc83-4ec4-b800-0049a01dcd91",
+            "team_code": "TUN",
+            "team_name": "Túnez",
+            "player_name": "Bechir Ben Saïd",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000216",
+            "position": "GK",
+            "player_id": "f95b794c-7f6d-4ee1-a5a9-faf486cae7ad",
+            "team_code": "TUR",
+            "team_name": "Turquía",
+            "player_name": "Uğurcan Çakır",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000230",
+            "position": "GK",
+            "player_id": "e8f0b2e1-e51b-4363-b4e7-e6e568f1c377",
+            "team_code": "URU",
+            "team_name": "Uruguay",
+            "player_name": "Sergio Rochet",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000213",
+            "position": "GK",
+            "player_id": "3b452de1-0472-49a0-9abb-11e3dc5656dd",
+            "team_code": "USA",
+            "team_name": "Estados Unidos",
+            "player_name": "Matt Turner",
+            "is_special_candidate": true
+        },
+        {
+            "team_id": "20260000-0000-0000-0000-000000000243",
+            "position": "GK",
+            "player_id": "424dab2e-ae1d-432a-925e-5cb8dcfd1e8e",
+            "team_code": "UZB",
+            "team_name": "Uzbekistán",
+            "player_name": "Utkir Yusupov",
+            "is_special_candidate": true
+        }
+    ]
+}
